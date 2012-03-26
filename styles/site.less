@@ -1,0 +1,243 @@
+/*
+	Project: ICPC Live 2012 in Warsaw, Poland.
+	Authors: Niklas Ek & Roger Sandholm.
+	Date: March, April and May 2012.
+*/
+
+
+
+@base_url: "http://localhost/wolf/";
+// background-image: url("@{base-url}images/bg.png");
+
+
+
+
+/////////////
+// COLORS
+
+@baseColor: #48c;		// Used as backgrounds and as base for other colors.
+@textColor: #333;		// Normal text color.
+@linkColor: #7cf;		// Link, normal.
+
+
+
+
+/////////////
+// MEASURES
+
+@site-width: 980px;		// for wrap and footer.
+@line-height: 2.5rem;	// for paragraphs, lists and other.
+
+
+
+
+///////////////
+// POLYFILLS
+
+.border-radius( @radius: 3px ) {
+	-webkit-border-radius: @radius;
+	   -moz-border-radius: @radius;
+	        border-radius: @radius;
+}
+
+.box-shadow( @x: 2px, @y: 2px, @blur: 4px, @spread: 0, @color: rgba(0,0,0,.5)) {
+	-webkit-box-shadow: @x @y @blur @spread @color;
+	   -moz-box-shadow: @x @y @blur @spread @color;
+	        box-shadow: @x @y @blur @spread @color;
+}
+
+.transition( @what: all, @length: 1s, @easing: ease-in-out ) {
+	-webkit-transition: @what @length @easing;
+	   -moz-transition: @what @length @easing;
+	     -o-transition: @what @length @easing;
+		  	transition: @what @length @easing;
+}
+
+.transform( @params ) {
+	-webkit-transform: @params;
+	   -moz-transform: @params;
+         -o-transform: @params;
+	        transform: @params;
+}
+
+.linear-gradient( @begin: black, @end: white, @switch: 100% ) {
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(@begin), color-stop(@switch, @end));
+	background: -moz-linear-gradient(top, @begin, @end @switch);
+	background: -o-linear-gradient(top, @begin, @end @switch);
+	background: linear-gradient(top, @begin, @end @switch);
+}
+
+.box-sizing( @type: border-box ) {
+	-webkit-box-sizing: @type;
+	   -moz-box-sizing: @type;
+	        box-sizing: @type;
+}
+
+.font-size(@rem: 1.6 ) {
+	@px: round(@rem*10);
+	font-size: ~"@{px}px";
+	font-size: ~"@{rem}rem";
+}
+
+
+
+
+///////////////////
+// BASE ELEMENTS
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	line-height:1;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+* { .box-sizing( border-box ); }
+
+
+
+
+// HEADINGS
+h1, h2, h3, h4, h5 {
+	font-family: Helvetica, Arial, sans-serif;
+	color: @textColor;
+}
+
+h1 { .font-size(4.8); }
+h2 { .font-size(3.5); }
+h3 { .font-size(2.9); }
+h4 { .font-size(2.3); }
+h5 { .font-size(1.8); }
+
+
+p {
+	padding-bottom: @line-height;
+}
+
+blockquote { }
+cite { }
+
+
+
+
+// ANCHORS
+
+a { }
+a:hover { }
+a:active { }
+a:focus { }
+
+
+
+// IN-TEXT ELEMENTS
+strong { font-weight: bold; }
+em { font-style: italic; }
+small { .font-size(1.0); }
+abbr { color: lighten(@textColor, 10); border-bottom:1px dashed @textColor; cursor:help;}
+
+
+
+// FORMATTING
+
+ul, ol { list-style: disc inside; padding-bottom: @line-height;}
+li {line-height: @line-height;}
+
+table { }
+
+
+
+
+// FORMS
+
+input[type="text"],input[type="email"],input[type="url"] { }
+textarea { }
+
+button, input[type="submit"] { }
+
+
+
+
+
+//////////////
+// PARTIALS
+
+html{font-size:62.5%;}
+
+body {
+	position:absolute;
+	width:100%;
+	height:100%;
+	
+	.font-size();
+	font-family: "Times New Roman", Times, serif;
+}
+
+.wrap {
+	position:relative;
+	width:100%;
+	max-width: @site-width;
+	min-height:100%;
+	
+	
+	padding:0 1%;
+	margin:0 auto;
+}
+
+#main {
+	width:100%;
+}
+
+
+	#video-wrap {
+		
+	}
+	
+	#team-wrap {
+		
+	}
+	
+	#scoreboard-wrap {
+		
+	}
+	
+
+footer{
+	position:relative;
+    width:100%;
+	height:@line-height;
+	margin: -@line-height auto;
+	
+	background:#444;
+	
+	color: #eee;
+	line-height:@line-height;
+}
+
+
+
+
+
+
+
+
+
