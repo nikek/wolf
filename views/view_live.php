@@ -52,7 +52,7 @@
 		</div>
 	</footer>
 	
-	<script src="../scripts/libs.js"></script>
-	<script src="../scripts/site.js"></script>
+	<script src="scripts/libs.js"></script>
+	<script src="scripts/site.js"></script>
 </body>
 </html>
