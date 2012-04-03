@@ -25,8 +25,9 @@
 /////////////
 // MEASURES
 
-@site-width: 980px;		// for wrap and footer.
-@line-height: 2.5rem;	// for paragraphs, lists and other.
+@site-max-width: 980px;		// for wrap and footer.
+@site-min-width: 765px;
+@line-height: 2.5rem;	// for paragraphs, lists and other. 2.5rem = 25px;
 
 
 
@@ -44,6 +45,12 @@
 	-webkit-box-shadow: @x @y @blur @spread @color;
 	   -moz-box-shadow: @x @y @blur @spread @color;
 	        box-shadow: @x @y @blur @spread @color;
+}
+
+.text-shadow( @x: 1px, @y: 1px, @blur: 1px, @spread: 0, @color: rgba(0,0,0,.5)) {
+	-webkit-text-shadow: @x @y @blur @spread @color;
+	   -moz-text-shadow: @x @y @blur @spread @color;
+	        text-shadow: @x @y @blur @spread @color;
 }
 
 .transition( @what: all, @length: 1s, @easing: ease-in-out ) {
@@ -112,27 +119,30 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
-* { .box-sizing( border-box ); }
+* { .box-sizing( border-box ); position:relative; }
 
-
+// Nicolas Gallagher's micro clearfix
+.group:before, .group:after { content:""; display:table; }
+.group:after { clear:both; }
+.group { zoom:1; } /* For IE 6/7 (trigger hasLayout) */
 
 
 // HEADINGS
-h1, h2, h3, h4, h5 {
-	font-family: Helvetica, Arial, sans-serif;
+h1, h2, h3, h4, h5, nav {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 300;
 	color: @textColor;
 }
 
-h1 { .font-size(4.8); }
+h1 { .font-size(4.0); }
 h2 { .font-size(3.5); }
 h3 { .font-size(2.9); }
 h4 { .font-size(2.3); }
 h5 { .font-size(1.8); }
 
 
-p {
-	padding-bottom: @line-height;
-}
+p { padding-bottom: @line-height; }
+p:last-child { padding-bottom: 0; }
 
 blockquote { }
 cite { }
@@ -181,10 +191,9 @@ button, input[type="submit"] { }
 //////////////
 // PARTIALS
 
-html{font-size:62.5%;}
+html{font-size:62.5%; height:100%;}
 
 body {
-	position:absolute;
 	width:100%;
 	height:100%;
 	
@@ -193,50 +202,115 @@ body {
 }
 
 .wrap {
-	position:relative;
 	width:100%;
-	max-width: @site-width;
+	max-width: @site-max-width;
+	min-width: @site-min-width;
 	min-height:100%;
 	
-	
 	padding:0 1%;
-	margin:0 auto;
-}
-
-#main {
-	width:100%;
+	margin:0 auto -@line-height;
 }
 
 
+// HEADER 
+	
+	#site-header {
+		background: #444;
+		.linear-gradient(#4a4a4a, #3c3c3c);
+		margin-bottom:@line-height;
+	}
+
+	hgroup { float:left; }
+		#site-title {display:inline; font-weight:200; color: #e3e3e3; .text-shadow(-1px, -1px, 2px, 0, #F00)}
+
+
+	nav {
+		float:right;
+		
+		ul { list-style:none; padding:0;}
+	
+		li {
+			display: inline-block;
+			margin:10px 10px 0;
+			padding: 5px 0 0 15px;
+			color: #e3e3e3;
+		}
+	}
+
+
+
+// -------------------------------------------------------
+//  MAIN SECTIONS - Video, Info and Scoreboard
+// -------------------------------------------------------
+
+	#video-wrap, #info-wrap, #scoreboard-wrap {
+		float:left;
+		margin:0 0 @line-height 0;
+	}
+	
+	
 	#video-wrap {
+		width:60%;
+		margin-right: 2%;
+		padding:16px;
 		
+		background-color:#555;
+		
+		.border-radius(12px);
+		color:#e3e3e3;
 	}
 	
-	#team-wrap {
+		// Styles for video element and more inside the video-wrap
 		
-	}
-	
-	#scoreboard-wrap {
 		
-	}
 	
+	#info-wrap {
+		width:37%;
+		padding:10px 15px;
+		
+		border: 1px dashed @baseColor;
+		.border-radius(10px);
+	}
+		
+		// TABS
+		.tabs {
+			span {
+				background:#e3e3e3;
+				padding:3px 5px;
+				.border-radius(3px);
+			}
+			margin:0 0 8px 0;
+		}
+		
+		
+	
+	#scoreboard-wrap { width:100%; }
+	
+		// All the other things for the scoreboard
+		
+		
+
+
+
+// -------------------------------------------------------
+//  FOOTER
+// -------------------------------------------------------
 
 footer{
 	position:relative;
+	overflow:hidden;
     width:100%;
 	height:@line-height;
-	margin: -@line-height auto;
+	margin:-@line-height auto 0;
 	
 	background:#444;
+	.linear-gradient(#4a4a4a, #3c3c3c);
 	
+	font-family:verdana, sans-serif;
+	.font-size(1.1);
 	color: #eee;
 	line-height:@line-height;
 }
-
-
-
-
-
 
 
 
