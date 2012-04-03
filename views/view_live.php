@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	
+	<?php $start_log = "Start: ". microtime(true); ?>
 	<meta charset="utf-8">
 	<title>ICPC Live</title>
 	
@@ -29,8 +29,7 @@
 		<div class="wrap group">
 			
 			<h1 id="site-title">ICPC Live</h1>
-				<?php // <h2 id="site-description">Broadcasting from Warsaw, Poland</h2> ?>
-			
+			<?php // <h2 id="site-description">Broadcasting from Warsaw, Poland</h2> ?>
 		
 			<nav>
 			
@@ -50,7 +49,7 @@
 	
 		
 	<?php // WRAPPING EVERYTHING BUT HEADER & FOOTER. ?>
-	<section class="wrap">
+	<section class="wrap main">
 		
 		<section id="video-wrap">
 			
@@ -63,8 +62,6 @@
 			</video>
 						
 		</section>
-		
-		
 		
 		
 		<section id="info-wrap">
@@ -97,7 +94,7 @@
 		
 		<div class="wrap">
 			
-			<p>©2012 ICPC Live Crew</p>
+			<?php require_once('layout/footer.php');?>
 			
 		</div>
 		
@@ -107,5 +104,6 @@
 	<script src="scripts/libs.js"></script>
 	<script src="http://130.237.8.168:1337/socket.io/socket.io.js"></script>
 	<script src="scripts/site.js"></script>
+	<?php //print $start_log , "End: ", microtime(true); ?>
 </body>
 </html>
