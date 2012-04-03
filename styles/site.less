@@ -207,6 +207,7 @@ body {
 	max-width: @site-max-width;
 	min-width: @site-min-width;
 	min-height:100%;
+	height: auto;
 	
 	padding:0 1%;
 	margin:0 auto;
@@ -221,6 +222,7 @@ section.wrap {
 // HEADER 
 	
 	#site-header {
+		min-width:@site-min-width;
 		background: #444;
 		.linear-gradient(#4a4a4a, #3c3c3c);
 	}
@@ -314,6 +316,7 @@ footer{
 	position:relative;
 	overflow:hidden;
     width:100%;
+	min-width:@site-min-width;
 	height:@line-height;
 	margin:-@line-height auto 0;
 	

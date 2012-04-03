@@ -33,8 +33,14 @@
 /**
  * Include administration panel
  */
+	if(isset($_GET['view'])){
+		$view = $_GET['view'];
+	}else{
+		$view = "";
+	}
 	
-	switch ($_GET['view']) {
+	
+	switch ($view) {
 		
 		case 'info':
 			include('views/view_info.php');
