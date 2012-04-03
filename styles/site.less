@@ -198,7 +198,7 @@ html{font-size:10px; height:100%;}
 body {
 	width:100%;
 	height:100%;
-	background: @bodyColor url(../images/worldmap_blue_background.jpg) center center;
+	background: @bodyColor url(../images/worldmap_blue_background.gif) center center;
 	.font-size(1);
 	font-family: @baseFont;
 }
@@ -262,18 +262,17 @@ section.main {
 
 	#video-wrap, #info-wrap, #scoreboard-wrap {
 		float:left;
-		margin:0 0 @line-height 0;
+		margin:@line-height 0 0 0;
 	}
-	
 	
 	#video-wrap {
 		width:61%;
-		margin: 1% 1% 0 0;
+		/*margin: 1% 1% 0 0;
 		padding:16px;
 		
 		background-color:#555;
 		
-		color:#e3e3e3;
+		color:#e3e3e3;*/
 	}
 	
 		// Styles for video element and more inside the video-wrap
@@ -283,10 +282,9 @@ section.main {
 	#info-wrap {
 		float:right;
 		width:38%;
-		padding:10px 15px;
+		/*padding:10px 15px;
 		margin: 1% 0 0 0;
-		
-		border: 1px dashed @baseColor;
+		border: 1px dashed @baseColor;*/
 	}
 		
 		// TABS
@@ -305,27 +303,57 @@ section.main {
 	
 	
 		width:100%; 
-		
-		.boxing {
-			/*margin:2px 6px 6px 2px;*/
-			padding:3px;
-			border:1px solid #c7c7c7;
-			background:#fff;
-			.border-radius(2px);
-			.box-shadow(3px,3px,3px,0px,#3D3331);
-			.inner_boxing {
-				.box-shadow(1px,1px,2px,0px,#ddd);
-				position:relative;
-				margin:0px;
-				padding:3px;
-				border:1px solid #c7c7c7;
-			}
-		}
 	}
 	
 		// All the other things for the scoreboard
 		
 		
+
+	.boxing {
+		/*margin:2px 6px 6px 2px;*/
+		padding:0px;
+		border:1px solid #c7c7c7;
+		background:#fff;
+		.border-radius(2px);
+		.box-shadow(1px,1px,1px,0px);
+		.inner_boxing {
+			.box-shadow(1px,1px,2px,0px,#ddd);
+			position:relative;
+			margin:0px;
+			padding:1.5%;
+			border:0px solid #c7c7c7;
+		}
+	}
+	
+// -------------------------------------------------------
+// Scoreboard Styling
+// -------------------------------------------------------
+
+/*  TABLE HEADER */
+.sc_th_rank {
+	width:30px;
+}
+.sc_th_name { text-align:left; }
+.sc_th_solved { width:40px; }
+.sc_th_solved span {
+	margin:0px 0px 0px -60px;
+	padding:0px;
+}
+.sc_th_time { width:45px; }
+
+/* */
+.solved, .attempted, .pending, .solvedfirst {
+	text-align:center;
+	color:#fff;
+}
+.solved { background:#B6DEAE; }
+.solvedfirst { background:#639E4E; }
+.attempted { background:#E0D1CC; }
+.pending { background:#FFD843; }
+.sc_options {
+	width:40px;
+	text-align:right;
+}
 
 // -------------------------------------------------------
 //  FOOTER
@@ -336,9 +364,10 @@ footer{
 	overflow:hidden;
 	width:100%;
 	min-width:@site-min-width;
-	height:@line-height*8;
-	margin:-@line-height*8 auto 0;
-	
+	/*height:@line-height*8;
+	margin:-@line-height*8 auto 0;*/
+	margin: 80px auto 20px auto;
+	clear:both;
 	/*background:#444;
 	.linear-gradient(#4a4a4a, #3c3c3c);
 	*/
