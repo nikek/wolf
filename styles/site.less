@@ -15,12 +15,17 @@
 /////////////
 // COLORS
 
+@bodyColor: #1e1e1e;	// Page background
 @baseColor: #48c;		// Used as backgrounds and as base for other colors.
 @textColor: #333;		// Normal text color.
 @linkColor: #7cf;		// Link, normal.
 
 
+/////////////
+// FONTS
 
+@baseFont: 'Lucida sans', Arial, Helvetica;
+@bodyFont: Geneva, arial, sans-serif;
 
 /////////////
 // MEASURES
@@ -185,21 +190,17 @@ textarea { }
 
 button, input[type="submit"] { }
 
-
-
-
-
 //////////////
 // PARTIALS
 
-html{font-size:62.5%; height:100%;}
+html{font-size:10px; height:100%;}
 
 body {
 	width:100%;
 	height:100%;
-	
-	.font-size();
-	font-family: "Times New Roman", Times, serif;
+	background: @bodyColor url(../images/worldmap_blue_background.jpg) center center;
+	.font-size(1);
+	font-family: @baseFont;
 }
 
 .wrap {
@@ -213,9 +214,9 @@ body {
 	margin:0 auto;
 }
 
-section.wrap {
-	padding:@line-height 1%;
-	margin:-@line-height auto;
+section.main {
+	padding:@line-height*4 1%;
+	margin:-@line-height*4 auto;
 }
 
 
@@ -315,20 +316,50 @@ section.wrap {
 footer{
 	position:relative;
 	overflow:hidden;
-    width:100%;
+	width:100%;
 	min-width:@site-min-width;
-	height:@line-height;
-	margin:-@line-height auto 0;
+	height:@line-height*8;
+	margin:-@line-height*8 auto 0;
 	
-	background:#444;
+	/*background:#444;
 	.linear-gradient(#4a4a4a, #3c3c3c);
-	
+	*/
 	font-family:verdana, sans-serif;
 	.font-size(1.1);
 	color: #eee;
 	line-height:@line-height;
+	
+	a {
+		color:#807AC7;
+		text-decoration:none;
+	}
+	
+	.ident {
+		font-family: @bodyFont;
+		font-style:normal;
+		.font-size();
+		text-align:center;
+	}
+	.disclaimer {
+		font-family:@bodyFont;
+		font-style:normal;
+		.font-size(1.3);
+		text-align:center;
+		color:#999;
+	}
+	.partners {
+		font-family:@bodyFont;
+		font-style:normal;
+		.font-size(1);
+		text-align:center;
+		color:#666;
+	}
+	.web_language {
+		font-family:@bodyFont;
+		font-style:normal;
+		.font-size(1);
+		text-align:center;
+		color:#666;
+	}
 }
-
-
-
 
