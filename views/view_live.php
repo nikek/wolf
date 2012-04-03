@@ -105,6 +105,7 @@
 	
 	
 	<script src="scripts/libs.js"></script>
+	<script src="http://130.237.8.168:1337/socket.io/socket.io.js"></script>
 	<script src="scripts/site.js"></script>
 </body>
 </html>
