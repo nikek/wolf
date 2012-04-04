@@ -10,7 +10,7 @@
 	var sb;
 
 	console.log("Try to logon...");
-	var socket = io.connect('http://130.237.8.168:1337');
+	var socket = io.connect('http://130.237.8.168:1336');
 
 	// ON CONNECT
 	socket.on("connected", function(data) {
@@ -18,7 +18,7 @@
 	});
 
 	// ON RECIEVEFILE
-	socket.on("receiveFile", function(data) {
+	socket.on("delta", function(data) {
 
 		if(data !== ""){
 			sb = JSON.parse(data);

@@ -72,7 +72,7 @@
 			
 			</div>
 			
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap <abbr title="Frequently Asked Questions">FAQ</abbr> into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			<table id="sb"></table>
 			
 		</section>
 		
@@ -105,7 +105,7 @@
 	</footer>
 	
 	<script src="scripts/libs.js"></script>
-	<script src="http://130.237.8.168:1337/socket.io/socket.io.js"></script>
+	<script src="http://130.237.8.168:1336/socket.io/socket.io.js"></script>
 	<script src="scripts/site.js"></script>
 	<?php //print $start_log , "End: ", microtime(true); ?>
 </body>
