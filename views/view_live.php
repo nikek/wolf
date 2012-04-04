@@ -52,28 +52,34 @@
 	<section class="wrap main">
 		
 		<section id="video-wrap">
-			
-			<video
-			src="http://video.blendertestbuilds.de/download.blender.org/peach/trailer_400p.ogg"
-			controls="controls"
-			style="width:100%"
-			>
-				your browser does not support the video tag
-			</video>
-						
+			<div class="boxing">
+				<div class="inner_boxing">
+					<video
+					src="http://video.blendertestbuilds.de/download.blender.org/peach/trailer_400p.ogg"
+					controls="controls"
+					style="width:100%"
+					>
+						your browser does not support the video tag
+					</video>
+				</div>
+			</div>
 		</section>
 		
 		
 		<section id="info-wrap">
-			
-			<div class="tabs">
+			<div class="boxing">
+				<div class="inner_boxing">
+					
+					<div class="tabs">
+					
+						<span>Info</span> - <span>Chat</span> - <span>Teams</span>
 				
-				<span>Info</span> - <span>Chat</span> - <span>Teams</span>
-			
+					</div>
+				
+					<table id="sb"></table>
+					
+				</div>
 			</div>
-			
-			<table id="sb"></table>
-			
 		</section>
 		
 		
@@ -84,15 +90,19 @@
 			<div class="boxing">
 				<div class="inner_boxing">
 					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+				
+<?php				
+$feed2="http://scrool.se/icpc/wf2011/xml";
+
+echo @file_get_contents($feed2);
+?>
+				
 				</div>
 			</div>
 			
 		</section>
 		
 	</section>
-	
-	
-	
 	
 	<footer>
 		
