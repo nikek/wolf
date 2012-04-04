@@ -55,13 +55,13 @@
 			<div class="boxing">
 				<div class="inner_boxing">
 					<video
-				src="http://video.blendertestbuilds.de/download.blender.org/peach/trailer_400p.ogg"
-				controls="controls"
-				style="width:100%"
-				>
-					your browser does not support the video tag
-				</video>
-			</div>
+					src="http://video.blendertestbuilds.de/download.blender.org/peach/trailer_400p.ogg"
+					controls="controls"
+					style="width:100%"
+					>
+						your browser does not support the video tag
+					</video>
+				</div>
 			</div>
 		</section>
 		
@@ -69,13 +69,16 @@
 		<section id="info-wrap">
 			<div class="boxing">
 				<div class="inner_boxing">
-				<div class="tabs">
 					
-					<span>Info</span> - <span>Chat</span> - <span>Teams</span>
+					<div class="tabs">
+					
+						<span>Info</span> - <span>Chat</span> - <span>Teams</span>
 				
-				</div>
-				
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap <abbr title="Frequently Asked Questions">FAQ</abbr> into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+					</div>
+					
+					<table id="bbtest"></table>
+					<table id="sb"></table>
+					
 				</div>
 			</div>
 		</section>
@@ -113,6 +116,7 @@ echo @file_get_contents($feed2);
 	</footer>
 	
 	<script src="scripts/libs.js"></script>
+	<script src="http://130.237.8.168:1336/socket.io/socket.io.js"></script>
 	<script src="scripts/site.js"></script>
 	<?php //print $start_log , "End: ", microtime(true); ?>
 </body>
