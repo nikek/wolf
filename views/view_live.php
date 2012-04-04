@@ -81,8 +81,6 @@
 		</section>
 		
 		
-		
-		
 		<section id="scoreboard-wrap">
 			
 			<div class="boxing">
@@ -102,13 +100,15 @@ echo @file_get_contents($feed2);
 		
 	</section>
 	
+	<div style="clear:both"> </div>
+	
 	<footer>
 		
-		<div class="wrap">
+
 			
 			<?php require_once('layout/footer.php');?>
 			
-		</div>
+
 		
 	</footer>
 	

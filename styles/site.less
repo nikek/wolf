@@ -34,9 +34,6 @@
 @site-min-width: 765px;
 @line-height: 2.5rem;	// for paragraphs, lists and other. 2.5rem = 25px;
 
-
-
-
 ///////////////
 // POLYFILLS
 
@@ -74,7 +71,7 @@
 
 .linear-gradient( @begin: black, @end: white, @switch: 100% ) {
 	background: @begin;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@begin), color-stop(@switch, @end));
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@begin), color-stop(@switch, @end));
 	background-image: -moz-linear-gradient(top, @begin, @end @switch);
 	background-image: -o-linear-gradient(top, @begin, @end @switch);
 	background-image: linear-gradient(top, @begin, @end @switch);
@@ -207,8 +204,8 @@ body {
 	width:100%;
 	max-width: @site-max-width;
 	min-width: @site-min-width;
-	min-height:100%;
-	height: auto;
+	/*min-height:100%;
+	height: auto;*/
 	
 	padding:0 1%;
 	margin:0 auto;
@@ -300,9 +297,9 @@ section.main {
 		
 	
 	#scoreboard-wrap { 
-	
-	
 		width:100%; 
+		clear:both;
+		background:red;
 	}
 	
 		// All the other things for the scoreboard
@@ -314,7 +311,7 @@ section.main {
 		padding:0px;
 		border:1px solid #c7c7c7;
 		background:#fff;
-		.border-radius(2px);
+		.border-radius(0px);
 		.box-shadow(1px,1px,1px,0px);
 		.inner_boxing {
 			.box-shadow(1px,1px,2px,0px,#ddd);
@@ -364,13 +361,18 @@ footer{
 	overflow:hidden;
 	width:100%;
 	min-width:@site-min-width;
+	padding:40px;
+	
 	/*height:@line-height*8;
 	margin:-@line-height*8 auto 0;*/
-	margin: 80px auto 20px auto;
-	clear:both;
-	/*background:#444;
-	.linear-gradient(#4a4a4a, #3c3c3c);
+	
+	margin: 20px auto 20px auto;
+
+	
+	background:#102338;
+	/*.linear-gradient(#4a4a4a, #3c3c3c);
 	*/
+	
 	font-family:verdana, sans-serif;
 	.font-size(1.1);
 	color: #eee;
