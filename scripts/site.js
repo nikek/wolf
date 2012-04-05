@@ -21,7 +21,10 @@
 
 var Team = Backbone.Model.extend({
 	
-	default: {starred: false},
+	default: {
+		teamName: "unnamed",
+		starred: false
+	},
 	
 	toggleStar: function() {
 		if(this.get('starred') === false){
@@ -42,11 +45,11 @@ var Team = Backbone.Model.extend({
 
 var TeamView = Backbone.View.extend({
 	tagName: 'tr',
-	template: _.template('<td><%= teamName %></td><td class="teamStar"><%= starred %></td>'),
+	tmpl: _.template($("#tmplTeam").html()),
 	
 	events: {
 		"click tr": "alertTest",
-		"click .teamStar": "toggleStar"
+		"click .team-star": "toggleStar"
 	},
 	
 	initialize: function() {
@@ -55,7 +58,7 @@ var TeamView = Backbone.View.extend({
 	},
 	
 	render: function() {
-		this.$el.html(this.template(this.model.toJSON()));
+		this.$el.html(this.tmpl(this.model.toJSON()));
 		
 		return this; // So we can chain the render like: teamView.render().el
 	},

@@ -115,6 +115,10 @@ echo @file_get_contents($feed2);
 		
 	</footer>
 	
+	<script id="tmplTeam" type="text/template">
+		<td><%= teamName %></td>
+		<td class="team-star <%= starred %>">&#9733;</td>//<% if(starred){ %>&#9733;<% }else{ %>&#9734;<%}%></td>
+	</script>
 	<script src="scripts/libs.js"></script>
 	<script src="http://130.237.8.168:1336/socket.io/socket.io.js"></script>
 	<script src="scripts/site.js"></script>
