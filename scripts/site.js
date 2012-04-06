@@ -12,7 +12,12 @@
 *
 */
 
-
+var teamsJSON = [
+	{id: 0, teamName: "Nördarna", starred: false, score: 6, A: 0, B:1, C:2, D:3, E:0 },
+	{id: 1, teamName: "The Awesomes", starred: true, score: 10, A: 1, B:1, C:2, D:3, E:3 },
+	{id: 2, teamName: "HaxX0rzZ", starred: false, score: 1, A: 0, B:1, C:2, D:0, E:0 },
+	{id: 3, teamName: "Epic 1337", starred: false, score: 3, A: 1, B:1, C:0, D:3, E:3 }
+];
 
 // -------------------------------------------------------
 // TEAM    
@@ -21,9 +26,12 @@
 
 var Team = Backbone.Model.extend({
 	
-	default: {
+	defaults: {
+		id:0,
 		teamName: "unnamed",
-		starred: false
+		starred: false,
+		score: 0,
+		A: 0, B: 0, C: 0, D: 0, E: 0
 	},
 	
 	toggleStar: function() {
@@ -45,10 +53,9 @@ var Team = Backbone.Model.extend({
 
 var TeamView = Backbone.View.extend({
 	tagName: 'tr',
-	tmpl: _.template($("#tmplTeam").html()),
-	
+	tmpl: _.template($("#tmplTeam").html()), // this gets the html template with <script id="tmplTeam"> in the php view-file.
+
 	events: {
-		"click tr": "alertTest",
 		"click .team-star": "toggleStar"
 	},
 	
@@ -59,21 +66,13 @@ var TeamView = Backbone.View.extend({
 	
 	render: function() {
 		this.$el.html(this.tmpl(this.model.toJSON()));
-		
 		return this; // So we can chain the render like: teamView.render().el
 	},
 	
-	toggleStar: function() {
-		this.model.toggleStar();
-	},
+	remove: function(){ this.$el.remove(); },
 	
-	alertTest: function(e) {
-		alert("The event is funking");
-	},
-	
-	remove: function(){
-		this.$el.remove();
-	}
+	// Use models toggle function, this way let us toggle star from other functions aswell.
+	toggleStar: function() { this.model.toggleStar(); }
 
 });
 
@@ -82,10 +81,10 @@ var TeamView = Backbone.View.extend({
 // -------------------------------------------------------
 // TEAM LIST
 // -------------------------------------------------------
-// The Scoreboard model that includes all the teams.
+// The Scoreboard model that includes all the teams.*/
 
 var TeamList = Backbone.Collection.extend({
-	url: '/teams'	// the whole JSON should be stored on this url for .fetch()-calls.
+	model: Team
 });
 
 
@@ -96,21 +95,38 @@ var TeamList = Backbone.Collection.extend({
 // Handling all the TeamViews and their common methods.
 var TeamListView = Backbone.View.extend({
 	
+	el: $("#scoreboard"),
+	
+
+    initialize: function () {
+		this.collection.on('reset', this.render(), this);
+    },
+
+    render: function () {
+		this.collection.forEach(function(team){
+			
+			var teamView = new TeamView({model: team});
+			this.$el.append(teamView.render().el);
+		}, this);
+		
+		return this;
+    }
+
 });
-*/
+
+// create the Collection
+var teamList = new TeamList();
+
+// Put all the teams in models and all the models in the Collection.
+teamList.reset(teamsJSON);
+
+// Create a view for the COllection and add views for every model to it.
+var Scoreboard = new TeamListView({collection:teamList});
 
 
 
-var team = new Team({
-	starred: false,
-	teamName: "The Awesomes"
-});
 
-var teamView = new TeamView({
-	model: team
-});
-
-$('table#bbtest').html(teamView.render().el);
+//$('table#bbtest').html(teamView.render().el);
 
 
 

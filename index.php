@@ -46,6 +46,10 @@
 			include('views/view_info.php');
 			break;
 			
+		case 'teams/':
+			include('jsons/teams.json');
+			break;
+			
 		default:
 			include('views/view_live.php');
 			

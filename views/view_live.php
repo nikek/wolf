@@ -49,13 +49,13 @@
 	
 		
 	<?php // WRAPPING EVERYTHING BUT HEADER & FOOTER. ?>
-	<section class="wrap main">
+	<section class="wrap main group">
 		
 		<section id="video-wrap">
 			<div class="boxing">
 				<div class="inner_boxing">
 					<video
-					src="http://video.blendertestbuilds.de/download.blender.org/peach/trailer_400p.ogg"
+					src="http://video.blendertestbuilds.de/download.blender.org/peach/trailer_400p.og"
 					controls="controls"
 					style="width:100%"
 					>
@@ -76,7 +76,7 @@
 				
 					</div>
 					
-					<table id="bbtest"></table>
+					
 					<table id="sb"></table>
 					
 				</div>
@@ -93,8 +93,11 @@
 <?php				
 $feed2="http://scrool.se/icpc/wf2011/xml";
 
-echo @file_get_contents($feed2);
+// echo @file_get_contents($feed2);
 ?>
+
+
+				<table id="scoreboard"></table>
 				
 				</div>
 			</div>
@@ -103,7 +106,6 @@ echo @file_get_contents($feed2);
 		
 	</section>
 	
-	<div style="clear:both"> </div>
 	
 	<footer>
 		
