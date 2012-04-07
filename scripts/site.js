@@ -13,7 +13,13 @@
 */
 
 var teamsJSON = [
-	{id: 0, teamName: "Nördarna", starred: false, score: 6, A: 0, B:1, C:2, D:3, E:0 },
+	{id: 0, teamName: "Nördarna", starred: false, score: 6,
+		A: {state: "attempted", attempts: 2, time: 78},
+		B: {state: "", attempts: 0, time: 0},
+		C: {state: "solved", attempts: 3, time: 80},
+		D: {state: "solvedfirst", attempts: 1, time: 12},
+		E: {state: "pending", attempts: 2, time: 19}
+	},
 	{id: 1, teamName: "The Awesomes", starred: true, score: 10, A: 1, B:1, C:2, D:3, E:3 },
 	{id: 2, teamName: "HaxX0rzZ", starred: false, score: 1, A: 0, B:1, C:2, D:0, E:0 },
 	{id: 3, teamName: "Epic 1337", starred: false, score: 3, A: 1, B:1, C:0, D:3, E:3 }
@@ -103,8 +109,7 @@ var TeamListView = Backbone.View.extend({
     },
 
     render: function () {
-		this.collection.forEach(function(team){
-			
+		this.collection.each(function(team){
 			var teamView = new TeamView({model: team});
 			this.$el.append(teamView.render().el);
 		}, this);
