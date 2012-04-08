@@ -118,9 +118,12 @@ var TeamList = Backbone.Collection.extend({
 	// - New items are added
 	// - matching models are updated using set(), triggers 'change'.
 	// - a collection change event will be dispatched for each add() and remove()
-	reset : function(models, options) {
-		models = models || (models = []);
-
+	reset: function(models, options) {
+		return this.update(models, options);
+	},
+	update : function(models, options) {
+		models || (models = []);
+		
 		// Loop through all the models in response
 		_.each( models, function(model) {
 			
@@ -144,7 +147,7 @@ var TeamList = Backbone.Collection.extend({
 				this.add( model );
 			}
 		}, this);
-
+		
 		return this;
 	}
 });
@@ -177,16 +180,36 @@ var TeamListView = Backbone.View.extend({
 
 // Create the Collection from JSON.
 var teamList = new TeamList(teamsJSON);
+
 // Create the View for the Collection.
 var Scoreboard = new TeamListView({collection:teamList});
+
 // Start the scoreboard by render the data to DOM.
 Scoreboard.render();
 
+
+
 // Start Polling when all of the page is loaded.
-$(window).load(function () {
-	console.log("Start polling");
-	setInterval(function(){ teamList.fetch(); console.log("Fetch!"); }, 3000);
-});
+
+	// ---------------------------------------------------------
+	// Setting up a socket and listening for scoreboard changes
+	// ---------------------------------------------------------
+	
+	console.log("Setting up sb socket..");
+	var socket = io.connect('http://130.237.8.168:1336');
+
+	// ON CONNECT
+	socket.on("connected", function(data) {
+		console.log("Connected User?", data.accept);
+	});
+
+	// ON DELTA
+	socket.on("delta", function(data) {
+		if(data !== ""){
+			teamList.update(JSON.parse(data).teams);
+		}else{ console.log("empty data"); }
+	});
+
 
 
 })(jQuery);
