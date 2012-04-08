@@ -41,7 +41,11 @@
 	
 	
 	switch ($view) {
-		
+	
+		case 'start':
+			include('views/view_start.php');
+			break;
+	
 		case 'info':
 			include('views/view_info.php');
 			break;

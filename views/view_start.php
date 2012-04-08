@@ -1,3 +1,4 @@
+
 <?php defined('BASEPATH') or die('No direct script access.');
 /*
 	Project: ICPC Live 2012 in Warsaw, Poland.
@@ -46,13 +47,15 @@
 		</div>
 	</header>
 	
-	
 		
 	<?php // WRAPPING EVERYTHING BUT HEADER & FOOTER. ?>
 	<section class="wrap main group">
-		
-		<section id="video-wrap">
-			<div class="boxing">
+
+		<section class="start-wrap">
+			
+			ddOKOK
+
+			<!--<div class="boxing">
 				<div class="inner_boxing">
 					<video
 					src="http://video.blendertestbuilds.de/download.blender.org/peach/trailer_400p.og"
@@ -62,71 +65,28 @@
 						your browser does not support the video tag
 					</video>
 				</div>
-			</div>
+			</div>-->
 		</section>
-		
-		
-		<section id="info-wrap">
-			<div class="boxing">
-				<div class="inner_boxing">
-					
-					<div class="tabs">
-					
-						<span>Info</span> - <span>Chat</span> - <span>Teams</span>
 				
-					</div>
-					
-					
-					<table id="sb"></table>
-					
-				</div>
-			</div>
-		</section>
-		
-		
-		<section id="scoreboard-wrap">
-			
-			<div class="boxing">
-				<div class="inner_boxing">
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-				
-<?php				
-$feed2="http://scrool.se/icpc/wf2011/xml";
-
-// echo @file_get_contents($feed2);
-?>
-
-
-				<table id="scoreboard"></table>
-				
-				</div>
-			</div>
-			
-		</section>
-		
 	</section>
 	
-
-	<footer class="footer-dark">
+	
+	<footer class="footer-light">
 			<?php require_once('layout/footer.php');?>
 	</footer>
 	
-	
-	
 	<script id="tmplTeam" type="text/template">
-		<td class="team-star <%= starred %>">&#9733;</td>
+		<td class="team-star <%= starred %>">&#9733;</td>//<% if(starred){ %>&#9733;<% }else{ %>&#9734;<%}%></td>
 		<td><%= teamName %></td>
-		<td><%= score %></td>
 		<td class="<%= A.state %>"><%= A.attempts %>-<%= A.time %></td>
 		<td class="<%= B.state %>"><%= B.attempts %>-<%= B.time %></td>
 		<td class="<%= C.state %>"><%= C.attempts %>-<%= C.time %></td>
 		<td class="<%= D.state %>"><%= D.attempts %>-<%= D.time %></td>
 		<td class="<%= E.state %>"><%= E.attempts %>-<%= E.time %></td>
+		
 	</script>
-
 	<script src="scripts/libs.js"></script>
-	<!--<script src="http://130.237.8.168:1336/socket.io/socket.io.js"></script>-->
-	<script>var teamsJSON = <?php  echo file_get_contents('data/scoreboard.json');?>.teams;</script>
+	<script src="http://130.237.8.168:1336/socket.io/socket.io.js"></script>
 	<script src="scripts/site.js"></script>
 	<?php //print $start_log , "End: ", microtime(true); ?>
 </body>
