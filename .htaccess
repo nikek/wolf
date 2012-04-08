@@ -2,6 +2,7 @@ Options +FollowSymLinks
 RewriteEngine On
 RewriteBase /wolf/
 
+
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
 

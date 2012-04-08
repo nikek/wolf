@@ -1,4 +1,6 @@
 
+(function($){
+
 
 ///////////////////////////////////////////////////////////
 // Backbone Objects
@@ -12,18 +14,6 @@
 *
 */
 
-var teamsJSON = [
-	{id: 0, teamName: "Nördarna", starred: false, score: 6,
-		A: {state: "attempted", attempts: 2, time: 78},
-		B: {state: "", attempts: 0, time: 0},
-		C: {state: "solved", attempts: 3, time: 80},
-		D: {state: "solvedfirst", attempts: 1, time: 12},
-		E: {state: "pending", attempts: 2, time: 19}
-	},
-	{id: 1, teamName: "The Awesomes", starred: true, score: 10, A: 1, B:1, C:2, D:3, E:3 },
-	{id: 2, teamName: "HaxX0rzZ", starred: false, score: 1, A: 0, B:1, C:2, D:0, E:0 },
-	{id: 3, teamName: "Epic 1337", starred: false, score: 3, A: 1, B:1, C:0, D:3, E:3 }
-];
 
 // -------------------------------------------------------
 // TEAM    
@@ -31,15 +21,22 @@ var teamsJSON = [
 // A team model, including attributes and data-related methods.
 
 var Team = Backbone.Model.extend({
-	
+
+	// Default values to fill gap where the json is undefined.
 	defaults: {
-		id:0,
-		teamName: "unnamed",
 		starred: false,
 		score: 0,
-		A: 0, B: 0, C: 0, D: 0, E: 0
+		A: {state: false, attempts: 0, time: 0},
+		B: {state: false, attempts: 0, time: 0},
+		C: {state: false, attempts: 0, time: 0},
+		D: {state: false, attempts: 0, time: 0},
+		E: {state: false, attempts: 0, time: 0}
 	},
 	
+	// When a model is created, make it show in the console.
+	initialize: function() { console.log("new model"); },
+	
+	// Toggle the starred variable, triggers change on view.
 	toggleStar: function() {
 		if(this.get('starred') === false){
 			this.set({'starred': true});
@@ -59,38 +56,97 @@ var Team = Backbone.Model.extend({
 
 var TeamView = Backbone.View.extend({
 	tagName: 'tr',
-	tmpl: _.template($("#tmplTeam").html()), // this gets the html template with <script id="tmplTeam"> in the php view-file.
+	tmpl: _.template($("#tmplTeam").html()), // this gets the html template with <script id="id"> in the php view-file.
 
+	// Events, trigger methods on the form: "event selector": "method"
 	events: {
 		"click .team-star": "toggleStar"
 	},
 	
+	// When created, bind change on model to rerender view.
+	// If model is destroyed, also remove the view.
 	initialize: function() {
 		this.model.on('change', this.render, this);
 		this.model.on('destroy', this.remove, this);
+		console.log("new view");
 	},
 	
+	// Render the element (el), which is the views html.
 	render: function() {
 		this.$el.html(this.tmpl(this.model.toJSON()));
 		return this; // So we can chain the render like: teamView.render().el
 	},
 	
+	// Remove view from DOM
 	remove: function(){ this.$el.remove(); },
 	
-	// Use models toggle function, this way let us toggle star from other functions aswell.
+	// Use a toggle method in model so we can toggle star from other locations aswell, not only here.
 	toggleStar: function() { this.model.toggleStar(); }
 
 });
 
 
-/*
+
+
 // -------------------------------------------------------
 // TEAM LIST
 // -------------------------------------------------------
-// The Scoreboard model that includes all the teams.*/
+// The Scoreboard collection that handles all the team models.
 
 var TeamList = Backbone.Collection.extend({
-	model: Team
+	model: Team,
+	url: "data/scoreboard.json",
+	
+	
+	// The .fetch() function will go through Backbone.sync which use ajax to get
+	// the data from the url specified. Fetch then use a default parse which sends
+	// the response on to the reset function. We are here overriding both the 
+	// default parse and reset.
+	
+	
+	parse: function(resp){
+		// Default parse will just send the response on to reset without doing anything.
+		// But we only want the teams array to be passed on, not the other stuff.
+		return resp.teams;
+	},
+	
+	
+	// This is the update method created by dalyons(github), but without the removeMissing parts.
+	// It replaces the reset and can do in-place updates of these models, reusing existing instances.
+	// The default reset, replaces the collection with new instances of models, making a lot of garbage instances.
+	// - Items are matched against existing items in the collection by id
+	// - New items are added
+	// - matching models are updated using set(), triggers 'change'.
+	// - a collection change event will be dispatched for each add() and remove()
+	reset : function(models, options) {
+		models = models || (models = []);
+
+		// Loop through all the models in response
+		_.each( models, function(model) {
+			
+			// Check the idAttribute, if the id is change to something like teamsID, then get the id.
+			var idAttribute = this.model.prototype.idAttribute;
+			var modelId = model[idAttribute];
+			
+			// If no id is found, call error!
+			if ( modelId === undefined ) throw new Error("Can't update a model with no id attribute. Please use 'reset'.");
+			
+			// If the this response model id also exist in our collection on client update attributes.
+			// Else add new model to collection.
+			// On update: Ternary if the object is a instance of Backbone.Model, then get the attributes, else get whole model.
+			// Get rid of the id amongst the attributes to be updated.
+			// Then set the new attributes to out model in the collection.
+			if ( this._byId[modelId] ) {
+				var attrs = (model instanceof Backbone.Model) ? _.clone(model.attributes) : _.clone(model);
+				delete attrs[idAttribute];
+				this._byId[modelId].set( attrs );
+			} else {
+				this.add( model );
+			}
+		}, this);
+
+		return this;
+	}
 });
 
 
@@ -99,127 +155,32 @@ var TeamList = Backbone.Collection.extend({
 // TEAM LIST VIEW
 // -------------------------------------------------------
 // Handling all the TeamViews and their common methods.
+
 var TeamListView = Backbone.View.extend({
 	
+	// Connect this view to the #scoreboard element in DOM.
 	el: $("#scoreboard"),
-	
 
-    initialize: function () {
-		this.collection.on('reset', this.render(), this);
-    },
-
-    render: function () {
+	// Clear the html in element. Create views for every model and add to element.
+	render: function () {
+		
+		this.$el.html("");
+		
 		this.collection.each(function(team){
 			var teamView = new TeamView({model: team});
 			this.$el.append(teamView.render().el);
 		}, this);
 		
-		return this;
-    }
-
+		return this;	// still, so we can chain the method like: this.render().el
+	}
 });
 
-// create the Collection
-var teamList = new TeamList();
-
-// Put all the teams in models and all the models in the Collection.
-teamList.reset(teamsJSON);
-
-// Create a view for the COllection and add views for every model to it.
+// Create the Collection from JSON.
+var teamList = new TeamList(teamsJSON);
+// Create the View for the Collection.
 var Scoreboard = new TeamListView({collection:teamList});
+// Start the scoreboard by render the data to DOM.
+Scoreboard.render();
 
 
-
-
-//$('table#bbtest').html(teamView.render().el);
-
-
-
-
-
-
-
-
-
-/*
-
-(function(){
-	
-	var Scoreboard = new (Backbone.Router.extend({
-
-		initialize: function(){
-			this.teamList = new TeamList();
-			this.teamListView = new TeamListView({collection: this.teamList});
-			$('#sb').append(this.teamListView.el);
-		}
-
-	}));
-	
-})();
-
-
-*/
-
-
-
-(function ($) {
-
-
-
-
-	$(document).ready(function () {
-		console.log('The DOM is complete.');
-		
-		
-		
-		
-		
-		// ---------------------------------------------------------
-		// Setting up a socket and listening for scoreboard changes
-		// ---------------------------------------------------------
-		
-		console.log("Setting up sb socket..");
-		var sb, socket = io.connect('http://130.237.8.168:1336');
-
-		// ON CONNECT
-		socket.on("connected", function(data) {
-			console.log("Connected User?", data.accept);
-		});
-
-		// ON RECIEVEFILE
-		socket.on("delta", function(data) {
-
-			if(data !== ""){
-				sb = JSON.parse(data);
-
-				var teamCount = sb.length;
-				var sbTable = "<tr><th>Team</th><th>Score</th><th>Country</th></tr>";
-
-				for(var i = 0; i<teamCount; i++){
-					sbTable += "<tr>";
-					for(var attr in sb[i]){
-						sbTable += "<td>" + sb[i][attr] + "</td>";
-					}
-					sbTable += "</tr>";
-				}
-
-				$('table#sb').html(sbTable);
-			}else{ console.log("empty data"); }
-		});
-		
-		
-		
-		
-		
-	});
-
-
-
-
-	$(window).load(function () {
-		
-		console.log('All of the page is loaded.');
-		
-	});
-
-}(jQuery));
+})(jQuery);

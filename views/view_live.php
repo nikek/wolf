@@ -108,27 +108,25 @@ $feed2="http://scrool.se/icpc/wf2011/xml";
 	
 	
 	<footer>
-		
-
-			
 			<?php require_once('layout/footer.php');?>
-			
-
-		
 	</footer>
 	
+	
+	
 	<script id="tmplTeam" type="text/template">
-		<td class="team-star <%= starred %>">&#9733;</td>//<% if(starred){ %>&#9733;<% }else{ %>&#9734;<%}%></td>
+		<td class="team-star <%= starred %>">&#9733;</td>
 		<td><%= teamName %></td>
+		<td><%= score %></td>
 		<td class="<%= A.state %>"><%= A.attempts %>-<%= A.time %></td>
 		<td class="<%= B.state %>"><%= B.attempts %>-<%= B.time %></td>
 		<td class="<%= C.state %>"><%= C.attempts %>-<%= C.time %></td>
 		<td class="<%= D.state %>"><%= D.attempts %>-<%= D.time %></td>
 		<td class="<%= E.state %>"><%= E.attempts %>-<%= E.time %></td>
-		
 	</script>
+
 	<script src="scripts/libs.js"></script>
-	<script src="http://130.237.8.168:1336/socket.io/socket.io.js"></script>
+	<!--<script src="http://130.237.8.168:1336/socket.io/socket.io.js"></script>-->
+	<script>var teamsJSON = <?php  echo file_get_contents('data/scoreboard.json');?>.teams;</script>
 	<script src="scripts/site.js"></script>
 	<?php //print $start_log , "End: ", microtime(true); ?>
 </body>
