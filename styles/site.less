@@ -15,14 +15,18 @@
 /////////////
 // COLORS
 
-@bodyColor: #1e1e1e;	// Page background
-@baseColor: #48c;		// Used as backgrounds and as base for other colors.
-@textColor: #333;		// Normal text color.
-@linkColor: #7cf;		// Link, normal.
+@bodyColor:				#1e1e1e;	// Page background
+@baseColor:				#48c;		// Used as backgrounds and as base for other colors.
+@textColor:				#333;		// Normal text color.
+@linkColor:				#7cf;		// Link, normal.
+@grayBaseTextColor:		#fff;		// Used as reading text color on gray backgrounds
+@grayLineTop:			#e1e1e1;	// Border color on light gray background
+
+// Should be in use later:
 
 @11_linkblue : #AECCE8;
 @11_tweetgray: #666;
-
+@purpleColor : #7C6696;
 
 /////////////
 // FONTS
@@ -198,7 +202,7 @@ html{font-size:10px; height:100%;}
 body {
 	width:100%;
 	height:100%;
-	background: @bodyColor url(../images/worldmap_blue_background.gif) center center;
+	background: @bodyColor url(../images/worldmap_light_background.gif) center center;
 	.font-size(1);
 	font-family: @baseFont;
 }
@@ -259,6 +263,19 @@ section.main {
 // -------------------------------------------------------
 //  MAIN SECTIONS - Video, Info and Scoreboard
 // -------------------------------------------------------
+
+	.start-wrap {
+		border: 1px solid #919698;
+		background-color:#F5F5F5;
+		background-color: rgba(0, 0, 0, 0.2);
+		.box-shadow( 1px, 1px, 2px, 0, #909497);
+		border-radius: 3px;
+		
+		margin:10px 6px 2px 6px;
+		padding:4px;
+		
+		color:@grayBaseTextColor;
+	}
 
 	#video-wrap, #info-wrap, #scoreboard-wrap {
 		float:left;
@@ -383,25 +400,19 @@ section.main {
 //  FOOTER
 // -------------------------------------------------------
 
-footer{
+footer {
 	position:relative;
 	overflow:hidden;
 	width:100%;
 	min-width:@site-min-width;
-	padding:40px;
-	
-	/*height:@line-height*8;
-	margin:-@line-height*8 auto 0;*/
-	
+	padding:15px 40px 40px 40px;
 	margin: 20px auto 20px auto;
-
 	
-	background:#102338;
+	
 	/*.linear-gradient(#4a4a4a, #3c3c3c);
 	*/
 	
-	font-family:verdana, sans-serif;
-	.font-size(1.1);
+	.font-size(1);
 	color: #eee;
 	line-height:@line-height;
 	
@@ -410,26 +421,58 @@ footer{
 		text-decoration:none;
 	}
 }
-	
-	.ident, .disclaimer, .partners, .web_language {
+
+
+	.ident, .disclaimer, .partners, .web_language, .ident-dark, .disclaimer-dark, .partners-dark, .web_language-dark {
 		font-family: @bodyFont;
 		font-style:normal;
 		text-align:center;
 	}
 	
-	.ident {
-		.font-size();
+	// Differencies in footer 
+	.footer-dark {
+		background:#102338;
+		
+		// Dark version of footer
+		.ident {
+			.font-size(1.6);
+			color: @purpleColor;
+		}
+		.disclaimer {
+			.font-size(1.1);
+			color:#999;
+		}
+		.partners {
+			.font-size(1);
+			color:#666;
+		}
+		.web_language {
+			.font-size(1);
+			color:#666;
+		}
 	}
-	.disclaimer {
-		.font-size(1.3);
-		color:#999;
+	.footer-light {
+		//background:#fff;
+		
+		border-top: 1px solid @grayLineTop;
+		
+		// Light version of footer
+		.ident {
+			.font-size(1.6);
+			color: @purpleColor;
+		}
+		.disclaimer {
+			.font-size(1.1);
+			color:#999;
+		}
+		.partners {
+			.font-size(1);
+			color:#666;
+		}
+		.web_language {
+			.font-size(1);
+			color:#666;
+		}
 	}
-	.partners {
-		.font-size(1);
-		color:#666;
-	}
-	.web_language {
-		.font-size(1);
-		color:#666;
-	}
+	
 
