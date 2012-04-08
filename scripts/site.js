@@ -182,5 +182,11 @@ var Scoreboard = new TeamListView({collection:teamList});
 // Start the scoreboard by render the data to DOM.
 Scoreboard.render();
 
+// Start Polling when all of the page is loaded.
+$(window).load(function () {
+	console.log("Start polling");
+	setInterval(function(){ teamList.fetch(); console.log("Fetch!"); }, 3000);
+});
+
 
 })(jQuery);
