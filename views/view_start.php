@@ -50,11 +50,16 @@
 		
 	<?php // WRAPPING EVERYTHING BUT HEADER & FOOTER. ?>
 	<section class="wrap main group">
-
+	
 		<section class="start-wrap">
 			
-			ddOKOK
-
+			<div class="col2">
+			ok
+			</div>
+			
+			<div class="col4">
+			OK
+			</div>
 			<!--<div class="boxing">
 				<div class="inner_boxing">
 					<video
@@ -66,6 +71,7 @@
 					</video>
 				</div>
 			</div>-->
+			<div class="col_clear"> </div>
 		</section>
 				
 	</section>

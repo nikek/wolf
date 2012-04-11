@@ -27,6 +27,7 @@
 @11_linkblue : #AECCE8;
 @11_tweetgray: #666;
 @purpleColor : #7C6696;
+@greenCorrect: #080;
 
 /////////////
 // FONTS
@@ -261,6 +262,37 @@ section.main {
 
 
 // -------------------------------------------------------
+//  MAIN Layout [LIGHT]
+// -------------------------------------------------------
+
+.col1, .col2, .col3, .col4 {
+	float:left;
+}
+
+.col1 {
+	width:100%;
+}
+
+.col2 {
+	width:75%;
+}
+
+.col3 {
+	width:50%;
+}
+
+.col4 {
+	width:25%;
+}
+
+.col_clear {
+	clear:both;
+}
+
+//@greenCorrect
+
+
+// -------------------------------------------------------
 //  MAIN SECTIONS - Video, Info and Scoreboard
 // -------------------------------------------------------
 
@@ -275,6 +307,10 @@ section.main {
 		padding:4px;
 		
 		color:@grayBaseTextColor;
+		
+		div {
+			padding:10px;
+		}
 	}
 
 	#video-wrap, #info-wrap, #scoreboard-wrap {
