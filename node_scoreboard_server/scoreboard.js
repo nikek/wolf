@@ -30,8 +30,9 @@ fs.watch(__dirname + "/scoreboard.json", function(event, filename) {
 	if (event == "change") {
 		fs.readFile("scoreboard.json","UTF-8", function(err, data) {
 			if (err) throw err;
-			console.log(data);
-			io.sockets.emit('delta', data);
+			if(data !== ""){
+				io.sockets.emit('delta', data);
+			}
 		});
 	}
 });
