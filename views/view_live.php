@@ -91,9 +91,9 @@
 					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 				
 <?php				
-$feed2="http://scrool.se/icpc/wf2011/xml";
+//$feed2="http://scrool.se/icpc/wf2011/xml";
 
-// echo @file_get_contents($feed2);
+//echo @file_get_contents($feed2);
 ?>
 
 
@@ -115,18 +115,20 @@ $feed2="http://scrool.se/icpc/wf2011/xml";
 	
 	<script id="tmplTeam" type="text/template">
 		<td class="team-star <%= starred %>">&#9733;</td>
-		<td><%= teamName %></td>
+		<td><%= name %></td>
 		<td><%= score %></td>
-		<td class="<%= A.state %>"><%= A.attempts %>-<%= A.time %></td>
-		<td class="<%= B.state %>"><%= B.attempts %>-<%= B.time %></td>
-		<td class="<%= C.state %>"><%= C.attempts %>-<%= C.time %></td>
-		<td class="<%= D.state %>"><%= D.attempts %>-<%= D.time %></td>
-		<td class="<%= E.state %>"><%= E.attempts %>-<%= E.time %></td>
+		<td class="<%= A[0] %>"><%= A[1] %>-<%= A[2] %></td>
+		<td class="<%= B[0] %>"><%= B[1] %>-<%= B[2] %></td>
+		<td class="<%= C[0] %>"><%= C[1] %>-<%= C[2] %></td>
+		<td class="<%= D[0] %>"><%= D[1] %>-<%= D[2] %></td>
+		<td class="<%= E[0] %>"><%= E[1] %>-<%= E[2] %></td>
+		<td class="<%= F[0] %>"><%= F[1] %>-<%= F[2] %></td>
+		<td class="<%= G[0] %>"><%= G[1] %>-<%= G[2] %></td>
 	</script>
 
 	<script src="scripts/libs.js"></script>
 	<script src="http://130.237.8.168:1336/socket.io/socket.io.js"></script>
-	<script>var teamsJSON = <?php  echo file_get_contents('data/scoreboard.json');?>.teams;</script>
+	<script>var teamsJSON = <?php  echo file_get_contents('data/scoreboard.json');?>;</script>
 	<script src="scripts/site.js"></script>
 	<?php //print $start_log , "End: ", microtime(true); ?>
 </body>

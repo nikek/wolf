@@ -26,11 +26,13 @@ var Team = Backbone.Model.extend({
 	defaults: {
 		starred: false,
 		score: 0,
-		A: {state: false, attempts: 0, time: 0},
-		B: {state: false, attempts: 0, time: 0},
-		C: {state: false, attempts: 0, time: 0},
-		D: {state: false, attempts: 0, time: 0},
-		E: {state: false, attempts: 0, time: 0}
+		A: ["", "", ""],
+		B: ["", "", ""],
+		C: ["", "", ""],
+		D: ["", "", ""],
+		E: ["", "", ""],
+		F: ["", "", ""],
+		G: ["", "", ""],
 	},
 	
 	// When a model is created, make it show in the console.
@@ -104,11 +106,12 @@ var TeamList = Backbone.Collection.extend({
 	// default parse and reset.
 	
 	
-	parse: function(resp){
+	/*parse: function(resp){
 		// Default parse will just send the response on to reset without doing anything.
 		// But we only want the teams array to be passed on, not the other stuff.
+		
 		return resp.teams;
-	},
+	},*/
 	
 	
 	// This is the update method created by dalyons(github), but without the removeMissing parts.
@@ -212,6 +215,7 @@ var setupSocket = function () {
 };
 
 var setupPolling = function () {
+	$.ajaxSetup({ cache: false });
 	return setInterval(function(){
 		teamList.fetch({
 			success: function(){

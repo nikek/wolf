@@ -1,30 +1,25 @@
-{
-	"versionHash" : "hjdhs78h3bhjkscvbhj2",
-	"teams" : [
-		{"id": 0, "teamName": "Noerdarna", "score": 6,
-			"A": {"state": "attempted", "attempts": 2, "time": 78},
-			"B": {"attempts": 0, "time": 0},
-			"C": {"state": "solved", "attempts": 3, "time": 80},
-			"D": {"state": "solvedfirst", "attempts": 1, "time": 12}
-		},
-		{"id": 1, "teamName": "The Awesomes", "score": 10,
-			"B": {"state": false, "attempts": 0, "time": 0},
-			"C": {"state": "solved", "attempts": 3, "time": 80},
-			"D": {"state": "solvedfirst", "attempts": 1, "time": 12},
-			"E": {"state": "pending", "attempts": 2, "time": 19}
-		},
-		{"id": 2, "teamName": "HaxX0rzZz", "score": 1,
-			"A": {"state": "attempted", "attempts": 2, "time": 78},
-			"B": {"state": "pending", "attempts": 2, "time": 0},
-			"D": {"state": "solvedfirst", "attempts": 1, "time": 12},
-			"E": {"state": "pending", "attempts": 2, "time": 19}
-		},
-		{"id": 3, "teamName": "Epic 1337", "score": 3,
-			"A": {"state": "attempted", "attempts": 2, "time": 78},
-			"B": {"state": false, "attempts": 0, "time": 0},
-			"C": {"state": "solved", "attempts": 3, "time": 89},
-			"D": {"state": "solvedfirst", "attempts": 1, "time": 12},
-			"E": {"state": "pending", "attempts": 2, "time": 356}
-		}
-	]
-}
+[
+	{"id": 0, "name": "Noerdarna",
+		"A": ["tried", 2, 32],
+		"C": ["first", 1, 17],
+		"D": ["solved", 3, 89]
+	},
+	{"id": 1, "name": "The Awesomes",
+		"B": ["tried", 2, 32],
+		"C": ["first", 1, 17],
+		"F": ["solved", 3, 89]
+	},
+	{"id": 2, "name": "HaxX0rzZz",
+		"A": ["tried", 2, 32],
+		"C": ["first", 1, 17],
+		"E": ["solved", 3, 89],
+		"G": ["solved", 3, 89]
+	},
+	{"id": 3, "name": "Epic 1336",
+		"C": ["tried", 2, 32],
+		"D": ["first", 1, 17],
+		"E": ["solved", 3, 89],
+		"F": ["tried", 2, 32],
+		"G": ["first", 1, 17]
+	}
+]

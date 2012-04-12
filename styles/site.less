@@ -406,6 +406,14 @@ section.main {
 // Scoreboard Styling
 // -------------------------------------------------------
 
+
+#scoreboard {
+	td{
+		min-width:@line-height;
+		padding:0 8px;
+		text-align:center;
+	}
+}
 /*  TABLE HEADER */
 .sc_th_rank {
 	width:30px;
@@ -418,15 +426,12 @@ section.main {
 }
 .sc_th_time { width:45px; }
 
-/* */
-.solved, .attempted, .pending, .solvedfirst {
-	text-align:center;
-	color:#fff;
-}
+.solved, .tried, .pend, .first { color:#fff; }
 .solved { background:#B6DEAE; }
-.solvedfirst { background:#639E4E; }
-.attempted { background:#E0D1CC; }
-.pending { background:#FFD843; }
+.first { background:#639E4E; }
+.tried { background:darken(saturate(#E0D1CC, 50),20); }
+.pend { background:#FFD843; }
+
 .sc_options {
 	width:40px;
 	text-align:right;

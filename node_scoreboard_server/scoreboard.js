@@ -9,12 +9,12 @@ var io = require('socket.io').listen(PORT),
 
 
 // Removing all the debug statements
-io.set('log level', 1);  
+io.set('log level', 1);
 
 
 // When a client connects
 io.sockets.on('connection', function(socket) {
-	
+
 	// Print it out!
 	console.log("client connected! length: " + io.sockets.clients().length);
 
@@ -25,12 +25,12 @@ io.sockets.on('connection', function(socket) {
 
 
 // Watch the scoreboard file for change, read and emit it when it does.
-fs.watch(__dirname + "/scoreboard.json", function(event, filename) {
-
+fs.watch(__dirname + "../data/scoreboard.json", function(event, filename) {
+	console.log(filename);
 	if (event == "change") {
-		fs.readFile("scoreboard.json","UTF-8", function(err, data) {
+		fs.readFile(filename,"UTF-8", function(err, data) {
 			if (err) throw err;
-			if(data !== ""){
+			if (data !== "") {
 				io.sockets.emit('delta', data);
 			}
 		});
