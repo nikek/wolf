@@ -215,9 +215,8 @@ var setupSocket = function () {
 };
 
 var setupPolling = function () {
-	$.ajaxSetup({ cache: false });
 	return setInterval(function(){
-		teamList.fetch({
+		teamList.fetch({ cache: false,
 			success: function(){
 				console.log("Fetched!");
 			},
