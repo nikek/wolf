@@ -29,17 +29,51 @@ io.sockets.on('connection', function(socket) {
 
 //// SET COLLECTIONS FOR SCOREBOARD AND THE CLIENT VERSION.
 
+var TeamList = Backbone.Collection.extend({
+
+	update : function(models) {
+		models || (models = []);
+		
+		// Loop through all the models in response
+		_.each( models, function(model) {
+			
+			// Check the idAttribute, if the id is change to something like teamsID, then get the id.
+			var idAttribute = this.model.prototype.idAttribute;
+			var modelId = model[idAttribute];
+			
+			// If no id is found, call error!
+			if ( modelId === undefined ) throw new Error("Can't update a model with no id attribute. Please use 'reset'.");
+			
+			// If the this response model id also exist in our collection on client update attributes.
+			// Else add new model to collection.
+			// On update: Ternary if the object is a instance of Backbone.Model, then get the attributes, else get whole model.
+			// Get rid of the id amongst the attributes to be updated.
+			// Then set the new attributes to out model in the collection.
+			if ( this._byId[modelId] ) {
+				var attrs = (model instanceof Backbone.Model) ? _.clone(model.attributes) : _.clone(model);
+				delete attrs[idAttribute];
+				this._byId[modelId].set( attrs );
+			} else {
+				this.add( model );
+			}
+		}, this);
+		
+		return this;
+	}
+});
+
+
 fs.readFile("scoreboard.json","UTF-8", function(err, data) {
-	sb = new Backbone.Collection(JSON.parse(data));
+	sb = new TeamList(JSON.parse(data));
 });
 
 fs.readFile("client.json","UTF-8", function(err, data) {
-	client = new Backbone.Collection(JSON.parse(data));
+	client = new TeamList(JSON.parse(data));
 });
 
 
 
-var calcDelta = function () {
+var calcDelta = function (sbJSON) {
 	var clientTeam,
 		id;
 	
@@ -69,26 +103,30 @@ var calcDelta = function () {
 			console.log();
 		}
 	});
-
-	console.log(delta.toJSON());
+	
+	client.update(sbJSON);
+	return delta.toJSON();
 };
 
 
-
-setTimeout(function(){ calcDelta(); }, 400);
 console.log("Setup complete! Listening on port " + PORT);
 
 
+setTimeout(function(){ change(); }, 3000);
+
+
 // Watch the scoreboard file for change, read and emit it when it does.
-/*fs.watchFile(__dirname + "../data/scoreboard.json", function(event, filename) {
-	console.log(filename);
-	if (event == "change") {
-		fs.readFile(filename,"UTF-8", function(err, data) {
+/*fs.watch(__dirname + "scoreboard.json", function(event, filename) {
+	if (event == "change") {*/
+	var change = function() {
+		fs.readFile("scoreboard.json","UTF-8", function(err, data) {
 			if (err) throw err;
 			if (data !== "") {
-				io.sockets.emit('delta', data);
+				sbJSON = JSON.parse(data);
+				sb.update(sbJSON);
+				io.sockets.emit('delta', calcDelta(sbJSON));
 			}
 		});
-	}
-});
-*/
+	};
+	/*}
+});*/

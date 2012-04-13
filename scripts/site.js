@@ -152,6 +152,17 @@ var TeamList = Backbone.Collection.extend({
 		}, this);
 		
 		return this;
+	},
+	updateDelta: function(delta){
+		
+		var len = delta.length;
+		
+		for(var i=0; i<len; i++){
+			var tempID = delta[i].id;
+			delete delta[i].id;
+			this.get(tempID).set(delta[i]);
+		}
+	
 	}
 });
 
@@ -199,7 +210,7 @@ Scoreboard.render();
 
 var setupSocket = function () {
 	
-	var socket = io.connect('http://130.237.8.168:1336');
+	var socket = io.connect('http://localhost:1336');
 
 	// ON CONNECT
 	socket.on("connected", function(data) {
@@ -209,7 +220,8 @@ var setupSocket = function () {
 	// ON DELTA
 	socket.on("delta", function(data) {
 		if(data !== ""){
-			teamList.update(JSON.parse(data).teams);
+			teamList.updateDelta(data);
+			
 		}else{ console.log("Empty data was recieved. Do nothing."); }
 	});
 };
@@ -238,7 +250,6 @@ var setupPolling = function () {
 console.log("Trying to set up scoreboard socket..");
 
 if(typeof io !== 'undefined'){
-	console.log(io);
 	setupSocket();
 } else {
 	console.log("Could not connect socket. Trying to poll.");

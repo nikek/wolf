@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<?php $start_log = "Start: ". microtime(true); ?>
+	<?php //$start_log = "Start: ". microtime(true); ?>
 	<meta charset="utf-8">
 	<title>ICPC Live</title>
 	
@@ -92,7 +92,7 @@
 		
 	</script>
 	<script src="scripts/libs.js"></script>
-	<script src="http://130.237.8.168:1336/socket.io/socket.io.js"></script>
+	<script src="http://localhost:1336/socket.io/socket.io.js"></script>
 	<script src="scripts/site.js"></script>
 	<?php //print $start_log , "End: ", microtime(true); ?>
 </body>

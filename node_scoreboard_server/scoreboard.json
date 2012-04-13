@@ -6,12 +6,12 @@
 	},
 	{"id": 1, "name": "The Awesomes",
 		"B": ["tried", 2, 32],
-		"C": ["first", 1, 17],
+		"C": ["solved", 1, 17],
 		"F": ["solved", 3, 89]
 	},
 	{"id": 2, "name": "HaxX0rzZz",
 		"A": ["tried", 2, 32],
-		"C": ["first", 1, 17],
+		"C": ["solved", 1, 17],
 		"E": ["solved", 3, 89],
 		"G": ["solved", 3, 89]
 	},
