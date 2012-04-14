@@ -2,7 +2,9 @@
 // Set port for server.
 var PORT = 1336;
 
-var localhost = true;
+var localhost = false;
+
+var sbURL = "../../www/data/scoreboard.json";
 
 // Load libs and set port to socket
 var io = require('socket.io').listen(PORT),
@@ -11,9 +13,11 @@ var io = require('socket.io').listen(PORT),
 	Backbone = require('backbone'),
 	sb,
 	client,
-	delta = new Backbone.Collection();
+	delta = new Backbone.Collection(),
+	watchChangeCounter;
 
 
+	console.log("Setup complete! Listening on port " + PORT);
 
 //// SETUP SOCKET.IO
 
@@ -64,13 +68,26 @@ var TeamList = Backbone.Collection.extend({
 });
 
 
-fs.readFile("scoreboard.json","UTF-8", function(err, data) {
+fs.readFile(sbURL,"UTF-8", function(err, data) {
 	sb = new TeamList(JSON.parse(data));
+	if(!localhost) client = new TeamList(JSON.parse(data));
 });
 
 if(localhost){
+	
 	fs.readFile("client.json","UTF-8", function(err, data) {
 		client = new TeamList(JSON.parse(data));
+	});
+	
+	setTimeout(function(){ change(); }, 3000);
+	
+}else{
+	
+	watchChangeCounter = 0;
+	
+	// Watch the scoreboard file for change, read and emit it when it does.
+	fs.watch(__dirname + "/" + sbURL, function(event, filename) {
+		if (event == "change") change();
 	});
 }
 
@@ -80,7 +97,8 @@ var calcDelta = function (sbJSON) {
 	var id,
 		teamAttr,
 		clientAttr,
-		deltaAttr;
+		deltaAttr,
+		deltaJSON;
 	
 	delta.reset();
 	
@@ -98,36 +116,26 @@ var calcDelta = function (sbJSON) {
 					deltaAttr[attr] = teamAttr[attr];
 				}
 			}
+			
 			delta.add(deltaAttr);
-		}else{
-			console.log("- equal");
 		}
 	});
 	
 	client.update(sbJSON);
-	console.log(delta.toJSON());
-	return delta.toJSON();
+	deltaJSON = delta.toJSON();
+	console.log("Delta sent to Client:");
+	console.log(deltaJSON);
+	return deltaJSON;
 };
 
 
-console.log("Setup complete! Listening on port " + PORT);
-
-
-setTimeout(function(){ change(); }, 3000);
-
-
-// Watch the scoreboard file for change, read and emit it when it does.
-/*fs.watch(__dirname + "scoreboard.json", function(event, filename) {
-	if (event == "change") {*/
-	var change = function() {
-		fs.readFile("scoreboard.json","UTF-8", function(err, data) {
-			if (err) throw err;
-			if (data !== "") {
-				sbJSON = JSON.parse(data);
-				sb.update(sbJSON);
-				io.sockets.emit('delta', calcDelta(sbJSON));
-			}
-		});
-	};
-	/*}
-});*/
+var change = function() {
+	fs.readFile(sbURL,"UTF-8", function(err, data) {
+		if (err) throw err;
+		if (data !== "") {
+			sbJSON = JSON.parse(data);
+			sb.update(sbJSON);
+			io.sockets.emit('delta', calcDelta(sbJSON));
+		}
+	});
+};

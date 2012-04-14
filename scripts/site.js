@@ -97,7 +97,9 @@ var TeamView = Backbone.View.extend({
 
 var TeamList = Backbone.Collection.extend({
 	model: Team,
-	url: "data/scoreboard.json",
+	//url: "node_scoreboard_server/scoreboard.json",
+	//url: "http://130.237.8.168/data/scoreboard.json",
+	url: "http://icpclive.com/data/scoreboard.php",
 	
 	
 	// The .fetch() function will go through Backbone.sync which use ajax to get
@@ -153,6 +155,7 @@ var TeamList = Backbone.Collection.extend({
 		
 		return this;
 	},
+	
 	updateDelta: function(delta){
 		
 		var len = delta.length;
@@ -162,7 +165,6 @@ var TeamList = Backbone.Collection.extend({
 			delete delta[i].id;
 			this.get(tempID).set(delta[i]);
 		}
-	
 	}
 });
 
@@ -210,7 +212,8 @@ Scoreboard.render();
 
 var setupSocket = function () {
 	
-	var socket = io.connect('http://localhost:1336');
+	//var socket = io.connect('http://localhost:1336');
+	var socket = io.connect('http://130.237.8.168:1336');
 
 	// ON CONNECT
 	socket.on("connected", function(data) {
@@ -228,7 +231,7 @@ var setupSocket = function () {
 
 var setupPolling = function () {
 	return setInterval(function(){
-		teamList.fetch({ cache: false,
+		teamList.fetch({ cache: false, type: "jsonp",
 			success: function(){
 				console.log("Fetched!");
 			},
