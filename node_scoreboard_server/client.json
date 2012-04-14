@@ -14,10 +14,10 @@
 		"C": ["first", 1, 17],
 		"E": ["solved", 3, 89]
 	},
-	{"id": 3, "name": "Epic 1336",
+	{"id": 3, "name": "Epic 1337",
 		"C": ["tried", 2, 32],
 		"D": ["first", 1, 17],
 		"E": ["solved", 3, 89],
-		"F": ["tried", 2, 32]
+		"F": ["tried", 3, 32]
 	}
 ]

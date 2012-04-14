@@ -2,6 +2,7 @@
 // Set port for server.
 var PORT = 1336;
 
+var localhost = true;
 
 // Load libs and set port to socket
 var io = require('socket.io').listen(PORT),
@@ -67,44 +68,44 @@ fs.readFile("scoreboard.json","UTF-8", function(err, data) {
 	sb = new TeamList(JSON.parse(data));
 });
 
-fs.readFile("client.json","UTF-8", function(err, data) {
-	client = new TeamList(JSON.parse(data));
-});
+if(localhost){
+	fs.readFile("client.json","UTF-8", function(err, data) {
+		client = new TeamList(JSON.parse(data));
+	});
+}
 
 
 
 var calcDelta = function (sbJSON) {
-	var clientTeam,
-		id;
+	var id,
+		teamAttr,
+		clientAttr,
+		deltaAttr;
 	
 	delta.reset();
 	
 	sb.each(function(team){
 		id = team.get("id");
-		var clientTeam = client.get(id);
-		var teamAttr = team.attributes;
-		var clientAttr = clientTeam.attributes;
+		teamAttr = team.attributes;
+		clientAttr = client.get(id).attributes;
 		
 		if(!_.isEqual(teamAttr, clientAttr)){
 			
+			deltaAttr = {"id": id};
 			
-			var deltaAttr = {};
-			 deltaAttr["id"] = id;
-			//delta.add(team.attributes);
-			//clientTeam.set(team.attributes);
 			for (var attr in teamAttr) {
-				if(teamAttr[attr] !== clientAttr[attr]){
+				if(!_.isEqual(teamAttr[attr], clientAttr[attr])){
 					deltaAttr[attr] = teamAttr[attr];
-					//console.log(team.get("name") + team.attributes[attr]);
 				}
 			}
-			
 			delta.add(deltaAttr);
-			console.log();
+		}else{
+			console.log("- equal");
 		}
 	});
 	
 	client.update(sbJSON);
+	console.log(delta.toJSON());
 	return delta.toJSON();
 };
 
