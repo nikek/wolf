@@ -33,7 +33,7 @@
 	<!-- ******************************************************** -->
 	
 </head>
-<body>
+<body id="lightBody">
 	
 	<header id="site-header">
 		
@@ -47,6 +47,7 @@
 					<a href="#"><strong>Live</strong></a>
 					<a href="#">Blog</a>
 					<a href="#">Info</a>
+					<a href="#">Archive</a>
 					<a href="#">FAQ</a>
 			
 				<!--<ul>
@@ -70,6 +71,8 @@
 	<section class="wrap start-wrap group">
 			
 			<div class="col2">
+			
+			<img src="images/Logo-2012.png" width="200px" />
 			
 <h1>ICPC soon in Warsaw, Poland!</h1>
 <h3>Purus. Duis quis ultrices odio. Nulla cursus era</h3>
