@@ -22,7 +22,7 @@
 	  (function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
 	
 </head>
-<body>
+<body id="darkBody">
 	
 	<header id="site-header">
 		
@@ -33,14 +33,11 @@
 		
 			<nav>
 			
-				<ul>
-				
-					<li><strong>Live</strong></li>
-					<li>Blog</li>
-					<li>Info</li>
-					<li>FAQ</li>
-				
-				</ul>
+					<a href="#"><strong>Live</strong></a>
+					<a href="#">Blog</a>
+					<a href="#">Info</a>
+					<a href="#">Archive</a>
+					<a href="#">FAQ</a>
 			
 			</nav>
 		</div>
@@ -70,13 +67,27 @@
 			<div class="boxing">
 				<div class="inner_boxing">
 					
-					<div class="tabs">
+					<!--<div class="tabs">
 					
 						<span>Info</span> - <span>Chat</span> - <span>Teams</span>
 				
-					</div>
+					</div>-->
 					
+			<ul class="nav-top">
+				<li><a href="#">Information</a></li> 
+				<li><a href="#">Scoreboard</a></li> 
+				<li><a href="#">Teams</a></li>
+				<li><a href="#">Chat</a></li>
+				<li><a href="#">Studio Question</a></li>
+			</ul>
+			
+			<div style="clear:both;"> </div>
 					
+					<p>Welcome to the ICPC-live broadcast page. To make it work beautifully and as expected try one of the newer browsers, say Chrome or Firefox.</p>
+
+					<p>If your computer is running slowly with this page up, try to turn off the automatic scoreboard update. Or you could try hiding the social box on the screens right hand side.</p>
+
+					<p>You can change the layout of this page either by using the buttons above the video or the keys 1-4 on your keyboard.</p>
 					<table id="sb"></table>
 					
 				</div>
