@@ -16,7 +16,7 @@
 @baseColor          :	#48c;		// Used as backgrounds and as base for other colors.
 @textColor          :	#333;		// Normal text color. (Dark/Light)
 @linkColor          :	#AECCE8;	// Link, normal. (Light/Dark)
-@baseTextColorLight :	#fff;		// Used as reading text color on gray backgrounds (Light/Dark)
+@grayBaseTextColor  :	#fff;		// Used as reading text color on gray backgrounds (Light/Dark)
 @grayLineTop        :	#e1e1e1;	// Border color on light gray background (Light)
 @navLinkColor       :   #666;       // Top nav colour
 
@@ -440,7 +440,7 @@ section.start-wrap {
 	padding:4px;*/
     max-width:@site-max-main-width;
     min-width:@site-min-main-width;
-	color:@baseTextColorLight;
+	color:@grayBaseTextColor;
 
 	/*div {
 		padding:0px;
@@ -564,14 +564,14 @@ section.start-wrap {
 .sc_th_time { width:45px; }
 
 /* */
-.solved, .tried, .pend, .first {
+.solved, .attempted, .pending, .solvedfirst {
 	text-align:center;
 	color:#fff;
 }
 .solved { background:#B6DEAE; }
-.first { background:#639E4E; }
-.tried { background:#E0D1CC; }
-.pend { background:#FFD843; }
+.solvedfirst { background:#639E4E; }
+.attempted { background:#E0D1CC; }
+.pending { background:#FFD843; }
 .sc_options {
 	width:40px;
 	text-align:right;
