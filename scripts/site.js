@@ -161,9 +161,17 @@ var TeamList = Backbone.Collection.extend({
 		var len = delta.length;
 		
 		for(var i=0; i<len; i++){
+			
 			var tempID = delta[i].id;
-			delete delta[i].id;
-			this.get(tempID).set(delta[i]);
+			
+			if ( this.get(tempID) ) {
+				
+				delete delta[i].id;
+				this.get(tempID).set(delta[i]);
+				
+			} else {
+				this.add( delta[i] );
+			}
 		}
 	}
 });
@@ -179,6 +187,10 @@ var TeamListView = Backbone.View.extend({
 	
 	// Connect this view to the #scoreboard element in DOM.
 	el: $("#scoreboard"),
+	
+	initialize: function() {
+		this.collection.on('add', this.render, this);
+	},
 
 	// Clear the html in element. Create views for every model and add to element.
 	render: function () {
@@ -193,6 +205,7 @@ var TeamListView = Backbone.View.extend({
 		return this;	// still, so we can chain the method like: this.render().el
 	}
 });
+
 
 // Create the Collection from JSON.
 var teamList = new TeamList(teamsJSON);

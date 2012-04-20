@@ -92,7 +92,8 @@ if(localhost){
 }
 
 
-
+// Collecting attributes to delta hashes/obj that differ between sb and what the client has.
+// The obj are added as models to the delta collection which we then JSONify and send to client.
 var calcDelta = function (sbJSON) {
 	var id,
 		teamAttr,
@@ -105,25 +106,33 @@ var calcDelta = function (sbJSON) {
 	sb.each(function(team){
 		id = team.get("id");
 		teamAttr = team.attributes;
-		clientAttr = client.get(id).attributes;
-		
-		if(!_.isEqual(teamAttr, clientAttr)){
+
+		// Check if the team already exist
+		if(client.get(id)){
+
+			clientAttr = client.get(id).attributes;
 			
-			deltaAttr = {"id": id};
+			// If the attributes aren't the same
+			if(!_.isEqual(teamAttr, clientAttr)){
 			
-			for (var attr in teamAttr) {
-				if(!_.isEqual(teamAttr[attr], clientAttr[attr])){
-					deltaAttr[attr] = teamAttr[attr];
+				deltaAttr = {"id": id};
+			
+				for (var attr in teamAttr) {
+					if(!_.isEqual(teamAttr[attr], clientAttr[attr])){
+						deltaAttr[attr] = teamAttr[attr];
+					}
 				}
-			}
 			
-			delta.add(deltaAttr);
+				delta.add(deltaAttr);
+			}
+		}else{ // we have to add all the attributes.
+			delta.add(teamAttr);
 		}
 	});
 	
-	client.update(sbJSON);
+	//client.update(sbJSON);
 	deltaJSON = delta.toJSON();
-	console.log("Delta sent to Client:");
+	console.log("Delta sent:");
 	console.log(deltaJSON);
 	return deltaJSON;
 };
@@ -134,7 +143,7 @@ var change = function() {
 		if (err) throw err;
 		if (data !== "") {
 			sbJSON = JSON.parse(data);
-			sb.update(sbJSON);
+			sb.reset(sbJSON);
 			io.sockets.emit('delta', calcDelta(sbJSON));
 		}
 	});
