@@ -141,6 +141,7 @@
 	<?php // <script src="http://localhost:1336/socket.io/socket.io.js"></script> ?>
 	<script src="http://130.237.8.168:1336/socket.io/socket.io.js"></script>
 	<script>var teamsJSON = <?php  echo file_get_contents('http://icpclive.com/data/scoreboard.json');?>;</script>
+	<script src="scripts/sbClasses.js"></script>
 	<script src="scripts/site.js"></script>
 	<?php //print $start_log , "End: ", microtime(true); ?>
 </body>
