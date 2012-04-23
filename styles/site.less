@@ -10,23 +10,31 @@
 /////////////
 // COLORS & IMAGES
 
-@lightBodyColor     :	#9aa0a4;	// Page background, light version
-@darkBodyColor      :   #242424;    // Page background, dark version
+@baseBackground     :   url("../images/worldmap_light_background.gif") repeat-x; //url("../images/background-wallpaper-striped.gif"); //
+@liveBackground     :   url("../images/worldmap_dark_background.gif") repeat-x;
 
-@baseColor          :	#48c;		// Used as backgrounds and as base for other colors.
-@textColor          :	#333;		// Normal text color. (Dark/Light)
-@linkColor          :	#AECCE8;	// Link, normal. (Light/Dark)
-@baseTextColorLight :	#fff;		// Used as reading text color on gray backgrounds (Light/Dark)
-@grayLineTop        :	#e1e1e1;	// Border color on light gray background (Light)
+@baseColor          :	#9aa0a4;    // Used as background for base version, light
+@baseColorLive      :   #242424;    // Page background, dark version
+
+@textColor          :	#fff;		// Normal text color. (Dark/Light)
+@textColorLive      :   #999;		// Used as reading text color on gray backgrounds (Light/Dark)
+@discreteTextColor  :   #666;
+
+@linkColor          :	#AECCE8;	// Link, normal. (Light/Dark), light/gray blue
+
+@highlightLink      :   purple;
+
+@dividingLine       :	#e5e5e5;	// Border color on light gray background (Light)
 @navLinkColor       :   #666;       // Top nav colour
 
-@lightBodyBg        :   url("../images/worldmap_light_background.gif") repeat-x; //url("../images/background-wallpaper-striped.gif"); //
-@darkBodyBg         :   url("../images/worldmap_dark_background.gif") repeat-x;
+// Special:
+@identColor         :   #7C6696;
+
+@footerBackground   :   #fff;
+@footerBackgroundLive: #0d1a23;
 
 // Should be in use later:
-@11_linkblue : #AECCE8;
 @11_tweetgray: #666;
-@purpleColor : #7C6696;
 @greenCorrect: #080;
 @carrotOrange: #e85606;
 @redC: #EF7E7E;
@@ -59,6 +67,12 @@
 	-webkit-box-shadow: @x @y @blur @spread @color;
 	   -moz-box-shadow: @x @y @blur @spread @color;
 	        box-shadow: @x @y @blur @spread @color;
+}
+
+.inner-shadow() {
+    -webkit-box-shadow: inset 0 0 10px #000000;
+       -moz-box-shadow: inset 0 0 10px #000000;
+            box-shadow: inset 0 0 10px #000000;
 }
 
 .text-shadow( @x: 1px, @y: 1px, @blur: 1px, @spread: 0, @color: rgba(0,0,0,.5)) {
@@ -143,14 +157,15 @@ body {
 	/*.font-size(1);*/
 	font-size: 12px;
 	font-family: @baseFont;
-    color: @textColor;
 }
 
-#lightBody {
-    background: @lightBodyColor @lightBodyBg center center;
+#baseBody {
+    background: @baseColor @baseBackground center center;
+    color: @textColor;
 }
-#darkBody {
-    background: @darkBodyColor @darkBodyBg center center; 
+#liveBody {
+    background: @baseColorLive @liveBackground center center; 
+    color: @textColorLive;
 }
 
 
@@ -196,7 +211,7 @@ nav {
 
 .nav-top li:hover {
 	/*background: url('../images/main-nav-sep.png') no-repeat center 22px;*/
-	border-top:2px solid purple;
+	border-top:2px solid @highlightLink;
 }
 
 .nav-top li a {
@@ -230,6 +245,8 @@ h5 { .class-for-16px; }
 h6 { .class-for-14px; }
 
 h1.live-pitch {
+    padding-right: 5%;
+    padding-left: 5%;
     .class-for-34px;
     font-family: 'Codystar', cursive;   
     color:#fff;
@@ -330,6 +347,7 @@ button, input[type="submit"] { }
         .linear-gradient(#e1e1e1, #fff);
         position:relative;
         display:block;
+        border-bottom: 1px solid @dividingLine;
 	}
 
 		#site-title {
@@ -406,6 +424,10 @@ button, input[type="submit"] { }
 	width:35%;
 }
 
+.colwrap {
+    clear:both;
+}
+
 .col_clear, .clear {
 	clear:both;
 }
@@ -440,7 +462,7 @@ section.start-wrap {
 	padding:4px;*/
     max-width:@site-max-main-width;
     min-width:@site-min-main-width;
-	color:@baseTextColorLight;
+	color:@textColor;
 
 	/*div {
 		padding:0px;
@@ -457,11 +479,13 @@ section.start-wrap {
 	padding:4px;
 }
 
+.right-push {
+    .inner-shadow();   
+}
+
 // -------------------------------------------------------
 //  MAIN SECTIONS - Video, Info and Scoreboard
 // -------------------------------------------------------
-
-
 
 	#video-wrap, #info-wrap, #scoreboard-wrap {
 		float:left;
@@ -546,6 +570,22 @@ section.start-wrap {
 			border:0px solid #c7c7c7;
 		}
 	}
+    
+// -------------------------------------------------------
+// Styling content
+// -------------------------------------------------------
+.photo-in-text
+{   
+   
+}
+.photo-byline
+{   
+    padding:0px 10% 0px 10%;
+    .font-size(0.7);
+    text-align:right;
+    color:@discreteTextColor;
+    
+}
 	
 // -------------------------------------------------------
 // Scoreboard Styling
@@ -575,6 +615,26 @@ section.start-wrap {
 .sc_options {
 	width:40px;
 	text-align:right;
+}
+
+/// ----------------------
+// Twitter
+#tweets
+{
+    a {
+        color: @linkColor;   
+    }
+    .tweet_from {
+
+    }
+    .tweet_text {
+        margin: 0 0 0 0;
+    }
+    .tweet_date {
+        margin: 0 0 2% 0;
+        color: @discreteTextColor;
+        .font-size(0.7);
+    }
 }
 
 // -------------------------------------------------------
@@ -611,46 +671,45 @@ footer {
 
 // Differencies in footer 
 .footer-dark {
-	background:#0d1a23; //#102338;
+	background:@footerBackgroundLive; //#102338;
 	.box-shadow( 2px, 2px, 4px, 2px, rgba(0,0,0,.5));
 	// Dark version of footer
 	.ident {
 		.font-size(1.05);
-		color: @purpleColor;
+		color: @identColor;
 	}
 	.disclaimer {
 		.font-size(0.8);
-		color:#999;
+		color:@discreteTextColor;
 	}
 	.partners {
 		.font-size(0.7);
-		color:#666;
+		color:@discreteTextColor;
 	}
 	.web_language {
 		.font-size(0.7);
-		color:#666;
+		color:@discreteTextColor;
 	}
 }
 .footer-light {
-	background:#fff;
-	
-	border-top: 1px solid @grayLineTop;
+	background:@footerBackground;
+	border-top: 1px solid @dividingLine;
 	
 	// Light version of footer
 	.ident {
 		.font-size(1.05);
-		color: @purpleColor;
+		color: @identColor;
 	}
 	.disclaimer {
 		.font-size(0.8);
-		color:#666;
+		color:@discreteTextColor;
 	}
 	.partners {
 		.font-size(0.7);
-		color:#666;
+		color:@discreteTextColor;
 	}
 	.web_language {
 		.font-size(0.7);
-		color:#666;
+		color:@discreteTextColor;
 	}
 }
