@@ -19,7 +19,8 @@
 // A team model, including attributes and data-related methods.
 
 var Team = Backbone.Model.extend({
-
+	prenum: "starTeam",		// remove this and store an object if more data is to be stored
+	
 	// Default values to fill gap where the json is undefined.
 	defaults: {
 		starred: false,
@@ -30,19 +31,38 @@ var Team = Backbone.Model.extend({
 		D: ["", "", ""],
 		E: ["", "", ""],
 		F: ["", "", ""],
-		G: ["", "", ""],
+		G: ["", "", ""]
 	},
 	
 	// When a model is created, make it show in the console.
-	initialize: function() { console.log("new model"); },
+	initialize: function() {
+		console.log("new model");
+		
+		this.getLocalData();
+	},
 	
 	// Toggle the starred variable, triggers change on view.
 	toggleStar: function() {
 		if(this.get('starred') === false){
 			this.set({'starred': true});
+			$.store.set(this.prenum + this.get('id'), true);
 		}else{
 			this.set({'starred': false});
+			$.store.remove(this.prenum + this.get('id'));
 		}
+	},
+	
+	
+	getLocalData: function() {
+		
+		// Starred?		(team4: true)
+		var starredFromStorage = $.store.get(this.prenum + this.get('id'));
+		if(typeof starredFromStorage !== "undefined"){
+			this.set({ starred: starredFromStorage });
+		}
+		
+		// If we save and want to retrieve more client specific stuff.
+		// In that case change the variable prenum and store an object instead.
 	}
 	
 });

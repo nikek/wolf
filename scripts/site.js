@@ -1,10 +1,6 @@
 
 (function($){
 
-
-
-
-
 // Create the Collection from JSON.
 var teamList = new TeamList(teamsJSON);
 
