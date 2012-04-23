@@ -45,7 +45,11 @@
 		case 'start':
 			include('views/view_start.php');
 			break;
-	
+
+		case 'archive':
+			include('views/view_archive.php');
+			break;
+
 		case 'info':
 			include('views/view_info.php');
 			break;
