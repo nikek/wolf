@@ -37,7 +37,6 @@ var Team = Backbone.Model.extend({
 		I: ["", 0, 0],
 		J: ["", 0, 0],
 		K: ["", 0, 0],
-		L: ["", 0, 0]
 	},
 	
 	// When a model is created, make it show in the console.
