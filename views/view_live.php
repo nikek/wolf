@@ -107,8 +107,7 @@
 //echo @file_get_contents($feed2);
 ?>
 
-
-				<table id="scoreboard" cellspacing="0"  ></table>
+				<table id="scoreboard" cellspacing="0"></table>
 				
 				</div>
 			</div>
@@ -123,17 +122,24 @@
 	</footer>
 	
 	<script id="tmplTeam" type="text/template">
+	
 		<td class="team-star <%= starred %>">&#9733;</td>
 		<td><%= name %></td>
 		<td><%= score %></td>
-		<% _.each([A,B,C,D,E,F,G,H,I,J,K], function(i) { 
+		<%
+		_.each(["A","B","C","D","E","F","G","H","I","J","K"], function(i) { 
 			
-			if(i[2] !== 0){%>
-			<td class="<%= i[0] %>"><%= i[1] %>-<%= i[2] %></td>
-		<% }else{ %>
-			<td></td>
-		<% }
-			}); %>
+			if(problems[i]){
+				%>
+					<td class="<%= problems[i][0] %>"><%= problems[i][1] %>-<%= problems[i][2] %></td>
+				<%
+			}else{
+				%>
+					<td></td>
+				<%
+			}
+		});
+		%>
 		
 	</script>
 
@@ -141,7 +147,7 @@
 	<script src="scripts/store.js"></script>
 	<?php // <script src="http://localhost:1336/socket.io/socket.io.js"></script> ?>
 	<script src="http://130.237.8.168:1336/socket.io/socket.io.js"></script>
-	<script>var teamsJSON = <?php  echo file_get_contents('http://icpclive.com/data/scoreboard.json');?>;</script>
+	<script>var teamsJSON = <?php  echo file_get_contents('http://localhost/wolf/data/scoreboard.php');?>;</script>
 	<script src="scripts/sbClasses.js"></script>
 	<script src="scripts/site.js"></script>
 	<?php //print $start_log , "End: ", microtime(true); ?>

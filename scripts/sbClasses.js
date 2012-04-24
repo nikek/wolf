@@ -26,26 +26,28 @@ var Team = Backbone.Model.extend({
 		starred: false,
 		score: 0,
 		time: 0,
-		A: ["", 0, 0],
-		B: ["", 0, 0],
-		C: ["", 0, 0],
-		D: ["", 0, 0],
-		E: ["", 0, 0],
-		F: ["", 0, 0],
-		G: ["", 0, 0],
-		H: ["", 0, 0],
-		I: ["", 0, 0],
-		J: ["", 0, 0],
-		K: ["", 0, 0],
+		problems: {
+			A: ["", 0, 0],
+			B: ["", 0, 0],
+			C: ["", 0, 0],
+			D: ["", 0, 0],
+			E: ["", 0, 0],
+			F: ["", 0, 0],
+			G: ["", 0, 0],
+			H: ["", 0, 0],
+			I: ["", 0, 0],
+			J: ["", 0, 0],
+			K: ["", 0, 0]
+		}
 	},
 	
 	// When a model is created, make it show in the console.
 	initialize: function() {
 		console.log("new model");
 		
-		this.getLocalData();
+		this.on("change:problems", this.calcScoreTime, this);
 		
-		this.calcScore();
+		this.getLocalData();
 	},
 	
 	// Toggle the starred variable, triggers change on view.
@@ -73,12 +75,25 @@ var Team = Backbone.Model.extend({
 	},
 	
 	
-	calcScore: function(delta) {
-		var addThis = {};
+	updateFromDelta: function(newAttrs){
+		// delta is a model, get its attrs and set them silently,
+		// then use calcScoreTime which sets score and time and trigger change.
+
+
 		
+		newAttrs.score = this.get("score");
+		newAttrs.time = this.get("time");
 		
+		_.each(newAttrs.problems, function(attr){
+				if(typeof attr[2] !== "undefined"){
+					newAttrs.score += 1;
+					newAttrs.time += attr[2];
+				}
+		});
+		
+		this.set(newAttrs, {silent:true});
 	}
-	
+
 });
 
 
@@ -178,10 +193,10 @@ var TeamList = Backbone.Collection.extend({
 			// On update: Ternary if the object is a instance of Backbone.Model, then get the attributes, else get whole model.
 			// Get rid of the id amongst the attributes to be updated.
 			// Then set the new attributes to out model in the collection.
-			if ( this._byId[modelId] ) {
+			if (this._byId[modelId] ) {
 				var attrs = (model instanceof Backbone.Model) ? _.clone(model.attributes) : _.clone(model);
 				delete attrs[idAttribute];
-				this._byId[modelId].set( attrs );
+				this._byId[modelId].updateFromDelta( attrs );
 			} else {
 				this.add( model );
 			}

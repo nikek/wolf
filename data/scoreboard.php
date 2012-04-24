@@ -1,1 +1,1 @@
-<?php echo file_get_contents('scoreboard.json');?>
+<?php echo file_get_contents('scoreboard_big.json');?>
