@@ -10,8 +10,8 @@
 /////////////
 // COLORS & IMAGES
 
-@baseBackground     :   url("@{base_url}/images/worldmap_light_background.gif") repeat-x; //url("../images/background-wallpaper-striped.gif"); //
-@liveBackground     :   url("@{base_url}/images/worldmap_dark_background.gif") repeat-x;
+@baseBackground     :   url("../images/worldmap_light_background.gif") repeat-x; //url("../images/background-wallpaper-striped.gif"); //
+@liveBackground     :   url("../images/worldmap_dark_background.gif") repeat-x;
 
 @baseColor          :	#9aa0a4;    // Used as background for base version, light
 @baseColorLive      :   #242424;    // Page background, dark version
@@ -160,11 +160,15 @@ body {
 }
 
 #baseBody {
-    background: @baseColor @baseBackground center center;
+    background: @baseColor;
+	background-image: @baseBackground center center;
     color: @textColor;
 }
 #liveBody {
-    background: @baseColorLive @liveBackground center center; 
+	background-color:@baseColorLive;
+	background-image: url("../images/worldmap_dark_background.gif");
+	background-repeat: repeat-x;
+	background-position: 50% 0;
     color: @textColorLive;
 }
 
@@ -532,12 +536,10 @@ section.start-wrap {
 	
 		// All the other things for the scoreboard
 		.team-star {
-			width:@line-height/2;
-			height:@line-height/2;
 			cursor: pointer;
 			
 			
-			.font-size(1.5);
+			.font-size(1);
 			color: #aaa;
 			
 			/* IGNORE SELECTION HIGHLIGHT ON STAR */
@@ -591,6 +593,19 @@ section.start-wrap {
 // Scoreboard Styling
 // -------------------------------------------------------
 
+#scoreboard {
+	
+}
+#scoreboard td { 
+	min-width:40px;
+	height:@line-height/1.5;
+	line-height:@line-height/1.5;
+	margin:0;
+}
+
+#scoreboard tr:nth-child(even) {
+	background:rgba(69,67,66, 0.3);
+}
 /*  TABLE HEADER */
 .sc_th_rank {
 	width:30px;
@@ -603,19 +618,20 @@ section.start-wrap {
 }
 .sc_th_time { width:45px; }
 
-/* */
 .solved, .tried, .pend, .first {
 	text-align:center;
 	color:#fff;
 }
-.solved { background:#B6DEAE; }
-.first { background:#639E4E; }
-.tried { background:#E0D1CC; }
-.pend { background:#FFD843; }
+.solved { background:darken(#B6DEAE, 40); }
+.first { background:darken(#639E4E,40); }
+.tried { background:darken(#E0D1CC, 40); }
+.pend { background:darken(#FFD843,40); }
 .sc_options {
 	width:40px;
 	text-align:right;
 }
+
+
 
 /// ----------------------
 // Twitter

@@ -108,7 +108,7 @@
 ?>
 
 
-				<table id="scoreboard"></table>
+				<table id="scoreboard" cellspacing="0"  ></table>
 				
 				</div>
 			</div>
@@ -122,19 +122,19 @@
 			<?php require_once('layout/footer.php');?>
 	</footer>
 	
-	
-	
 	<script id="tmplTeam" type="text/template">
 		<td class="team-star <%= starred %>">&#9733;</td>
 		<td><%= name %></td>
 		<td><%= score %></td>
-		<td class="<%= A[0] %>"><%= A[1] %>-<%= A[2] %></td>
-		<td class="<%= B[0] %>"><%= B[1] %>-<%= B[2] %></td>
-		<td class="<%= C[0] %>"><%= C[1] %>-<%= C[2] %></td>
-		<td class="<%= D[0] %>"><%= D[1] %>-<%= D[2] %></td>
-		<td class="<%= E[0] %>"><%= E[1] %>-<%= E[2] %></td>
-		<td class="<%= F[0] %>"><%= F[1] %>-<%= F[2] %></td>
-		<td class="<%= G[0] %>"><%= G[1] %>-<%= G[2] %></td>
+		<% _.each([A,B,C,D,E,F,G,H,I,J,K], function(i) { 
+			
+			if(i[2] !== 0){%>
+			<td class="<%= i[0] %>"><%= i[1] %>-<%= i[2] %></td>
+		<% }else{ %>
+			<td></td>
+		<% }
+			}); %>
+		
 	</script>
 
 	<script src="scripts/libs.js"></script>

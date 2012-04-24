@@ -16,10 +16,10 @@
 		"G": ["solved", 3, 89]
 	},
 	{"id": 3, "name": "Epic 1336",
-		"C": ["tried", 2, 32],
+		"C": ["tried", 2],
 		"D": ["first", 1, 17],
 		"E": ["solved", 3, 89],
 		"F": ["tried", 2, 32],
-		"G": ["first", 1, 11]
+		"G": ["pend", 1]
 	}
 ]

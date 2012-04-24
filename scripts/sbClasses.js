@@ -25,13 +25,19 @@ var Team = Backbone.Model.extend({
 	defaults: {
 		starred: false,
 		score: 0,
-		A: ["", "", ""],
-		B: ["", "", ""],
-		C: ["", "", ""],
-		D: ["", "", ""],
-		E: ["", "", ""],
-		F: ["", "", ""],
-		G: ["", "", ""]
+		time: 0,
+		A: ["", 0, 0],
+		B: ["", 0, 0],
+		C: ["", 0, 0],
+		D: ["", 0, 0],
+		E: ["", 0, 0],
+		F: ["", 0, 0],
+		G: ["", 0, 0],
+		H: ["", 0, 0],
+		I: ["", 0, 0],
+		J: ["", 0, 0],
+		K: ["", 0, 0],
+		L: ["", 0, 0]
 	},
 	
 	// When a model is created, make it show in the console.
@@ -39,6 +45,8 @@ var Team = Backbone.Model.extend({
 		console.log("new model");
 		
 		this.getLocalData();
+		
+		this.calcScore();
 	},
 	
 	// Toggle the starred variable, triggers change on view.
@@ -55,7 +63,7 @@ var Team = Backbone.Model.extend({
 	
 	getLocalData: function() {
 		
-		// Starred?		(team4: true)
+		// Starred?		(starTeam4: true)
 		var starredFromStorage = $.store.get(this.prenum + this.get('id'));
 		if(typeof starredFromStorage !== "undefined"){
 			this.set({ starred: starredFromStorage });
@@ -63,9 +71,18 @@ var Team = Backbone.Model.extend({
 		
 		// If we save and want to retrieve more client specific stuff.
 		// In that case change the variable prenum and store an object instead.
+	},
+	
+	
+	calcScore: function(delta) {
+		var addThis = {};
+		
+		
 	}
 	
 });
+
+
 
 
 
@@ -142,9 +159,9 @@ var TeamList = Backbone.Collection.extend({
 	// - matching models are updated using set(), triggers 'change'.
 	// - a collection change event will be dispatched for each add() and remove()
 	reset: function(models, options) {
-		return this.update(models, options);
+		return this.update(models);
 	},
-	update : function(models, options) {
+	update: function(models) {
 		models || (models = []);
 		
 		// Loop through all the models in response
@@ -174,7 +191,7 @@ var TeamList = Backbone.Collection.extend({
 		return this;
 	},
 	
-	updateDelta: function(delta){
+	/*updateDelta: function(delta){
 		
 		var len = delta.length;
 		var tempID;
@@ -192,7 +209,7 @@ var TeamList = Backbone.Collection.extend({
 				this.add( delta[i] );
 			}
 		}
-	},
+	},*/
 	
 	comparator: function(team) {
 		
