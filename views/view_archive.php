@@ -1,18 +1,17 @@
-
 <?php defined('BASEPATH') or die('No direct script access.');
 /*
 	Project: ICPC Live 2012 in Warsaw, Poland.
 	Authors: Niklas Ek & Roger Sandholm.
 	Date: March, April and May 2012.
 */
+
+$site = array(
+	"title" => "ICPC Live - Archive"
+);
+
+require_once('layout/head.php');
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>ICPC Live</title>
-	<?php require_once('layout/head.php');?>
-</head>
+
 <body id="baseBody">
 	
 	<header id="site-header">
@@ -23,8 +22,7 @@
 	<?php // WRAPPING EVERYTHING BUT HEADER & FOOTER. ?>
 	<section class="wrap start-wrap group">
 			<div class="colwrap">
-				<br/><br/>
-				<img src="images/Logo-2012.png" width="150px" />
+				<img src="<?=BASE_URL;?>images/Logo-2012.png" id="icpc-live-logo" />
 			</div>
 			
 			<div class="col2">
@@ -38,7 +36,7 @@
 				
 				<p>
 					The first live broadcast of ICPC took place in Stockholm in 2009. After a few months of intense planning we made it happen.
-					Since then we have covered every competition. We are in collaboration with the DMT-team and completes each other. That is documenting and displaying the competition to the rest of the world.
+					Since then we have covered every competition. We are in collaboration with the DMT-team that also supports the ICPC with images and video. Our joint goal is to present the competition to the rest of the world.
 				</p>
 				
 				<p>
@@ -52,16 +50,19 @@
 				<h1 class="live-pitch">ICPC Live born in 2009</h1>
 				
 				<p>
-					One part of the Live team is the Dev team which works on the live scoreboard and other technologies making it possible to produce a nice end product. 
-					Everyone else that is't programming for the ICPC Live helps out with the broadcast, manning cameras, production planing, mixer contol, vision mixing, sound engineers and many more. 
+					One part of the Live team is the Dev team that works on the live scoreboard and other technologies making it possible to produce a nice end product. 
+					Everyone else that is't programming for the ICPC Live helps out with the broadcast, manning cameras, production planing, mixer control, vision mixing, sound engineers and many more. 
 					Everyone is equally important.
 				</p>
 				
-				<div class="photo-byline">
-					<img src="images/photos/icpc-team-2011.jpg" width="100%" class="photo-in-text" />
-					<br/>
-					ICPC Live crew 2011, Orlando, Florida, US
-				</div>
+				<!--<p>
+					Producing in a distance.
+				</p>-->
+				
+				<figure class="photo-byline">
+					<img src="<?=BASE_URL;?>images/photos/icpc-team-2011.jpg" width="100%" alt="ICPC Live team photo from Orlando 2011" class="photo-in-text" />
+					<figcaption>ICPC Live crew 2011, Orlando, Florida, US</figcaption>
+				</figure>
 				
 				
 				<p>
@@ -72,27 +73,10 @@
 			</div>
 			
 			<div class="col4">
-				<h2>Competition archive</h2>
-				<ul id="side_nav">
-					<li class="int_nav_head">Orlando, USA 2011</li>
-					<li><a href="?page=harbin_video">One hour version</a></li>
-					<li><a href="#">Country information</a></li>
-					<li><a href="?page=harbin_credits">Cast and credits</a></li>
-					
-					<li class="int_nav_head">Harbin, China 2010</li>
-					<li><a href="?page=harbin_video">One hour version</a></li>
-					<li><a href="#">Country information</a></li>
-					<li><a href="?page=harbin_credits">Cast and credits</a></li>
-					
-					<li class="int_nav_head">Stockholm, Sweden 2009</li>
-					<li><a href="?page=stockholm_video">One hour version</a></li>
-					<li><a href="#">Country information</a></li>
-					<li><a href="?page=stockholm_credits">Cast and credits</a></li>
-				</ul>
+				<?php require_once('menus/menu_archives.php');?>
 			</div>
 	
 	</section>
-	
 	
 	<footer class="footer-light">
 		<?php require_once('layout/footer.php');?>

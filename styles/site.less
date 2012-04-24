@@ -5,7 +5,6 @@
 */
 
 @base_url: "http://localhost/wolf/";
-// background-image: url("@{base-url}images/bg.png");
 
 /////////////
 // COLORS & IMAGES
@@ -247,6 +246,7 @@ h6 { .class-for-14px; }
 h1.live-pitch {
     padding-right: 5%;
     padding-left: 5%;
+    padding-bottom: 2%;
     .class-for-34px;
     font-family: 'Codystar', cursive;   
     color:#fff;
@@ -365,7 +365,6 @@ button, input[type="submit"] { }
 			display:none;
 		}
 
-
 	nav {
         margin:0px;
         padding:0 1% 0 0;
@@ -395,7 +394,8 @@ button, input[type="submit"] { }
             padding: 0px;
             margin: 0px;
             color: #8CECC9;
-            text-decoration: none; 
+            text-decoration: none;
+            line-height:80%; 
         }
     }
 
@@ -434,6 +434,15 @@ button, input[type="submit"] { }
 
 //////////////
 // PARTIALS, SECTIONS
+
+/*----------------------------------------------------------------
+	Main sections */
+
+#icpc-live-logo {
+	margin:0px;
+	padding:15px 0px 10px 0px;
+	width:160px;
+}
 
 section.main {
     padding:0 1%;
@@ -487,6 +496,12 @@ section.start-wrap {
 //  MAIN SECTIONS - Video, Info and Scoreboard
 // -------------------------------------------------------
 
+#archive-world-map {
+	margin:0;
+	padding:4% 0 4% 0;
+	width:70%;
+}
+
 	#video-wrap, #info-wrap, #scoreboard-wrap {
 		float:left;
 		margin:@line-height 0 0 0;
@@ -502,7 +517,7 @@ section.start-wrap {
 		color:#e3e3e3;*/
 	}
 	
-		// Styles for video element and more inside the video-wrap
+	// Styles for video element and more inside the video-wrap
 		
 		
 	
@@ -568,7 +583,11 @@ section.start-wrap {
 			border:0px solid #c7c7c7;
 		}
 	}
-    
+
+
+
+
+
 // -------------------------------------------------------
 // Styling content
 // -------------------------------------------------------

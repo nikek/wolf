@@ -22,6 +22,7 @@ var Team = Backbone.Model.extend({
 	prenum: "starTeam",		// remove this and store an object if more data is to be stored
 	
 	// Default values to fill gap where the json is undefined.
+	// Ska det vara tomma strängar eller typ en 0a?
 	defaults: {
 		starred: false,
 		score: 0,

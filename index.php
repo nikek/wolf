@@ -11,6 +11,7 @@
  * Define globals and paths
  */
 	define('BASEPATH', $_SERVER['DOCUMENT_ROOT']);
+	define('BASE_URL', "http://localhost/wolf/");
  
 /**
  * A session class.
@@ -45,9 +46,26 @@
 		case 'start':
 			include('views/view_start.php');
 			break;
+			
+		case 'live':
+			include('views/view_live.php');
+			break;
 
-		case 'archive':
-			include('views/view_archive.php');
+		case 'archives':
+				if(isset($_GET['view3'])):
+					if($_GET['view3'] == "video") {
+						include('views/archive/view_video.php');
+					} else if($_GET['view3'] == "credit") {
+						include('views/archive/view_credit.php');
+					} else {
+						// Link to yearly archive page
+						include('views/view_archive.php');
+					};
+				elseif(isset($_GET['view2'])):
+					include('views/view_archive.php');
+				else:
+					include('views/view_archive.php');
+				endif;
 			break;
 
 		case 'info':
@@ -59,7 +77,7 @@
 			break;
 			
 		default:
-			include('views/view_live.php');
+			include('views/view_start.php');
 			
 	}
 	
