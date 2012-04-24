@@ -160,15 +160,11 @@ body {
 }
 
 #baseBody {
-    background: @baseColor;
-	background-image: @baseBackground center center;
-    color: @textColor;
+	background: url("../images/worldmap_light_background.gif") @baseColor repeat-x 50% 0;
+	color: @textColor;
 }
 #liveBody {
-	background-color:@baseColorLive;
-	background-image: url("../images/worldmap_dark_background.gif");
-	background-repeat: repeat-x;
-	background-position: 50% 0;
+	background: url("../images/worldmap_dark_background.gif") @baseColorLive repeat-x 50% 0;
     color: @textColorLive;
 }
 
