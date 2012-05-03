@@ -33,7 +33,12 @@
 					&raquo;While&laquo; we are waiting &raquo;for&laquo; the contestants to arrive in Poland, you can have a look at previous competition covered. Just click the Archive button on the top. The material is currently only available in mp4 format.
 				</p>
 				<h1 class="live-pitch">ICPC 2012 will be live broadcasted and displayed here on the 17th of may</h1>
-	
+				<p>
+					To not miss out on any cool feature, make sure you are using a compatible browser. Of course we tried to make it work everywhere but we can't guarantee that it will work across every browser out there.
+					If you want to be sure, try using,
+					<br/>
+					Google Chrome (+17 Mac), Firefox
+
 			</div>
 			
 			<div class="col4">
@@ -42,18 +47,17 @@
 				<center><img src="images/icon_birdy.png" width="50px" style="margin:15px 0px 0px 0px"></center>
 				<br/>
 				<div id="tweets">
-				<?php 
+					</div>
+				<script>
 				// ------------------
 				// Twitter API
-				require_once("api/TwitterSearch.php");
-				$tw = new TwitterSearch("#ICPC2012");
-				$twResults = $tw->from("BrainBattleICPC")->rpp(6)->results();
-				foreach($twResults as $tt)
-				{
-					echo "<a href='http://www.twitter.com/BrainBattleICPC/' class='tweet_from'>@" , $tt->from_user , "</a> <p class='tweet_text'>" , $tt->text , "</p> <div class='tweet_date'>" , substr($tt->created_at,0,25) , "</div>";
-				}
-				?>
-				</div>
+				// @BrainBattleICPC
+					
+					$("#tweets").queryTwitter({search :"Justin Bieber",limit: 5, refresh: 10000, transition: "slideToggle" });
+					var instance = $.data( $('div#tweets')[0], 'queryTwitter');
+					//instance.url = "http://newutl.com";
+				</script>
+				
 				
 
 				<ul id="side_nav">

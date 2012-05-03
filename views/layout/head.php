@@ -8,6 +8,8 @@
 	<link rel="stylesheet" href="<?=BASE_URL;?>styles/site.less" type="text/less" media="screen" />
 	
 	<script src="<?=BASE_URL;?>scripts/less-1.3.0.min.js"></script>
+	<script src="<?=BASE_URL;?>assets/js/libs/jquery-1.7.2.min.js"></script>
+	<script src="<?=BASE_URL;?>assets/js/plugins/queryTwitter.js"></script>
 	
 	<!--[if lt IE 9]><script src="../script/ie.js"></script><![endif]-->
 

@@ -2,7 +2,12 @@
 <IfModule mod_rewrite.c>
 	Options +FollowSymlinks
     RewriteEngine On
+	Options +Indexes
     RewriteBase /wolf/
+
+	# Forwarding user to www.* instead of *.
+	RewriteCond %{HTTP_HOST} ^icpclive\.com$
+	RewriteRule ^(.*)$ http://www.icpclive.com/$1 [R=301,L]
 
     # Removes trailing slashes (prevents SEO duplicate content issues)
 	RewriteCond %{REQUEST_FILENAME} !-d
@@ -29,6 +34,10 @@
     #RewriteRule /([^/\.]+)/?$ index.php?view=$1&view2=kk [L]
     #RewriteRule /([A-Za-z0-9-]+)/([A-Za-z0-9]+)/?$ index.php?view=$1&view2=$2 [L]
     
+
+
+
+
 </IfModule>
 
 <IfModule !mod_rewrite.c>
