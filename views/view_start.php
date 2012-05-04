@@ -53,7 +53,7 @@
 				// Twitter API
 				// @BrainBattleICPC
 					
-					$("#tweets").queryTwitter({search :"Justin Bieber",limit: 5, refresh: 10000, transition: "slideToggle" });
+					$("#tweets").queryTwitter({search :"CNN",limit: 15, refresh: 10000, transition: "slideToggle" });
 					var instance = $.data( $('div#tweets')[0], 'queryTwitter');
 					//instance.url = "http://newutl.com";
 				</script>

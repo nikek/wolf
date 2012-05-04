@@ -1,11 +1,11 @@
 <?php
 
-function showTwitterFeed($req_type='search',$req_what,$req_lenght=4,$req_upd_interval=1) {
-		echo $req_what;
+function showTwitterFeed($req_type='search',$req_what=NULL,$req_lenght=10,$req_upd_interval=2) {
+		
 		// Declare variables and set type of request
 		switch($req_type) {
 			case "search":
-				$feed = "http://search.twitter.com/search.json?q=" . $req_what . "&rpp=" . $req_lenght;
+				$feed = "http://search.twitter.com/search.json?q=" . $req_what . "&amp;rpp=" . $req_lenght;
 				break;
 			case "user":
 				$feed = "http://twitter.com/status/user_timeline/" . $req_what . ".json";
@@ -30,7 +30,6 @@ function showTwitterFeed($req_type='search',$req_what,$req_lenght=4,$req_upd_int
 		
 		
 		if ($created_date < $todays_date) {
-			echo "ok";
 			$newfile = dirname(__FILE__)."/twitternew.json";
 			copy($feed, $newfile);
 			
@@ -40,11 +39,14 @@ function showTwitterFeed($req_type='search',$req_what,$req_lenght=4,$req_upd_int
 			
 			//if($oldcontent != $newcontent) {
 				copy($newfile, $file);
+				echo @file_get_contents($newfile);
 			//}
+		} else {
+			echo @file_get_contents($file);
 		}
 		//echo "<pre>";
 		//echo @file_get_contents(json_encode($file));
-		echo @file_get_contents($file);
+		
 }
-showTwitterFeed('search', urlencode($_GET['q']));
+showTwitterFeed('search', $_GET['q']);
 ?>

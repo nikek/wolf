@@ -55,8 +55,6 @@ if( typeof Object.create !== 'function' ) {
 			setTimeout(function( lenght ) {
 				// When the fetch functions is done()
 				self.fetch().done(function( results ) {
-					console.log("Fetch done");
-					console.log(self.options.limit);
 					results = self.limit( results.results , self.options.limit );
 					self.buildFragments( results ); // Fraqments to throw into DOM
 					console.log( results );
@@ -66,6 +64,8 @@ if( typeof Object.create !== 'function' ) {
 					if( self.options.refresh ) {
 						self.cycle();
 					}
+				}).fail(function(jqXHR, textStatus) {
+					console.log( "Request failed: " + textStatus );
 				});
 			}, lenght || self.options.refresh);
 			
@@ -74,20 +74,12 @@ if( typeof Object.create !== 'function' ) {
 		
 		fetch: function() {
 			// Fetching json results
-			
-			
-			/*var cha2 = $.ajax({
-				url: this.url,
-				data: { q: this.search },
-				dataType: 'jsonp'
-			});*/
-			console.log(this.url);
 			return $.ajax({
 				url: this.url,
-				data: { q: this.search },
-				dataType: 'json'
+				data: { q: this.search, },
+				dataType: 'json',
+				cache: false
 			});
-			//console.log("Log"+cha+this.search);
 		},
 		
 		
