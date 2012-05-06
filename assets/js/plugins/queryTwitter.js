@@ -35,6 +35,8 @@ if( typeof Object.create !== 'function' ) {
 			self.elem = elem; 
 			self.$elem = $( elem );
 			
+			var oldresults = "";
+			
 			//self.url = 'http://localhost/wolf/data/twitter.json';
 			self.url = 'http://localhost/wolf/data/twitterGrab.php';
 			
@@ -66,6 +68,10 @@ if( typeof Object.create !== 'function' ) {
 					}
 				}).fail(function(jqXHR, textStatus) {
 					console.log( "Request failed: " + textStatus );
+					if( self.options.refresh ) {
+						// Roger added
+						self.cycle();
+					}
 				});
 			}, lenght || self.options.refresh);
 			
@@ -89,8 +95,11 @@ if( typeof Object.create !== 'function' ) {
 			
 			// map, modify array
 			self.tweets = $.map( results, function( obj, i) {
-				return $( self.options.wrapEachWith ).append(obj.text)[0];
+				return $( self.options.wrapEachWith ).append( "<a href='https://twitter.com/#!/" + obj.from_user + "' target='_blank'>@" + obj.from_user + "</a>" + obj.text + "<br/> <img src='" + obj.profile_image_url + "' class='from_user' /><span class='tweet_date'>" + obj.created_at.slice( 0, 22 ) + "</span>")[0];
 			}); 
+			
+			this.oldresults = results;
+			
 			return self.tweets;
 		},
 		
@@ -112,14 +121,12 @@ if( typeof Object.create !== 'function' ) {
 			// Slice of what we need in results
 			return obj.slice( 0, count );
 		},
-		
-		
-		
+
 	};
 	
 	
 	$.fn.queryTwitter = function( options ) {
-		console.log("working");
+		console.log("Grabing twitter posts");
 		
 		return this.each(function(){ 
 			// 'Return' this each so chaining of functions to the plugin works

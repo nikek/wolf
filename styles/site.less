@@ -148,6 +148,9 @@ footer, header, hgroup, menu, nav, section {
 // HTML/BODY/AND SO ON..
 html {
     height:100%;
+	/* Keeps text size when orientation in mobile change, but keeps zoom */
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
 }
 
 body {
@@ -156,6 +159,7 @@ body {
 	/*.font-size(1);*/
 	font-size: 12px;
 	font-family: @baseFont;
+	margin:0;
 }
 
 #baseBody {
@@ -456,7 +460,7 @@ section.main {
     position:relative;
 	display:block;
 	padding:0 1%;
-	margin:0 auto;
+	margin:0 auto 20px auto;
 }
 
 // Section wraps
@@ -646,12 +650,40 @@ section.start-wrap {
 	text-align:right;
 }
 
+// -------------------------------------------------------
+// Scoreboard Styling
+// -------------------------------------------------------
 
+[class^="icon-"],
+[class*=" icon-"] {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../img/glyphicons-halflings.png");
+  background-position: 14px 14px;
+  background-repeat: no-repeat;
+background-size: 14px;
+}
 
-/// ----------------------
-// Twitter
+.icon-heart {
+	background: url("../images/icon_heart.png") no-repeat;
+} 
+
+// -------------------------------------------------------
+// Twitter feed, frontpage
+// -------------------------------------------------------
 #tweets
 {
+	list-style:none;
+	
+	img.from_user {
+		width:15px;
+		vertical-align: middle;
+		padding-right:1%;
+	}
     a {
         color: @linkColor;   
     }
@@ -678,7 +710,7 @@ footer {
 	width:100%;
 	min-width:@site-min-width;
 	padding:15px 40px 40px 40px;
-	margin: 20px auto 20px auto;
+	margin: 0px auto 20px auto;
 	
 	
 	/*.linear-gradient(#4a4a4a, #3c3c3c);
@@ -743,4 +775,121 @@ footer {
 		.font-size(0.7);
 		color:@discreteTextColor;
 	}
+}
+
+/* =============================================================================
+   MEDIAQUERIESS AI AI AI!!
+   ========================================================================== */
+
+
+@media screen and (max-width: 1024px) {
+	/* Global
+		-------------------------- */
+		
+		section.start-wrap {
+			max-width: 900px;
+			min-width: 500px;
+			color: white;
+		//	background:green;
+		}
+
+}
+
+
+@media screen and (max-width: 960px) {
+	/* Global
+		-------------------------- */
+
+}
+
+
+@media screen and (max-width: 768px) {
+	/* Global
+		-------------------------- */
+		
+		// Sub vars
+		@768-min-width: 480px;
+		
+		#site-header {
+			min-width:@768-min-width;
+		}
+
+		section.start-wrap {
+			max-width: 768px;
+			min-width: @768-min-width;
+			color: white;
+		//	background:red;
+		}
+		
+		footer {
+			min-width:@768-min-width;
+		}
+}
+
+
+/*@media screen and (max-width: 640px) {
+
+}*/
+
+
+@media screen and (max-width: 480px) {
+	/* Global
+		-------------------------- */
+
+		// Sub vars
+		@480-min-width: 320px;
+
+		#site-header {
+			min-width:@480-min-width;
+		}
+		
+		.wrap {
+			padding: 0 2%;
+		}
+
+		section.start-wrap {
+			max-width: 480px;
+			min-width: @480-min-width;
+			color: white;
+
+		}
+	
+		.col1, .col2, .col3, .col4 {
+			float:none;
+			position:relative;
+		}
+
+		.col2 {
+			width:100%;
+		}
+	
+		.col4 {
+			width:100%;
+		}
+
+		.colwrap {
+		    clear:none;
+		}
+	
+		footer {
+			min-width:@480-min-width;
+		}
+	
+}
+
+
+@media screen and (max-width: 320px) {
+	/* Global
+		-------------------------- */
+
+		#site-header {
+			min-width:200px;
+		}
+
+		section.start-wrap {
+			max-width: 320px;
+			min-width: 200px;
+			color: white;
+			background:blue;
+		}
 }

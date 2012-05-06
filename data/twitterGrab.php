@@ -1,6 +1,6 @@
 <?php
 
-function showTwitterFeed($req_type='search',$req_what=NULL,$req_lenght=10,$req_upd_interval=2) {
+function showTwitterFeed($req_type='search',$req_what=NULL,$req_lenght=10,$req_upd_interval=10) {
 		
 		// Declare variables and set type of request
 		switch($req_type) {
@@ -22,12 +22,11 @@ function showTwitterFeed($req_type='search',$req_what=NULL,$req_lenght=10,$req_u
 			
 		if (file_exists($file)) {
 			// Get todays date minus 15 minuters
-			$todays_date = date("Y-m-d H:i:s", mktime(date("H"), date("i")-$req_upd_interval, date("s"), date("m"), date("d"), date("Y")) );
+			$todays_date = strtotime(date("Y-m-d H:i:s", mktime(date("H"), date("i")-$req_upd_interval, date("s"), date("m"), date("d"), date("Y")) ) );
 			
 			// Get and convert the date when the file was created
-			$created_date =  date("Y-m-d H:i:s", filemtime($file)) ; 
+			$created_date =  strtotime(date("Y-m-d H:i:s", filemtime($file))) ; 
 		}
-		
 		
 		if ($created_date < $todays_date) {
 			$newfile = dirname(__FILE__)."/twitternew.json";
@@ -37,13 +36,14 @@ function showTwitterFeed($req_type='search',$req_what=NULL,$req_lenght=10,$req_u
 			$oldcontent = @file_get_contents($file);
 			$newcontent = @file_get_contents($newfile);
 			
-			//if($oldcontent != $newcontent) {
+			if($oldcontent != $newcontent) {
 				copy($newfile, $file);
 				echo @file_get_contents($newfile);
-			//}
+			}
 		} else {
 			echo @file_get_contents($file);
 		}
+		
 		//echo "<pre>";
 		//echo @file_get_contents(json_encode($file));
 		

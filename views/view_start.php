@@ -15,11 +15,10 @@
 </head>
 <body id="baseBody">
 	
-	<header id="site-header">
+	<header id="site-header" role="navigation">
 		<?php require_once('layout/header.php');?>
 	</header>
 	
-		
 	<?php // WRAPPING EVERYTHING BUT HEADER & FOOTER. ?>
 	<section class="wrap start-wrap group">
 			<div class="colwrap">
@@ -46,15 +45,16 @@
 
 				<center><img src="images/icon_birdy.png" width="50px" style="margin:15px 0px 0px 0px"></center>
 				<br/>
-				<div id="tweets">
-					</div>
+				<ul id="tweets">
+				
+				</ul>
 				<script>
 				// ------------------
 				// Twitter API
 				// @BrainBattleICPC
 					
-					$("#tweets").queryTwitter({search :"CNN",limit: 15, refresh: 10000, transition: "slideToggle" });
-					var instance = $.data( $('div#tweets')[0], 'queryTwitter');
+					$("#tweets").queryTwitter({search :"ICPC2012",limit: 5, refresh: null, transition: "fadeToggle" });
+					var instance = $.data( $('ul#tweets')[0], 'queryTwitter');
 					//instance.url = "http://newutl.com";
 				</script>
 				

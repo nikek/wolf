@@ -14,6 +14,7 @@
 </div>
 <div class="partners">
 	We love you! 
+	<i class="icon-heart"> </i>
 	<a href="http://www.ibm.com/us/en/">IBM</a>,  
 	<a href="http://www.grassvalley.com/">Grass Valley</a>, 
 	<a href="http://www.motorolasolutions.com/US-EN/Home">Motorola</a>, 
