@@ -1,9 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
 	
 	<link href='http://fonts.googleapis.com/css?family=Nixie+One|Codystar:300,400|Cabin+Sketch:400,700|Neucha|Cambo|Fugaz+One|Kaushan+Script|Patua+One|Bree+Serif|Montserrat|Rancho|Pacifico|Gruppo' rel='stylesheet' type='text/css' />
 	
-	<link rel="stylesheet" href="styles/site.less" type="text/less" media="screen" />
+	<link rel="stylesheet" href="<?=BASE_URL;?>styles/site.less" type="text/less" media="screen" />
 	
-	<script src="scripts/less-1.3.0.min.js"></script>
+	<script src="<?=BASE_URL;?>scripts/less-1.3.0.min.js"></script>
+	<script src="<?=BASE_URL;?>assets/js/libs/jquery-1.7.2.min.js"></script>
+	<script src="<?=BASE_URL;?>assets/js/plugins/queryTwitter.js"></script>
 	
 	<!--[if lt IE 9]><script src="../script/ie.js"></script><![endif]-->
 
@@ -17,3 +23,13 @@
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="development-assets/scripts.js"></script>-->
 	<!-- ******************************************************** -->
+	
+	<?php
+	if(isset($site['title'])):
+		echo "<title>" , $site['title'] , "</title>";
+	else:
+		echo "<title>ICPC Live</title>";
+	endif;
+	?>
+
+</head>
