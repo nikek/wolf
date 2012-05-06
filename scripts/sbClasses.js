@@ -46,7 +46,7 @@ var Team = Backbone.Model.extend({
 	initialize: function() {
 		console.log("new model");
 		
-		this.on('change:A', this.calcScoreTime, this);
+		this.on('change', this.calcScoreTime, this);
 		
 		this.getLocalData();
 		this.calcScoreTime();
@@ -133,7 +133,6 @@ var TeamView = Backbone.View.extend({
 	
 	// Use a toggle method in model so we can toggle star from other locations aswell, not only here.
 	toggleStar: function() { this.model.toggleStar(); }
-
 });
 
 
@@ -151,6 +150,10 @@ var TeamList = Backbone.Collection.extend({
 	//url: "http://icpclive.com/data/scoreboard.php",
 	url: "http://localhost/wolf/data/scoreboard.php",
 	
+	initialize: function(){
+		this.on('change:time', this.sort, this);
+		this.on('reset', this.sortReset, this);
+	},
 	
 	// The .fetch() function will go through Backbone.sync which use ajax to get
 	// the data from the url specified. Fetch then use a default parse which sends
@@ -206,60 +209,15 @@ var TeamList = Backbone.Collection.extend({
 		return this;
 	},
 	
-	/*updateDelta: function(delta){
-		
-		var len = delta.length;
-		var tempID;
-		
-		for(var i=0; i<len; i++){
-			
-			tempID = delta[i].id;
-			
-			if ( this.get(tempID) ) {
-				
-				delete delta[i].id;
-				this.get(tempID).set(delta[i]);
-				
-			} else {
-				this.add( delta[i] );
-			}
-		}
-	},*/
-	
 	comparator: function(team) {
-		
-	}
-});
-
-
-
-// -------------------------------------------------------
-// TEAM LIST VIEW
-// -------------------------------------------------------
-// Handling all the TeamViews and their common methods.
-
-var TeamListView = Backbone.View.extend({
-	
-	// Connect this view to the #scoreboard element in DOM.
-	el: $("#scoreboard"),
-	
-	initialize: function() {
-		this.collection.on('add', this.render, this);
+		return -(team.get("score")*10000 - team.get("time"));
 	},
-
-	// Clear the html in element. Create views for every model and add to element.
-	render: function () {
-		
-		this.$el.html("");
-		
-		this.collection.each(function(team){
-			var teamView = new TeamView({model: team});
-			this.$el.append(teamView.render().el);
-		}, this);
-		
-		return this;	// still, so we can chain the method like: this.render().el
+	
+	sortReset: function(){
+		console.warn("sortReset");
 	}
 });
+
 
 
 // -------------------------------------------------------
@@ -273,9 +231,8 @@ var TeamListView = Backbone.View.extend({
 	el: $("#scoreboard"),
 	
 	initialize: function() {
-		// fix this! this.createViews();
 		this.collection.on('add', this.render, this);
-
+		this.collection.on('change', this.render, this);
 	},
 
 	// Clear the html in element. Create views for every model and add to element.
