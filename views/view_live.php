@@ -126,17 +126,23 @@
 		<td class="team-star <%= starred %>">&#9733;</td>
 		<td><%= name %></td>
 		<td><%= score %></td>
+		<td><%= time %></td>
 		<%
-		_.each(["A","B","C","D","E","F","G","H","I","J","K"], function(i) { 
+		_.each([A, B, C, D, E, F, G, H, I, J, K], function(i) { 
 			
-			if(problems[i]){
-				%>
-					<td class="<%= problems[i][0] %>"><%= problems[i][1] %>-<%= problems[i][2] %></td>
-				<%
+			if(i.s){ 
+				
+				%><td class="<%= i.s %>"><%= i.a %><%
+				
+				if(i.p && i.p !== 0){
+					%>-<%= i.p %>p<%
+				}
+				
+				if(i.t && i.t !== 0){
+					%>-<%= i.t %>min<%
+				}
 			}else{
-				%>
-					<td></td>
-				<%
+				%><td></td><%
 			}
 		});
 		%>

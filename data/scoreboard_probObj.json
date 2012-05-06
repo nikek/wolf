@@ -1,0 +1,836 @@
+[{
+  "id": "1",
+  "name": "Zhejiang University",
+  "A": {"state":"solved", "attempts": 4, "time": 169},
+  "B": {"state":"solved", "attempts": 1, "time": 260},
+  "C": {"state":"solved", "attempts": 1, "time": 60},
+  "E": {"state":"solved", "attempts": 2, "time": 88},
+  "G": {"state":"solved", "attempts": 4, "time": 290},
+  "H": {"state":"solved", "attempts": 1, "time": 153},
+  "J": {"state":"solved", "attempts": 1, "time": 49},
+  "K": {"state":"solved", "attempts": 1, "time": 19}
+}, {
+  "id": "2",
+  "name": "University of Michigan at Ann Arbor",
+  "A": {"state":"solved", "attempts": 2, "time": 202},
+  "B": {"state":"solved", "attempts": 1, "time": 291},
+  "C": {"state":"solved", "attempts": 2, "time": 78},
+  "E": {"state":"solved", "attempts": 3, "time": 90},
+  "G": {"state":"solved", "attempts": 1, "time": 266},
+  "H": {"state":"solved", "attempts": 3, "time": 235},
+  "J": {"state":"solved", "attempts": 2, "time": 121},
+  "K": {"state":"solved", "attempts": 1, "time": 39}
+}, {
+  "id": "3",
+  "name": "Tsinghua University",
+  "A": {"state":"solved", "attempts": 1, "time": 77},
+  "C": {"state":"solved", "attempts": 2, "time": 27},
+  "E": {"state":"solved", "attempts": 1, "time": 144},
+  "F": {"state":"solved", "attempts": 2, "time": 218},
+  "H": {"state":"solved", "attempts": 2, "time": 160},
+  "J": {"state":"solved", "attempts": 2, "time": 50},
+  "K": {"state":"solved", "attempts": 1, "time": 44}
+}, {
+  "id": "4",
+  "name": "St. Petersburg State University",
+  "A": {"state":"solved", "attempts": 1, "time": 160},
+  "B": {"state":"solved", "attempts": 3, "time": 280},
+  "C": {"state":"solved", "attempts": 1, "time": 71},
+  "E": {"state":"solved", "attempts": 1, "time": 107},
+  "H": {"state":"solved", "attempts": 1, "time": 180},
+  "J": {"state":"solved", "attempts": 1, "time": 44},
+  "K": {"state":"solved", "attempts": 1, "time": 11}
+}, {
+  "id": "5",
+  "name": "Nizhny Novgorod State University",
+  "A": {"state":"solved", "attempts": 2, "time": 220},
+  "B": {"state":"tried", "attempts": 2},
+  "C": {"state":"solved", "attempts": 1, "time": 67},
+  "E": {"state":"solved", "attempts": 1, "time": 48},
+  "G": {"state":"solved", "attempts": 2, "time": 273},
+  "H": {"state":"solved", "attempts": 2, "time": 137},
+  "J": {"state":"solved", "attempts": 1, "time": 105},
+  "K": {"state":"solved", "attempts": 1, "time": 28}
+}, {
+  "id": "6",
+  "name": "Saratov State University",
+  "A": {"state":"solved", "attempts": 2, "time": 182},
+  "B": {"state":"solved", "attempts": 2, "time": 272},
+  "C": {"state":"solved", "attempts": 1, "time": 60},
+  "E": {"state":"solved", "attempts": 4, "time": 158},
+  "F": {"state":"tried", "attempts": 10},
+  "H": {"state":"solved", "attempts": 1, "time": 131},
+  "J": {"state":"solved", "attempts": 1, "time": 43},
+  "K": {"state":"solved", "attempts": 1, "time": 20}
+}, {
+  "id": "7",
+  "name": "Friedrich-Alexander-University Erlangen-Nuremberg",
+  "A": {"state":"solved", "attempts": 1, "time": 210},
+  "C": {"state":"solved", "attempts": 1, "time": 94},
+  "E": {"state":"solved", "attempts": 1, "time": 57},
+  "H": {"state":"solved", "attempts": 3, "time": 119},
+  "I": {"state":"solved", "attempts": 1, "time": 288},
+  "J": {"state":"solved", "attempts": 6, "time": 159},
+  "K": {"state":"solved", "attempts": 1, "time": 21}
+}, {
+  "id": "8",
+  "name": "Donetsk National University",
+  "A": {"state":"solved", "attempts": 1, "time": 215},
+  "C": {"state":"solved", "attempts": 1, "time": 116},
+  "D": {"state":"tried", "attempts": 1},
+  "E": {"state":"solved", "attempts": 1, "time": 136},
+  "G": {"state":"solved", "attempts": 2, "time": 289},
+  "H": {"state":"solved", "attempts": 2, "time": 75},
+  "J": {"state":"solved", "attempts": 4, "time": 171},
+  "K": {"state":"solved", "attempts": 1, "time": 53}
+}, {
+  "id": "9",
+  "name": "Jagiellonian University in Krakow",
+  "A": {"state":"solved", "attempts": 5, "time": 246},
+  "B": {"state":"solved", "attempts": 3, "time": 287},
+  "C": {"state":"solved", "attempts": 1, "time": 118},
+  "E": {"state":"solved", "attempts": 2, "time": 163},
+  "F": {"state":"tried", "attempts": 5},
+  "H": {"state":"solved", "attempts": 2, "time": 89},
+  "J": {"state":"solved", "attempts": 1, "time": 67},
+  "K": {"state":"solved", "attempts": 1, "time": 46}
+}, {
+  "id": "10",
+  "name": "Moscow State University",
+  "A": {"state":"solved", "attempts": 3, "time": 276},
+  "C": {"state":"solved", "attempts": 2, "time": 75},
+  "E": {"state":"solved", "attempts": 1, "time": 106},
+  "F": {"state":"tried", "attempts": 3},
+  "G": {"state":"solved", "attempts": 3, "time": 185},
+  "H": {"state":"solved", "attempts": 2, "time": 198},
+  "J": {"state":"solved", "attempts": 2, "time": 128},
+  "K": {"state":"solved", "attempts": 3, "time": 39}
+}, {
+  "id": "11",
+  "name": "Ural State University",
+  "A": {"state":"solved", "attempts": 2, "time": 72},
+  "C": {"state":"solved", "attempts": 1, "time": 111},
+  "D": {"state":"tried", "attempts": 2},
+  "E": {"state":"solved", "attempts": 3, "time": 163},
+  "G": {"state":"solved", "attempts": 6, "time": 296},
+  "H": {"state":"solved", "attempts": 4, "time": 287},
+  "J": {"state":"solved", "attempts": 1, "time": 114},
+  "K": {"state":"solved", "attempts": 1, "time": 82}
+}, {
+  "id": "12",
+  "name": "University of Waterloo",
+  "A": {"state":"solved", "attempts": 2, "time": 277},
+  "C": {"state":"solved", "attempts": 1, "time": 140},
+  "E": {"state":"solved", "attempts": 2, "time": 172},
+  "H": {"state":"solved", "attempts": 5, "time": 180},
+  "I": {"state":"solved", "attempts": 5, "time": 279},
+  "J": {"state":"solved", "attempts": 4, "time": 124},
+  "K": {"state":"solved", "attempts": 3, "time": 83}
+}, {
+  "id": "13",
+  "name": "Taurida V.I. Vernadsky National University",
+  "A": {"state":"solved", "attempts": 1, "time": 211},
+  "C": {"state":"solved", "attempts": 1, "time": 66},
+  "E": {"state":"solved", "attempts": 1, "time": 89},
+  "G": {"state":"tried", "attempts": 9},
+  "H": {"state":"solved", "attempts": 1, "time": 167},
+  "J": {"state":"solved", "attempts": 1, "time": 48},
+  "K": {"state":"solved", "attempts": 1, "time": 33}
+}, {
+  "id": "14",
+  "name": "National Taiwan University",
+  "B": {"state":"solved", "attempts": 6, "time": 196},
+  "C": {"state":"solved", "attempts": 1, "time": 60},
+  "E": {"state":"solved", "attempts": 3, "time": 161},
+  "G": {"state":"tried", "attempts": 2},
+  "H": {"state":"solved", "attempts": 1, "time": 108},
+  "J": {"state":"solved", "attempts": 1, "time": 116},
+  "K": {"state":"solved", "attempts": 1, "time": 23}
+}, {
+  "id": "15",
+  "name": "University of Warsaw",
+  "A": {"state":"solved", "attempts": 2, "time": 84},
+  "B": {"state":"tried", "attempts": 4},
+  "C": {"state":"solved", "attempts": 2, "time": 113},
+  "E": {"state":"tried", "attempts": 8},
+  "F": {"state":"solved", "attempts": 2, "time": 261},
+  "H": {"state":"solved", "attempts": 3, "time": 163},
+  "J": {"state":"solved", "attempts": 3, "time": 78},
+  "K": {"state":"solved", "attempts": 1, "time": 33}
+}, {
+  "id": "16",
+  "name": "St. Petersburg State University of IT, Mechanics and Optics",
+  "A": {"state":"solved", "attempts": 2, "time": 246},
+  "C": {"state":"solved", "attempts": 2, "time": 59},
+  "E": {"state":"solved", "attempts": 4, "time": 254},
+  "G": {"state":"tried", "attempts": 5},
+  "H": {"state":"solved", "attempts": 2, "time": 160},
+  "J": {"state":"solved", "attempts": 1, "time": 79},
+  "K": {"state":"solved", "attempts": 1, "time": 13}
+}, {
+  "id": "17",
+  "name": "Nanyang Technological University",
+  "A": {"state":"solved", "attempts": 1, "time": 237},
+  "C": {"state":"solved", "attempts": 1, "time": 98},
+  "E": {"state":"solved", "attempts": 5, "time": 204},
+  "G": {"state":"tried", "attempts": 7},
+  "H": {"state":"solved", "attempts": 3, "time": 165},
+  "J": {"state":"solved", "attempts": 1, "time": 78},
+  "K": {"state":"solved", "attempts": 2, "time": 36}
+}, {
+  "id": "18",
+  "name": "Universidad de Buenos Aires - FCEN",
+  "A": {"state":"solved", "attempts": 1, "time": 255},
+  "C": {"state":"solved", "attempts": 2, "time": 89},
+  "E": {"state":"solved", "attempts": 3, "time": 196},
+  "H": {"state":"solved", "attempts": 1, "time": 235},
+  "J": {"state":"solved", "attempts": 1, "time": 97},
+  "K": {"state":"solved", "attempts": 1, "time": 33}
+}, {
+  "id": "19",
+  "name": "Korea Advanced Institute of Science and Technology",
+  "A": {"state":"solved", "attempts": 1, "time": 58},
+  "C": {"state":"solved", "attempts": 1, "time": 125},
+  "E": {"state":"solved", "attempts": 5, "time": 282},
+  "F": {"state":"tried", "attempts": 4},
+  "H": {"state":"solved", "attempts": 1, "time": 185},
+  "J": {"state":"solved", "attempts": 2, "time": 135},
+  "K": {"state":"solved", "attempts": 2, "time": 60}
+}, {
+  "id": "20",
+  "name": "Peking University",
+  "A": {"state":"solved", "attempts": 3, "time": 238},
+  "C": {"state":"solved", "attempts": 1, "time": 52},
+  "E": {"state":"solved", "attempts": 1, "time": 107},
+  "F": {"state":"tried", "attempts": 2},
+  "H": {"state":"solved", "attempts": 3, "time": 261},
+  "J": {"state":"solved", "attempts": 5, "time": 129},
+  "K": {"state":"solved", "attempts": 2, "time": 45}
+}, {
+  "id": "21",
+  "name": "Sharif University of Technology",
+  "A": {"state":"solved", "attempts": 6, "time": 293},
+  "C": {"state":"solved", "attempts": 1, "time": 127},
+  "E": {"state":"solved", "attempts": 1, "time": 200},
+  "H": {"state":"solved", "attempts": 2, "time": 167},
+  "J": {"state":"solved", "attempts": 2, "time": 98},
+  "K": {"state":"solved", "attempts": 1, "time": 41}
+}, {
+  "id": "22",
+  "name": "Carnegie Mellon University",
+  "A": {"state":"solved", "attempts": 2, "time": 79},
+  "C": {"state":"solved", "attempts": 3, "time": 92},
+  "E": {"state":"solved", "attempts": 6, "time": 299},
+  "H": {"state":"solved", "attempts": 2, "time": 161},
+  "J": {"state":"solved", "attempts": 3, "time": 223},
+  "K": {"state":"solved", "attempts": 1, "time": 36}
+}, {
+  "id": "23",
+  "name": "Shanghai Jiao Tong University",
+  "A": {"state":"solved", "attempts": 4, "time": 280},
+  "C": {"state":"solved", "attempts": 2, "time": 89},
+  "E": {"state":"solved", "attempts": 2, "time": 78},
+  "G": {"state":"pend", "attempts": 10},
+  "H": {"state":"solved", "attempts": 3, "time": 186},
+  "J": {"state":"solved", "attempts": 4, "time": 230},
+  "K": {"state":"solved", "attempts": 2, "time": 30}
+}, {
+  "id": "24",
+  "name": "Lviv National University",
+  "A": {"state":"solved", "attempts": 1, "time": 136},
+  "C": {"state":"solved", "attempts": 1, "time": 57},
+  "E": {"state":"solved", "attempts": 3, "time": 187},
+  "H": {"state":"solved", "attempts": 5, "time": 255},
+  "J": {"state":"solved", "attempts": 6, "time": 258},
+  "K": {"state":"solved", "attempts": 1, "time": 37}
+}, {
+  "id": "25",
+  "name": "The Chinese University of Hong Kong",
+  "A": {"state":"solved", "attempts": 4, "time": 200},
+  "C": {"state":"solved", "attempts": 4, "time": 109},
+  "E": {"state":"solved", "attempts": 2, "time": 171},
+  "G": {"state":"pend", "attempts": 30},
+  "H": {"state":"solved", "attempts": 7, "time": 249},
+  "J": {"state":"solved", "attempts": 1, "time": 231},
+  "K": {"state":"solved", "attempts": 1, "time": 23}
+}, {
+  "id": "26",
+  "name": "Zhongshan (Sun Yat-sen) University",
+  "A": {"state":"solved", "attempts": 5, "time": 156},
+  "C": {"state":"solved", "attempts": 1, "time": 247},
+  "D": {"state":"tried", "attempts": 7},
+  "E": {"state":"solved", "attempts": 1, "time": 202},
+  "H": {"state":"solved", "attempts": 5, "time": 256},
+  "J": {"state":"solved", "attempts": 2, "time": 120},
+  "K": {"state":"solved", "attempts": 6, "time": 106}
+}, {
+  "id": "27",
+  "name": "University of Electronic Science and Technology of China",
+  "A": {"state":"solved", "attempts": 1, "time": 286},
+  "C": {"state":"solved", "attempts": 1, "time": 96},
+  "E": {"state":"solved", "attempts": 1, "time": 54},
+  "H": {"state":"tried", "attempts": 1},
+  "J": {"state":"solved", "attempts": 2, "time": 147},
+  "K": {"state":"solved", "attempts": 1, "time": 45}
+}, {
+  "id": "28",
+  "name": "Taras Shevchenko Kiev National University",
+  "A": {"state":"solved", "attempts": 2, "time": 281},
+  "C": {"state":"solved", "attempts": 2, "time": 66},
+  "E": {"state":"solved", "attempts": 3, "time": 138},
+  "G": {"state":"tried", "attempts": 4},
+  "H": {"state":"tried", "attempts": 4},
+  "J": {"state":"solved", "attempts": 1, "time": 133},
+  "K": {"state":"solved", "attempts": 1, "time": 56}
+}, {
+  "id": "29",
+  "name": "Massachusetts Institute of Technology",
+  "C": {"state":"solved", "attempts": 2, "time": 84},
+  "E": {"state":"solved", "attempts": 3, "time": 271},
+  "G": {"state":"solved", "attempts": 5, "time": 206},
+  "H": {"state":"pend", "attempts": 12},
+  "J": {"state":"solved", "attempts": 1, "time": 60},
+  "K": {"state":"solved", "attempts": 1, "time": 42}
+}, {
+  "id": "30",
+  "name": "Belarusian State University",
+  "A": {"state":"tried", "attempts": 3},
+  "B": {"state":"tried", "attempts": 2},
+  "C": {"state":"solved", "attempts": 2, "time": 138},
+  "E": {"state":"solved", "attempts": 5, "time": 161},
+  "H": {"state":"solved", "attempts": 1, "time": 189},
+  "J": {"state":"solved", "attempts": 3, "time": 111},
+  "K": {"state":"solved", "attempts": 2, "time": 52}
+}, {
+  "id": "31",
+  "name": "Universidade Federal de Pernambuco",
+  "C": {"state":"solved", "attempts": 3, "time": 94},
+  "E": {"state":"solved", "attempts": 1, "time": 128},
+  "H": {"state":"solved", "attempts": 3, "time": 242},
+  "J": {"state":"solved", "attempts": 1, "time": 214},
+  "K": {"state":"solved", "attempts": 1, "time": 59}
+}, {
+  "id": "32",
+  "name": "University of Tokyo",
+  "A": {"state":"tried", "attempts": 4},
+  "C": {"state":"solved", "attempts": 1, "time": 85},
+  "E": {"state":"solved", "attempts": 2, "time": 154},
+  "H": {"state":"solved", "attempts": 6, "time": 269},
+  "J": {"state":"solved", "attempts": 4, "time": 105},
+  "K": {"state":"solved", "attempts": 1, "time": 29}
+}, {
+  "id": "33",
+  "name": "South Ural State University",
+  "C": {"state":"solved", "attempts": 1, "time": 63},
+  "E": {"state":"solved", "attempts": 3, "time": 247},
+  "H": {"state":"solved", "attempts": 3, "time": 205},
+  "J": {"state":"solved", "attempts": 3, "time": 185},
+  "K": {"state":"solved", "attempts": 1, "time": 19}
+}, {
+  "id": "34",
+  "name": "Kazakh-British Technical University",
+  "A": {"state":"solved", "attempts": 6, "time": 255},
+  "C": {"state":"solved", "attempts": 2, "time": 100},
+  "E": {"state":"solved", "attempts": 3, "time": 147},
+  "H": {"state":"tried", "attempts": 5},
+  "J": {"state":"solved", "attempts": 4, "time": 131},
+  "K": {"state":"solved", "attempts": 1, "time": 21}
+}, {
+  "id": "35",
+  "name": "Perm State University",
+  "A": {"state":"solved", "attempts": 5, "time": 216},
+  "C": {"state":"solved", "attempts": 1, "time": 96},
+  "E": {"state":"solved", "attempts": 3, "time": 261},
+  "J": {"state":"solved", "attempts": 6, "time": 118},
+  "K": {"state":"solved", "attempts": 1, "time": 16}
+}, {
+  "id": "36",
+  "name": "Kyoto University",
+  "A": {"state":"solved", "attempts": 10, "time": 296},
+  "C": {"state":"solved", "attempts": 1, "time": 81},
+  "E": {"state":"solved", "attempts": 2, "time": 188},
+  "J": {"state":"solved", "attempts": 1, "time": 131},
+  "K": {"state":"solved", "attempts": 1, "time": 39}
+}, {
+  "id": "37",
+  "name": "Novosibirsk State University",
+  "A": {"state":"tried", "attempts": 5},
+  "C": {"state":"solved", "attempts": 1, "time": 73},
+  "E": {"state":"solved", "attempts": 6, "time": 295},
+  "H": {"state":"solved", "attempts": 4, "time": 245},
+  "J": {"state":"solved", "attempts": 3, "time": 139},
+  "K": {"state":"solved", "attempts": 2, "time": 38}
+}, {
+  "id": "38",
+  "name": "Fudan University",
+  "C": {"state":"solved", "attempts": 1, "time": 113},
+  "E": {"state":"solved", "attempts": 5, "time": 214},
+  "H": {"state":"solved", "attempts": 1, "time": 206},
+  "J": {"state":"solved", "attempts": 15, "time": 298},
+  "K": {"state":"solved", "attempts": 1, "time": 34}
+}, {
+  "id": "39",
+  "name": "Harbin Institute of Technology",
+  "A": {"state":"tried", "attempts": 4},
+  "C": {"state":"solved", "attempts": 2, "time": 154},
+  "E": {"state":"solved", "attempts": 1, "time": 244},
+  "H": {"state":"solved", "attempts": 5, "time": 268},
+  "J": {"state":"solved", "attempts": 12, "time": 200},
+  "K": {"state":"solved", "attempts": 3, "time": 86}
+}, {
+  "id": "40",
+  "name": "Tianjin University",
+  "C": {"state":"solved", "attempts": 1, "time": 133},
+  "E": {"state":"solved", "attempts": 2, "time": 40},
+  "H": {"state":"solved", "attempts": 5, "time": 296},
+  "J": {"state":"solved", "attempts": 19, "time": 251},
+  "K": {"state":"solved", "attempts": 4, "time": 113}
+}, {
+  "id": "41",
+  "name": "University of Helsinki",
+  "A": {"state":"solved", "attempts": 4, "time": 225},
+  "C": {"state":"solved", "attempts": 3, "time": 242},
+  "E": {"state":"solved", "attempts": 3, "time": 276},
+  "H": {"state":"solved", "attempts": 9, "time": 230},
+  "J": {"state":"solved", "attempts": 2, "time": 154},
+  "K": {"state":"pend", "attempts": 12}
+}, {
+  "id": "42",
+  "name": "Universidade Federal do ParanÃ¡",
+  "C": {"state":"solved", "attempts": 1, "time": 91},
+  "E": {"state":"solved", "attempts": 1, "time": 64},
+  "H": {"state":"tried", "attempts": 8},
+  "J": {"state":"solved", "attempts": 1, "time": 166},
+  "K": {"state":"solved", "attempts": 2, "time": 45}
+}, {
+  "id": "43",
+  "name": "Moscow Institute of Physics &amp;Technology",
+  "A": {"state":"tried", "attempts": 9},
+  "C": {"state":"solved", "attempts": 1, "time": 82},
+  "E": {"state":"solved", "attempts": 2, "time": 174},
+  "G": {"state":"tried", "attempts": 2},
+  "H": {"state":"tried", "attempts": 3},
+  "J": {"state":"solved", "attempts": 3, "time": 105},
+  "K": {"state":"solved", "attempts": 1, "time": 31}
+}, {
+  "id": "44",
+  "name": "Wuhan University",
+  "C": {"state":"solved", "attempts": 1, "time": 77},
+  "E": {"state":"solved", "attempts": 3, "time": 133},
+  "H": {"state":"tried", "attempts": 1},
+  "J": {"state":"solved", "attempts": 6, "time": 158},
+  "K": {"state":"solved", "attempts": 1, "time": 42}
+}, {
+  "id": "45",
+  "name": "Universidade de SÃ£o Paulo - Escola PolitÃ©cnica",
+  "C": {"state":"solved", "attempts": 1, "time": 101},
+  "E": {"state":"solved", "attempts": 1, "time": 161},
+  "H": {"state":"tried", "attempts": 5},
+  "J": {"state":"solved", "attempts": 4, "time": 239},
+  "K": {"state":"solved", "attempts": 1, "time": 29}
+}, {
+  "id": "46",
+  "name": "Princeton University",
+  "C": {"state":"solved", "attempts": 1, "time": 57},
+  "E": {"state":"solved", "attempts": 4, "time": 190},
+  "H": {"state":"solved", "attempts": 2, "time": 242},
+  "J": {"state":"tried", "attempts": 3},
+  "K": {"state":"solved", "attempts": 2, "time": 84}
+}, {
+  "id": "47",
+  "name": "Universidade de SÃ£o Paulo - Instituto de MatemÃ¡tica e EstatÃ­stica",
+  "C": {"state":"solved", "attempts": 3, "time": 41},
+  "E": {"state":"solved", "attempts": 3, "time": 148},
+  "H": {"state":"tried", "attempts": 7},
+  "J": {"state":"solved", "attempts": 5, "time": 206},
+  "K": {"state":"solved", "attempts": 4, "time": 60}
+}, {
+  "id": "48",
+  "name": "International Institute of Information Technology - Hyderabad",
+  "C": {"state":"solved", "attempts": 1, "time": 115},
+  "E": {"state":"solved", "attempts": 2, "time": 158},
+  "J": {"state":"solved", "attempts": 4, "time": 275},
+  "K": {"state":"solved", "attempts": 2, "time": 62}
+}, {
+  "id": "49",
+  "name": "East China Normal University",
+  "C": {"state":"solved", "attempts": 1, "time": 221},
+  "E": {"state":"solved", "attempts": 2, "time": 163},
+  "J": {"state":"solved", "attempts": 2, "time": 208},
+  "K": {"state":"solved", "attempts": 3, "time": 60}
+}, {
+  "id": "50",
+  "name": "Universidad Nacional de CÃ³rdoba - FaMAF",
+  "A": {"state":"tried", "attempts": 1},
+  "C": {"state":"solved", "attempts": 2, "time": 121},
+  "E": {"state":"solved", "attempts": 1, "time": 234},
+  "H": {"state":"tried", "attempts": 4},
+  "J": {"state":"solved", "attempts": 6, "time": 215},
+  "K": {"state":"solved", "attempts": 1, "time": 69}
+}, {
+  "id": "51",
+  "name": "University of Alberta",
+  "C": {"state":"solved", "attempts": 1, "time": 114},
+  "E": {"state":"solved", "attempts": 5, "time": 226},
+  "H": {"state":"tried", "attempts": 5},
+  "J": {"state":"solved", "attempts": 6, "time": 212},
+  "K": {"state":"solved", "attempts": 1, "time": 31}
+}, {
+  "id": "52",
+  "name": "Seoul National University",
+  "A": {"state":"solved", "attempts": 3, "time": 202},
+  "C": {"state":"solved", "attempts": 3, "time": 98},
+  "E": {"state":"tried", "attempts": 5},
+  "H": {"state":"tried", "attempts": 4},
+  "J": {"state":"solved", "attempts": 5, "time": 188},
+  "K": {"state":"solved", "attempts": 4, "time": 64}
+}, {
+  "id": "53",
+  "name": "Swiss Federal Institute of Technology Zurich - VIS",
+  "B": {"state":"solved", "attempts": 3, "time": 181},
+  "C": {"state":"solved", "attempts": 3, "time": 61},
+  "G": {"state":"tried", "attempts": 2},
+  "H": {"state":"solved", "attempts": 6, "time": 247},
+  "J": {"state":"tried", "attempts": 1},
+  "K": {"state":"solved", "attempts": 5, "time": 59}
+}, {
+  "id": "54",
+  "name": "Beijing Jiaotong University",
+  "C": {"state":"solved", "attempts": 3, "time": 186},
+  "E": {"state":"solved", "attempts": 4, "time": 255},
+  "J": {"state":"solved", "attempts": 5, "time": 154},
+  "K": {"state":"solved", "attempts": 1, "time": 38}
+}, {
+  "id": "55",
+  "name": "Indian Institute of Technology - Delhi",
+  "C": {"state":"solved", "attempts": 3, "time": 120},
+  "H": {"state":"solved", "attempts": 2, "time": 210},
+  "J": {"state":"solved", "attempts": 6, "time": 284},
+  "K": {"state":"solved", "attempts": 3, "time": 48}
+}, {
+  "id": "56",
+  "name": "University of Wroclaw",
+  "C": {"state":"solved", "attempts": 4, "time": 146},
+  "E": {"state":"tried", "attempts": 3},
+  "H": {"state":"solved", "attempts": 4, "time": 272},
+  "I": {"state":"tried", "attempts": 1},
+  "J": {"state":"solved", "attempts": 1, "time": 199},
+  "K": {"state":"solved", "attempts": 4, "time": 99}
+}, {
+  "id": "57",
+  "name": "University of Stellenbosch",
+  "A": {"state":"solved", "attempts": 2, "time": 249},
+  "C": {"state":"solved", "attempts": 4, "time": 237},
+  "E": {"state":"solved", "attempts": 1, "time": 286},
+  "J": {"state":"tried", "attempts": 5},
+  "K": {"state":"solved", "attempts": 2, "time": 109}
+}, {
+  "id": "58",
+  "name": "Pontificia Universidad CatÃ³lica del PerÃº",
+  "C": {"state":"solved", "attempts": 6, "time": 85},
+  "E": {"state":"solved", "attempts": 8, "time": 225},
+  "H": {"state":"tried", "attempts": 2},
+  "J": {"state":"solved", "attempts": 10, "time": 267},
+  "K": {"state":"solved", "attempts": 1, "time": 28}
+}, {
+  "id": "59",
+  "name": "Hangzhou Dianzi University",
+  "A": {"state":"tried", "attempts": 2},
+  "C": {"state":"solved", "attempts": 3, "time": 123},
+  "E": {"state":"solved", "attempts": 2, "time": 32},
+  "J": {"state":"pend", "attempts": 13},
+  "K": {"state":"solved", "attempts": 1, "time": 48}
+}, {
+  "id": "60",
+  "name": "Fuzhou University",
+  "C": {"state":"solved", "attempts": 2, "time": 111},
+  "E": {"state":"solved", "attempts": 1, "time": 55},
+  "H": {"state":"tried", "attempts": 5},
+  "J": {"state":"pend", "attempts": 14},
+  "K": {"state":"solved", "attempts": 3, "time": 46}
+}, {
+  "id": "61",
+  "name": "California State University - Chico",
+  "A": {"state":"tried", "attempts": 2},
+  "C": {"state":"solved", "attempts": 2, "time": 70},
+  "D": {"state":"tried", "attempts": 2},
+  "J": {"state":"solved", "attempts": 2, "time": 118},
+  "K": {"state":"solved", "attempts": 2, "time": 40}
+}, {
+  "id": "62",
+  "name": "German University in Cairo",
+  "C": {"state":"solved", "attempts": 1, "time": 222},
+  "E": {"state":"solved", "attempts": 1, "time": 111},
+  "J": {"state":"tried", "attempts": 3},
+  "K": {"state":"solved", "attempts": 1, "time": 56}
+}, {
+  "id": "63",
+  "name": "University of New South Wales",
+  "A": {"state":"tried", "attempts": 1},
+  "C": {"state":"solved", "attempts": 1, "time": 108},
+  "E": {"state":"solved", "attempts": 1, "time": 132},
+  "H": {"state":"tried", "attempts": 1},
+  "J": {"state":"tried", "attempts": 5},
+  "K": {"state":"solved", "attempts": 5, "time": 75}
+}, {
+  "id": "64",
+  "name": "Ain Shams University",
+  "C": {"state":"solved", "attempts": 2, "time": 141},
+  "J": {"state":"solved", "attempts": 1, "time": 206},
+  "K": {"state":"solved", "attempts": 1, "time": 59}
+}, {
+  "id": "65",
+  "name": "Bangladesh University of Engineering and Technology",
+  "C": {"state":"solved", "attempts": 1, "time": 98},
+  "E": {"state":"solved", "attempts": 2, "time": 266},
+  "H": {"state":"tried", "attempts": 2},
+  "J": {"state":"tried", "attempts": 6},
+  "K": {"state":"solved", "attempts": 1, "time": 47}
+}, {
+  "id": "66",
+  "name": "Leiden University",
+  "A": {"state":"solved", "attempts": 2, "time": 196},
+  "C": {"state":"solved", "attempts": 2, "time": 151},
+  "E": {"state":"tried", "attempts": 2},
+  "J": {"state":"tried", "attempts": 3},
+  "K": {"state":"solved", "attempts": 2, "time": 40}
+}, {
+  "id": "67",
+  "name": "Huazhong University of Science &amp;Technology",
+  "B": {"state":"tried", "attempts": 1},
+  "C": {"state":"solved", "attempts": 1, "time": 156},
+  "E": {"state":"tried", "attempts": 9},
+  "J": {"state":"solved", "attempts": 1, "time": 228},
+  "K": {"state":"solved", "attempts": 2, "time": 43}
+}, {
+  "id": "68",
+  "name": "Instituto TecnolÃ³gico de Aeronautica",
+  "A": {"state":"solved", "attempts": 5, "time": 245},
+  "C": {"state":"solved", "attempts": 3, "time": 96},
+  "J": {"state":"pend", "attempts": 21},
+  "K": {"state":"solved", "attempts": 1, "time": 30}
+}, {
+  "id": "69",
+  "name": "University of Miami",
+  "C": {"state":"solved", "attempts": 1, "time": 167},
+  "J": {"state":"solved", "attempts": 5, "time": 189},
+  "K": {"state":"solved", "attempts": 2, "time": 80}
+}, {
+  "id": "70",
+  "name": "Shandong University",
+  "C": {"state":"solved", "attempts": 2, "time": 148},
+  "E": {"state":"solved", "attempts": 3, "time": 266},
+  "G": {"state":"tried", "attempts": 7},
+  "H": {"state":"tried", "attempts": 1},
+  "J": {"state":"tried", "attempts": 3},
+  "K": {"state":"solved", "attempts": 1, "time": 64}
+}, {
+  "id": "71",
+  "name": "Universidade Federal de Minas Gerais",
+  "C": {"state":"solved", "attempts": 1, "time": 110},
+  "E": {"state":"solved", "attempts": 3, "time": 287},
+  "J": {"state":"tried", "attempts": 8},
+  "K": {"state":"solved", "attempts": 1, "time": 123}
+}, {
+  "id": "72",
+  "name": "Harvey Mudd College",
+  "C": {"state":"solved", "attempts": 3, "time": 70},
+  "E": {"state":"solved", "attempts": 3, "time": 206},
+  "F": {"state":"tried", "attempts": 1},
+  "J": {"state":"pend", "attempts": 26},
+  "K": {"state":"solved", "attempts": 4, "time": 185}
+}, {
+  "id": "73",
+  "name": "Simon Fraser University",
+  "C": {"state":"solved", "attempts": 2, "time": 239},
+  "I": {"state":"tried", "attempts": 2},
+  "J": {"state":"solved", "attempts": 4, "time": 220},
+  "K": {"state":"solved", "attempts": 4, "time": 83}
+}, {
+  "id": "74",
+  "name": "Ho Chi Minh City University of Science",
+  "C": {"state":"solved", "attempts": 1, "time": 115},
+  "J": {"state":"tried", "attempts": 7},
+  "K": {"state":"solved", "attempts": 1, "time": 22}
+}, {
+  "id": "75",
+  "name": "University of Oklahoma",
+  "A": {"state":"tried", "attempts": 1},
+  "C": {"state":"solved", "attempts": 2, "time": 57},
+  "E": {"state":"tried", "attempts": 2},
+  "J": {"state":"tried", "attempts": 4},
+  "K": {"state":"solved", "attempts": 3, "time": 25}
+}, {
+  "id": "76",
+  "name": "Hong Kong University of Science and Technology",
+  "A": {"state":"tried", "attempts": 3},
+  "C": {"state":"solved", "attempts": 1, "time": 84},
+  "J": {"state":"tried", "attempts": 4},
+  "K": {"state":"solved", "attempts": 2, "time": 48}
+}, {
+  "id": "77",
+  "name": "Universidad de Guanajuato - CIMAT",
+  "A": {"state":"tried", "attempts": 1},
+  "C": {"state":"solved", "attempts": 1, "time": 102},
+  "J": {"state":"tried", "attempts": 2},
+  "K": {"state":"solved", "attempts": 1, "time": 57}
+}, {
+  "id": "78",
+  "name": "Zhejiang Normal University",
+  "C": {"state":"solved", "attempts": 2, "time": 128},
+  "E": {"state":"tried", "attempts": 2},
+  "J": {"state":"tried", "attempts": 8},
+  "K": {"state":"solved", "attempts": 1, "time": 45}
+}, {
+  "id": "79",
+  "name": "University of Chicago",
+  "C": {"state":"solved", "attempts": 1, "time": 88},
+  "E": {"state":"tried", "attempts": 4},
+  "K": {"state":"solved", "attempts": 1, "time": 137}
+}, {
+  "id": "80",
+  "name": "Duke University",
+  "C": {"state":"solved", "attempts": 1, "time": 124},
+  "E": {"state":"tried", "attempts": 3},
+  "J": {"state":"tried", "attempts": 3},
+  "K": {"state":"solved", "attempts": 2, "time": 99}
+}, {
+  "id": "81",
+  "name": "Alexandria University - Faculty of Engineering",
+  "C": {"state":"solved", "attempts": 1, "time": 169},
+  "K": {"state":"solved", "attempts": 1, "time": 79}
+}, {
+  "id": "82",
+  "name": "American University of Sharjah",
+  "C": {"state":"solved", "attempts": 2, "time": 240},
+  "J": {"state":"tried", "attempts": 5},
+  "K": {"state":"solved", "attempts": 1, "time": 39}
+}, {
+  "id": "83",
+  "name": "Harbin Engineering University",
+  "C": {"state":"solved", "attempts": 2, "time": 162},
+  "E": {"state":"tried", "attempts": 8},
+  "J": {"state":"tried", "attempts": 7},
+  "K": {"state":"solved", "attempts": 4, "time": 90}
+}, {
+  "id": "84",
+  "name": "University of Wisconsin - Madison",
+  "C": {"state":"solved", "attempts": 1, "time": 210},
+  "G": {"state":"tried", "attempts": 3},
+  "J": {"state":"pend", "attempts": 10},
+  "K": {"state":"solved", "attempts": 4, "time": 89}
+}, {
+  "id": "85",
+  "name": "Orel State Technical University",
+  "C": {"state":"solved", "attempts": 3, "time": 121},
+  "J": {"state":"tried", "attempts": 2},
+  "K": {"state":"solved", "attempts": 5, "time": 133}
+}, {
+  "id": "86",
+  "name": "Universidad del Valle",
+  "C": {"state":"solved", "attempts": 1, "time": 170},
+  "J": {"state":"tried", "attempts": 1},
+  "K": {"state":"solved", "attempts": 6, "time": 105}
+}, {
+  "id": "87",
+  "name": "Universidad CatÃ³lica Boliviana - La Paz",
+  "C": {"state":"solved", "attempts": 1, "time": 147},
+  "J": {"state":"tried", "attempts": 2},
+  "K": {"state":"solved", "attempts": 5, "time": 150}
+}, {
+  "id": "88",
+  "name": "University of Minnesota - Twin Cities",
+  "C": {"state":"solved", "attempts": 1, "time": 160},
+  "E": {"state":"solved", "attempts": 1, "time": 248},
+  "K": {"state":"tried", "attempts": 8}
+}, {
+  "id": "89",
+  "name": "Universidad de las Ciencias InformÃ¡ticas",
+  "C": {"state":"solved", "attempts": 3, "time": 121},
+  "K": {"state":"solved", "attempts": 7, "time": 145}
+}, {
+  "id": "90",
+  "name": "University of California - San Diego",
+  "B": {"state":"tried", "attempts": 8},
+  "C": {"state":"solved", "attempts": 12, "time": 157},
+  "J": {"state":"tried", "attempts": 4},
+  "K": {"state":"solved", "attempts": 8, "time": 25}
+}, {
+  "id": "91",
+  "name": "University of Maryland",
+  "C": {"state":"solved", "attempts": 2, "time": 159},
+  "E": {"state":"solved", "attempts": 7, "time": 297},
+  "K": {"state":"pend", "attempts": 11}
+}, {
+  "id": "92",
+  "name": "Illinois State University",
+  "C": {"state":"solved", "attempts": 1, "time": 184},
+  "K": {"state":"solved", "attempts": 8, "time": 283}
+}, {
+  "id": "93",
+  "name": "Universidad de La Habana",
+  "C": {"state":"solved", "attempts": 6, "time": 268},
+  "E": {"state":"tried", "attempts": 8},
+  "K": {"state":"solved", "attempts": 6, "time": 235}
+}, {
+  "id": "94",
+  "name": "Universidad Nacional de Colombia - BogotÃ¡",
+  "C": {"state":"solved", "attempts": 4, "time": 227},
+  "K": {"state":"solved", "attempts": 8, "time": 291}
+}, {
+  "id": "95",
+  "name": "University of Virginia",
+  "C": {"state":"solved", "attempts": 5, "time": 266},
+  "K": {"state":"solved", "attempts": 17, "time": 217}
+}, {
+  "id": "96",
+  "name": "University of Canterbury",
+  "C": {"state":"solved", "attempts": 1, "time": 38},
+  "E": {"state":"tried", "attempts": 1},
+  "K": {"state":"tried", "attempts": 4}
+}, {
+  "id": "97",
+  "name": "South Dakota School of Mines and Technology",
+  "C": {"state":"tried", "attempts": 3},
+  "E": {"state":"tried", "attempts": 4},
+  "J": {"state":"tried", "attempts": 4},
+  "K": {"state":"solved", "attempts": 3, "time": 106}
+}, {
+  "id": "98",
+  "name": "EAFIT University",
+  "A": {"state":"tried", "attempts": 2},
+  "C": {"state":"tried", "attempts": 1},
+  "H": {"state":"tried", "attempts": 2},
+  "K": {"state":"solved", "attempts": 4, "time": 115}
+}, {
+  "id": "99",
+  "name": "Cairo University - Faculty of Computers and Information",
+  "C": {"state":"solved", "attempts": 2, "time": 173},
+  "H": {"state":"tried", "attempts": 4},
+  "J": {"state":"tried", "attempts": 2},
+  "K": {"state":"pend", "attempts": 11}
+}, {
+  "id": "100",
+  "name": "University of Illinois at Urbana-Champaign",
+  "C": {"state":"solved", "attempts": 2, "time": 222},
+  "K": {"state":"pend", "attempts": 19}
+}, {
+  "id": "101",
+  "name": "Amiidabir University of Technology"
+}, {
+  "id": "101",
+  "name": "DJ Sanghvi College of Engineering"
+}, {
+  "id": "101",
+  "name": "Indian Institute of Technology - Kanpur"
+}, {
+  "id": "101",
+  "name": "King Abdullah University of Science and Technology",
+  "F": {"state":"tried", "attempts": 1},
+  "I": {"state":"tried", "attempts": 1},
+  "J": {"state":"tried", "attempts": 4},
+  "K": {"state":"tried", "attempts": 4}
+}, {
+  "id": "101",
+  "name": "Sichuan University"
+}]

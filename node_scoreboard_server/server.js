@@ -1,23 +1,22 @@
 
-// Set port for server.
-var PORT = 1336;
 
-var localhost = false;
-
-var sbURL = "../../www/data/scoreboard.json";
+var PORT = 1336;	// Set port for server.
+var sbURL = "../../www/data/scoreboard.json"; // Direction to scoreboard file.
+var localhost = false;	// Are we testing on localhost?
 
 // Load libs and set port to socket
-var io = require('socket.io').listen(PORT),
-	fs = require('fs'),
-	_ = require('underscore')._,
-	Backbone = require('backbone'),
-	sb,
-	client,
-	delta = new Backbone.Collection(),
-	watchChangeCounter;
+var io = require('socket.io').listen(PORT);
+var fs = require('fs');
+var _ = require('underscore')._;
+var Backbone = require('backbone');
+
+// Our collections of teams.
+var delta = new Backbone.Collection();
+var sb,
+	client;
 
 
-	console.log("Setup complete! Listening on port " + PORT);
+console.log("Setup complete! Listening on port " + PORT);
 
 //// SETUP SOCKET.IO
 
@@ -83,8 +82,6 @@ if(localhost){
 	
 }else{
 	
-	watchChangeCounter = 0;
-	
 	// Watch the scoreboard file for change, read and emit it when it does.
 	fs.watch(__dirname + "/" + sbURL, function(event, filename) {
 		if (event == "change") change();
@@ -101,41 +98,47 @@ var calcDelta = function (sbJSON) {
 		deltaAttr,
 		deltaJSON;
 	
-	delta.reset();
+	delta.reset();		// Reset the delta collection with no data
 	
+	// Loop through all of the teams in our freshest scoreboard.
 	sb.each(function(team){
+		// get id and attributes.
 		id = team.get("id");
 		teamAttr = team.attributes;
 
-		// Check if the team already exist
+		// Check if the team already exist on client
 		if(client.get(id)){
-
+			
+			// Then get the teams old attributes
 			clientAttr = client.get(id).attributes;
 			
-			// If the attributes aren't the same
+			// Compare all attributes, old to new. If not equal, create a delta for this team.
 			if(!_.isEqual(teamAttr, clientAttr)){
-			
-				deltaAttr = {"id": id};
-			
-				for (var attr in teamAttr) {
+				
+				deltaAttr = {"id": id};	// we always need the id as reference when updating on client.
+				
+				// Loop through all attributes and asign the not equal ones to deltaAttr.
+				for(var attr in teamAttr){
 					if(!_.isEqual(teamAttr[attr], clientAttr[attr])){
 						deltaAttr[attr] = teamAttr[attr];
 					}
 				}
-			
-				delta.add(deltaAttr);
+				
+				delta.add(deltaAttr); // Then add them as a delta model to the collection named delta.
 			}
-		}else{ // we have to add all the attributes.
+			
+		}else{ // we have to add all attributes, which means: a new model.
 			delta.add(teamAttr);
 		}
 	});
 	
-	//client.update(sbJSON);
+	client.update(sbJSON);
 	deltaJSON = delta.toJSON();
 	console.log("Delta sent:");
 	console.log(deltaJSON);
 	return deltaJSON;
 };
+
 
 
 var change = function() {

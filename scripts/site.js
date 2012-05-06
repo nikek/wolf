@@ -7,6 +7,10 @@ var teamList = new TeamList(teamsJSON);
 // Create the View for the Collection.
 var Scoreboard = new TeamListView({collection:teamList});
 
+var Starred = teamList.where({starred:true});
+
+console.log(Starred);
+
 // Start the scoreboard by render the data to DOM.
 Scoreboard.render();
 

@@ -23,31 +23,32 @@ var Team = Backbone.Model.extend({
 	
 	// Default values to fill gap where the json is undefined.
 	defaults: {
+		name: "TeamName",
+		group: "region",
 		starred: false,
 		score: 0,
 		time: 0,
-		problems: {
-			A: ["", 0, 0],
-			B: ["", 0, 0],
-			C: ["", 0, 0],
-			D: ["", 0, 0],
-			E: ["", 0, 0],
-			F: ["", 0, 0],
-			G: ["", 0, 0],
-			H: ["", 0, 0],
-			I: ["", 0, 0],
-			J: ["", 0, 0],
-			K: ["", 0, 0]
-		}
+		A: {},
+		B: {},
+		C: {},
+		D: {},
+		E: {},
+		F: {},
+		G: {},
+		H: {},
+		I: {},
+		J: {},
+		K: {}
 	},
 	
 	// When a model is created, make it show in the console.
 	initialize: function() {
 		console.log("new model");
 		
-		this.on("change:problems", this.calcScoreTime, this);
+		this.on('change:A', this.calcScoreTime, this);
 		
 		this.getLocalData();
+		this.calcScoreTime();
 	},
 	
 	// Toggle the starred variable, triggers change on view.
@@ -75,23 +76,21 @@ var Team = Backbone.Model.extend({
 	},
 	
 	
-	updateFromDelta: function(newAttrs){
-		// delta is a model, get its attrs and set them silently,
-		// then use calcScoreTime which sets score and time and trigger change.
-
-
+	calcScoreTime: function() {
+		console.log("calcScoreTime!");
+		var st = {
+			score: 0,
+			time: 0
+		};
 		
-		newAttrs.score = this.get("score");
-		newAttrs.time = this.get("time");
-		
-		_.each(newAttrs.problems, function(attr){
-				if(typeof attr[2] !== "undefined"){
-					newAttrs.score += 1;
-					newAttrs.time += attr[2];
-				}
+		_.each(this.attributes, function(attr){
+			if(attr !== null && attr.t){
+				st.score += 1;
+				st.time += attr.t;
+			}
 		});
 		
-		this.set(newAttrs, {silent:true});
+		this.set(st);
 	}
 
 });
@@ -148,7 +147,8 @@ var TeamList = Backbone.Collection.extend({
 	model: Team,
 	//url: "node_scoreboard_server/scoreboard.json",
 	//url: "http://130.237.8.168/data/scoreboard.json",
-	url: "http://icpclive.com/data/scoreboard.php",
+	//url: "http://icpclive.com/data/scoreboard.php",
+	url: "http://localhost/wolf/data/scoreboard.php",
 	
 	
 	// The .fetch() function will go through Backbone.sync which use ajax to get
@@ -173,9 +173,9 @@ var TeamList = Backbone.Collection.extend({
 	// - matching models are updated using set(), triggers 'change'.
 	// - a collection change event will be dispatched for each add() and remove()
 	reset: function(models, options) {
-		return this.update(models);
+		return this.update(models, false);
 	},
-	update: function(models) {
+	update: function(models, isDelta) {
 		models || (models = []);
 		
 		// Loop through all the models in response
@@ -196,7 +196,7 @@ var TeamList = Backbone.Collection.extend({
 			if (this._byId[modelId] ) {
 				var attrs = (model instanceof Backbone.Model) ? _.clone(model.attributes) : _.clone(model);
 				delete attrs[idAttribute];
-				this._byId[modelId].updateFromDelta( attrs );
+				this._byId[modelId].set( attrs );
 			} else {
 				this.add( model );
 			}
@@ -244,6 +244,37 @@ var TeamListView = Backbone.View.extend({
 	
 	initialize: function() {
 		this.collection.on('add', this.render, this);
+	},
+
+	// Clear the html in element. Create views for every model and add to element.
+	render: function () {
+		
+		this.$el.html("");
+		
+		this.collection.each(function(team){
+			var teamView = new TeamView({model: team});
+			this.$el.append(teamView.render().el);
+		}, this);
+		
+		return this;	// still, so we can chain the method like: this.render().el
+	}
+});
+
+
+// -------------------------------------------------------
+// TEAM LIST VIEW
+// -------------------------------------------------------
+// Handling all the TeamViews and their common methods.
+
+var TeamListView = Backbone.View.extend({
+	
+	// Connect this view to the #scoreboard element in DOM.
+	el: $("#scoreboard"),
+	
+	initialize: function() {
+		// fix this! this.createViews();
+		this.collection.on('add', this.render, this);
+
 	},
 
 	// Clear the html in element. Create views for every model and add to element.
