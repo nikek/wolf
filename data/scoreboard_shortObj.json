@@ -15,6 +15,7 @@
   "A": {"s":"solved", "a": 2, "t": 202},
   "B": {"s":"solved", "a": 1, "t": 291},
   "C": {"s":"solved", "a": 2, "t": 78},
+  "D": {"s":"solved", "a": 2, "t": 98},
   "E": {"s":"solved", "a": 3, "t": 90},
   "G": {"s":"solved", "a": 1, "t": 266},
   "H": {"s":"solved", "a": 3, "t": 235},
@@ -818,19 +819,19 @@
   "id": "101",
   "name": "Amiidabir University of Technology"
 }, {
-  "id": "101",
+  "id": "102",
   "name": "DJ Sanghvi College of Engineering"
 }, {
-  "id": "101",
+  "id": "103",
   "name": "Indian Institute of Technology - Kanpur"
 }, {
-  "id": "101",
+  "id": "104",
   "name": "King Abdullah University of Science and Technology",
   "F": {"s":"tried", "a": 1},
   "I": {"s":"tried", "a": 1},
   "J": {"s":"tried", "a": 4},
   "K": {"s":"tried", "a": 4}
 }, {
-  "id": "101",
+  "id": "105",
   "name": "Sichuan University"
 }]

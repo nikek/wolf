@@ -2,19 +2,21 @@
 (function($){
 
 // Create the Collection from JSON.
-var teamList = new TeamList(teamsJSON);
+var teamList = new TeamList({});
 
 // Create the View for the Collection.
 var Scoreboard = new TeamListView({collection:teamList});
 
+// Now when the views are hooked up, lets add som data.
+teamList.reset(teamsJSON);
 var Starred = teamList.where({starred:true});
+//console.log(Starred);
 
-console.log(Starred);
-
+teamList.rerank();
 // Start the scoreboard by render the data to DOM.
 Scoreboard.render();
-
-
+//console.log(teamList.get(3).get('name'));
+//console.log(teamList.sortedIndex(teamList.get(3), teamList.comparator));
 
 // -------------------------------------------------------
 // Connection functions

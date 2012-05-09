@@ -29,6 +29,7 @@ var Team = Backbone.Model.extend({
 		starred: false,
 		score: 0,
 		time: 0,
+		rank: 0,
 		A: {},
 		B: {},
 		C: {},
@@ -44,38 +45,54 @@ var Team = Backbone.Model.extend({
 	
 	// When a model is created, make it show in the console.
 	initialize: function() {
-		console.log("new model");
+		// get and set values from different places.
+		this.set($.extend(this.calcScoreTime(), this.getLocalData()));
 		
-		this.on('change', this.calcScoreTime, this);
+		// Bindings
+		this.on('change:A', this.resetScoreTime, this);
+		this.on('change:B', this.resetScoreTime, this);
+		this.on('change:C', this.resetScoreTime, this);
+		this.on('change:D', this.resetScoreTime, this);
+		this.on('change:E', this.resetScoreTime, this);
+		this.on('change:F', this.resetScoreTime, this);
+		this.on('change:G', this.resetScoreTime, this);
+		this.on('change:H', this.resetScoreTime, this);
+		this.on('change:I', this.resetScoreTime, this);
+		this.on('change:J', this.resetScoreTime, this);
+		this.on('change:K', this.resetScoreTime, this);
+		this.on('change:L', this.resetScoreTime, this);
 		
-		this.getLocalData();
-		this.calcScoreTime();
+		console.log("new model");// Say cheese to the console!
 	},
 	
 	// Toggle the starred variable, triggers change on view.
 	toggleStar: function() {
+		var storeKey = this.prenum + this.get('id');
+		
 		if(this.get('starred') === false){
 			this.set({'starred': true});
-			$.store.set(this.prenum + this.get('id'), true);
+			$.store.set(storeKey, true);
 		}else{
 			this.set({'starred': false});
-			$.store.remove(this.prenum + this.get('id'));
+			$.store.remove(storeKey);
 		}
 	},
 	
 	
 	getLocalData: function() {
 		
-		// Starred?		(starTeam4: true)
+		// Starred?		(prenum4: true)
 		var starredFromStorage = $.store.get(this.prenum + this.get('id'));
 		if(typeof starredFromStorage !== "undefined"){
-			this.set({ starred: starredFromStorage });
+			return { starred: starredFromStorage };
+		}else{
+			return {};
 		}
 		
-		// If we save and want to retrieve more client specific stuff.
-		// In that case change the variable prenum and store an object instead.
+		// If we save and want to retrieve more client specific stuff
+		// change the variable prenum and store an object instead.
+		// Also change the toggleStar method.
 	},
-	
 	
 	calcScoreTime: function() {
 		console.log("calcScoreTime!");
@@ -91,7 +108,11 @@ var Team = Backbone.Model.extend({
 			}
 		});
 		
-		this.set(st);
+		return st;
+	},
+	
+	resetScoreTime: function() {
+		this.set(this.calcScoreTime());
 	}
 
 });
@@ -151,8 +172,7 @@ var TeamList = Backbone.Collection.extend({
 	url: "http://localhost/wolf/data/scoreboard.php",
 	
 	initialize: function(){
-		this.on('change:time', this.sort, this);
-		this.on('reset', this.sortReset, this);
+		this.on('change:time', this.resort, this);
 	},
 	
 	// The .fetch() function will go through Backbone.sync which use ajax to get
@@ -179,7 +199,7 @@ var TeamList = Backbone.Collection.extend({
 	reset: function(models, options) {
 		return this.update(models, false);
 	},
-	update: function(models, isDelta) {
+	update: function(models) {
 		models || (models = []);
 		
 		// Loop through all the models in response
@@ -197,10 +217,10 @@ var TeamList = Backbone.Collection.extend({
 			// On update: Ternary if the object is a instance of Backbone.Model, then get the attributes, else get whole model.
 			// Get rid of the id amongst the attributes to be updated.
 			// Then set the new attributes to out model in the collection.
-			if (this._byId[modelId] ) {
+			if (team = this._byId[modelId]) {
 				var attrs = (model instanceof Backbone.Model) ? _.clone(model.attributes) : _.clone(model);
 				delete attrs[idAttribute];
-				this._byId[modelId].set( attrs );
+				team.set( attrs );
 			} else {
 				this.add( model );
 			}
@@ -213,8 +233,19 @@ var TeamList = Backbone.Collection.extend({
 		return -(team.get("score")*10000 - team.get("time"));
 	},
 	
-	sortReset: function(){
-		console.warn("sortReset");
+	resort: function(){
+		console.log("resort!");
+		this.sort();
+		this.rerank();
+	},
+	
+	rerank: function() {
+		console.log("reranking");
+		var count = 0;
+		
+		_.each(this.models, function(team){
+			team.set({rank: ++count}, {silent: true});
+		});
 	}
 });
 
@@ -229,10 +260,11 @@ var TeamListView = Backbone.View.extend({
 	
 	// Connect this view to the #scoreboard element in DOM.
 	el: $("#scoreboard"),
+	allTeamViews: {},
 	
 	initialize: function() {
-		this.collection.on('add', this.render, this);
-		this.collection.on('change', this.render, this);
+		this.collection.on('add', this.add, this);
+		this.collection.on('reset', this.render, this);
 	},
 
 	// Clear the html in element. Create views for every model and add to element.
@@ -241,11 +273,17 @@ var TeamListView = Backbone.View.extend({
 		this.$el.html("");
 		
 		this.collection.each(function(team){
-			var teamView = new TeamView({model: team});
-			this.$el.append(teamView.render().el);
+			teamID = team.get('id');
+			this.$el.append(this.allTeamViews[teamID].render().el);
 		}, this);
 		
 		return this;	// still, so we can chain the method like: this.render().el
+	},
+	
+	add: function(team) {
+		console.log("allTeamViews + 1");
+		var view = new TeamView({model:team});
+		this.allTeamViews[team.get('id')] = view;
 	}
 });
 

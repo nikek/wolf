@@ -97,6 +97,7 @@ require_once('layout/head.php');
 	<script id="tmplTeam" type="text/template">
 	
 		<td class="team-star <%= starred %>">&#9733;</td>
+		<td><%= rank %></td>
 		<td><%= name %></td>
 		<td><%= score %></td>
 		<td><%= time %></td>
