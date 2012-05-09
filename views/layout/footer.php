@@ -1,4 +1,5 @@
 <div class="ident">
+	<img src="<?=BASE_URL;?>images/Logo-2012-notext.png" id="icpc-live-logo" /><br/>
 	ICPC LIVE - The ACM-ICPC International Collegiate Programming Contest Live Broadcasted<br/>
 	Links: <!--<a href="#">Backbone</a> | 
 	<a href="#">Different views</a> | -->

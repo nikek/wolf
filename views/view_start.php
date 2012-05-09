@@ -21,9 +21,9 @@
 	
 	<?php // WRAPPING EVERYTHING BUT HEADER & FOOTER. ?>
 	<section class="wrap start-wrap group">
-			<div class="colwrap">
+			<!--<div class="colwrap">
 				<img src="<?=BASE_URL;?>images/Logo-2012.png" id="icpc-live-logo" />
-			</div>
+			</div>-->
 			
 			<div class="col2">
 			
