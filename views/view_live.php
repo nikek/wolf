@@ -79,7 +79,10 @@ require_once('layout/head.php');
 
 //echo @file_get_contents($feed2);
 ?>
-
+				<table id="starred" cellspacing="0"></table>
+				<br />
+				<br />
+				<br />
 				<table id="scoreboard" cellspacing="0"></table>
 				
 				</div>

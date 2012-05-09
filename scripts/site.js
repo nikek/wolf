@@ -4,17 +4,19 @@
 // Create the Collection from JSON.
 var teamList = new TeamList({});
 
-// Create the View for the Collection.
+// Create Views for the Collection.
 var Scoreboard = new TeamListView({collection:teamList});
+//var Starred = new StarredView({collection:teamList});
 
 // Now when the views are hooked up, lets add som data.
 teamList.reset(teamsJSON);
-var Starred = teamList.where({starred:true});
-//console.log(Starred);
-
 teamList.rerank();
+
+
 // Start the scoreboard by render the data to DOM.
 Scoreboard.render();
+//Starred.render();
+
 //console.log(teamList.get(3).get('name'));
 //console.log(teamList.sortedIndex(teamList.get(3), teamList.comparator));
 
@@ -45,7 +47,7 @@ var setupPolling = function () {
 	return setInterval(function(){
 		teamList.fetch({ cache: false, type: "jsonp",
 			success: function(){
-				console.log("Fetched!");
+				//console.log("Fetched!");
 			},
 			error: function(error) {
 				console.log("Error on fetching. Try refreshing the page in a while.");
