@@ -12,6 +12,7 @@
  */
 	define('BASEPATH', $_SERVER['DOCUMENT_ROOT']);
 	define('BASE_URL', "http://localhost/wolf/");
+	//define('BASE_URL', "http://213.103.206.210/wolf/");
  
 /**
  * A session class.

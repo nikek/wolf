@@ -543,34 +543,7 @@ section.start-wrap {
 			margin:0 0 8px 0;
 		}
 
-	#scoreboard-wrap { 
-		width:100%; 
-		clear:both;
-	}
 	
-		// All the other things for the scoreboard
-		.team-star {
-			cursor: pointer;
-			
-			
-			.font-size(1);
-			color: #aaa;
-			
-			/* IGNORE SELECTION HIGHLIGHT ON STAR */
-			-webkit-touch-callout: none;
-			-webkit-user-select: none;
-			-khtml-user-select: none;
-			-moz-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
-			
-		}
-		.team-star:hover, .team-star:active, .team-star:focus {cursor:pointer;}
-		.team-star.true {
-			color:#ed0;
-			text-shadow:-1px 0 0 rgba(0,0,0,0.5),1px 0 0 rgba(0,0,0,0.5),0 -1px 0 rgba(0,0,0,0.1),0 1px 0 rgba(0,0,0,0.5),
-				-1px -1px 1px rgba(0,0,0,0.5),1px -1px 1px rgba(0,0,0,0.5),-1px 1px 1px rgba(0,0,0,0.5),1px 1px 1px rgba(0,0,0,0.5);
-		}
 		
 	.boxing2 {
 		padding:0px;
@@ -611,19 +584,89 @@ section.start-wrap {
 // Scoreboard Styling
 // -------------------------------------------------------
 
-#scoreboard {
+#scoreboard-wrap { 
+	width:100%; 
+	clear:both;
 	
+	p {
+		max-width:500px;
+	}
 }
+
+#scoreboard, #starred {
+	width:100%;
+	margin-bottom:30px;
+}
+
+#starred {
+	th {
+		background:#474317;
+		background:fade(#ed0, 20%);
+		color:#fff;
+	}
+}
+
+#scoreboard {
+	th {
+		background:#2b0f2b;
+		background:fade(darken(@highlightLink, 14), 50%);
+		color:#fff;
+	}
+}
+
+th.team-rank {
+	.font-size(0.9);
+}
+
+
+tr:nth-child(even) {
+	background:#666;
+	background:rgba(69,67,66, 0.3);
+}
+
+
 td { 
 	min-width:40px;
 	height:@line-height/1.2;
 	line-height:@line-height/1.2;
 	margin:0;
+	text-align:center;
 }
+	// All the other things for the scoreboard
+	.team-star {
+		width:2%;
+		min-width:15px;
+		
+		cursor: pointer;
+		.font-size(0.9);
+		color: #aaa;
+		
+		/* IGNORE SELECTION HIGHLIGHT ON STAR */
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+		.team-star.true {
+			color:#ed0;
+			text-shadow:-1px 0 0 rgba(0,0,0,0.5),1px 0 0 rgba(0,0,0,0.5),0 -1px 0 rgba(0,0,0,0.1),0 1px 0 rgba(0,0,0,0.5),
+				-1px -1px 1px rgba(0,0,0,0.5),1px -1px 1px rgba(0,0,0,0.5),-1px 1px 1px rgba(0,0,0,0.5),1px 1px 1px rgba(0,0,0,0.5);
+		}
 
-tr:nth-child(even) {
-	background:rgba(69,67,66, 0.3);
-}
+	.team-rank, .team-score {
+		width:2%;
+		min-width:15px;
+	}
+
+	.team-name {
+		text-align: left;
+		padding-left:0.3%;
+		width:40%;
+	}
+
+
 /*  TABLE HEADER */
 .sc_th_rank {
 	width:30px;
@@ -823,6 +866,23 @@ footer {
 		footer {
 			min-width:@768-min-width;
 		}
+		
+		
+		
+	/* Scoreboard/Starred 
+	.team-name {
+		display:block;
+		position:absolute;
+		top:0;
+	}
+	td {
+		
+	}
+	tr{
+		position:relative;
+		height:@line-height*1.5;
+		vertical-align: bottom;
+	}*/
 }
 
 

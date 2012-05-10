@@ -70,24 +70,16 @@ require_once('layout/head.php');
 		
 		<section id="scoreboard-wrap">
 			
-			<div class="boxing">
-				<div class="inner_boxing">
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-				
 <?php				
 //$feed2="http://scrool.se/icpc/wf2011/xml";
 
 //echo @file_get_contents($feed2);
-?>
-				<table id="starred" cellspacing="0"></table>
-				<br />
-				<br />
-				<br />
-				<table id="scoreboard" cellspacing="0"></table>
-				
-				</div>
-			</div>
+?>			<h2>Scoreboard</h2>
+			<p>Click the star icon to the left of a team to select it as starred. A copy will be place here on top of the scoreboard. By starring the teams you are the most interested in you make it easier to follow their progress throughout the competition.</p>
 			
+			<table id="starred" cellspacing="0"></table>
+			<table id="scoreboard" cellspacing="0">
+			</table>
 		</section>
 		
 	</section>
@@ -100,10 +92,10 @@ require_once('layout/head.php');
 	<script id="tmplTeam" type="text/template">
 	
 		<td class="team-star <%= starred %>">&#9733;</td>
-		<td><%= rank %></td>
-		<td><%= name %></td>
-		<td><%= score %></td>
-		<td><%= time %></td>
+		<td class="team-rank"><%= rank %></td>
+		<td class="team-name"><%= name %></td>
+		<td class="team-score"><%= score %></td>
+		<td class="team-time"><%= time %></td>
 		<%
 		_.each([A, B, C, D, E, F, G, H, I, J, K], function(i) { 
 			
@@ -112,11 +104,11 @@ require_once('layout/head.php');
 				%><td class="<%= i.s %>"><%= i.a %><%
 				
 				if(i.p && i.p !== 0){
-					%>-<%= i.p %>p<%
+					%>-<%= i.p %><%
 				}
 				
 				if(i.t && i.t !== 0){
-					%>-<%= i.t %>min<%
+					%>-<%= i.t %><%
 				}
 			}else{
 				%><td></td><%
@@ -124,6 +116,26 @@ require_once('layout/head.php');
 		});
 		%>
 		
+	</script>
+	<script id="sbHeader" type="text/template">
+		<tr>
+			<th class="team-star">&#9733;</th>
+			<th class="team-rank">#</th>
+			<th class="team-name">Team University</th>
+			<th class="team-score">Score</th>
+			<th class="team-time">Time</th>
+			<th>A</th>
+			<th>B</th>
+			<th>C</th>
+			<th>D</th>
+			<th>E</th>
+			<th>F</th>
+			<th>G</th>
+			<th>H</th>
+			<th>I</th>
+			<th>J</th>
+			<th>K</th>
+		</tr>
 	</script>
 
 	<script src="scripts/libs.js"></script>

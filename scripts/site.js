@@ -6,7 +6,7 @@ var teamList = new TeamList({});
 
 // Create Views for the Collection.
 var Scoreboard = new TeamListView({collection:teamList});
-//var Starred = new StarredView({collection:teamList});
+var Starred = new StarredView({collection:teamList});
 
 // Now when the views are hooked up, lets add som data.
 teamList.reset(teamsJSON);
@@ -15,7 +15,7 @@ teamList.rerank();
 
 // Start the scoreboard by render the data to DOM.
 Scoreboard.render();
-//Starred.render();
+Starred.render();
 
 //console.log(teamList.get(3).get('name'));
 //console.log(teamList.sortedIndex(teamList.get(3), teamList.comparator));

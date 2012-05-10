@@ -62,13 +62,13 @@ var Team = Backbone.Model.extend({
 		this.on('change:I', this.resetScoreTime, this);
 		this.on('change:J', this.resetScoreTime, this);
 		this.on('change:K', this.resetScoreTime, this);
+		//this.on('all', this.logEvent, this);
 		
 		console.log("new model");// Say cheese to the console!
 	},
 	
 	// Toggle the starred variable, triggers change on view.
 	toggleStar: function() {
-		console.log("toggleStarred");
 		var storeKey = this.prenum + this.get('id');
 		
 		if(this.get('starred') === false){
@@ -97,7 +97,6 @@ var Team = Backbone.Model.extend({
 	},
 	
 	calcScoreTime: function() {
-		console.log("calcScoreTime!");
 		var st = {
 			score: 0,
 			time: 0
@@ -115,8 +114,9 @@ var Team = Backbone.Model.extend({
 	
 	resetScoreTime: function() {
 		this.set(this.calcScoreTime());
-	}
-
+	},
+	
+	logEvent: function(event){ console.log("m:" + event); }
 });
 
 
@@ -133,9 +133,7 @@ var TeamView = Backbone.View.extend({
 	tmpl: _.template($("#tmplTeam").html()), // this gets the html template with <script id="id"> in the php view-file.
 
 	// Events, trigger methods on the form: "event selector": "method"
-	events: {
-		"click .team-star": "toggleStar"
-	},
+	events: { "click .team-star": "toggleStar" },
 	
 	// When created, bind change on model to rerender view.
 	// If model is destroyed, also remove the view.
@@ -148,6 +146,7 @@ var TeamView = Backbone.View.extend({
 	// Render the element (el), which is the views html.
 	render: function() {
 		this.$el.html(this.tmpl(this.model.toJSON()));
+		this.delegateEvents();
 		return this; // So we can chain the render like: teamView.render().el
 	},
 	
@@ -155,7 +154,7 @@ var TeamView = Backbone.View.extend({
 	remove: function(){ this.$el.remove(); },
 	
 	// Use a toggle method in model so we can toggle star from other locations aswell, not only here.
-	toggleStar: function() { console.log("viewToggleStar"); this.model.toggleStar();  }
+	toggleStar: function() { this.model.toggleStar();  }
 });
 
 
@@ -172,9 +171,11 @@ var TeamList = Backbone.Collection.extend({
 	//url: "http://130.237.8.168/data/scoreboard.json",
 	//url: "http://icpclive.com/data/scoreboard.php",
 	url: "http://localhost/wolf/data/scoreboard.php",
+	//url: "http://213.103.206.210/wolf/data/scoreboard.php",
 	
 	initialize: function(){
 		this.on('change:time', this.resort, this);
+		//this.on('all', this.logEvent, this);
 	},
 	
 	// The .fetch() function will go through Backbone.sync which use ajax to get
@@ -248,8 +249,9 @@ var TeamList = Backbone.Collection.extend({
 		_.each(this.models, function(team){
 			team.set({rank: ++count});
 		});
-		
-	}
+	},
+	
+	logEvent: function(event){ console.log("tl:" + event); }
 });
 
 
@@ -266,109 +268,73 @@ var TeamListView = Backbone.View.extend({
 	// Connect this view to the #scoreboard element in DOM.
 	el: $("#scoreboard"),
 	allTeamViews: {},
+	sbHeader: $("#sbHeader").html(),
 	
 	initialize: function() {
 		this.collection.on('add', this.add, this);
 		this.collection.on('reset', this.render, this);
+		//this.on('all', this.logEvent, this);
 	},
 
 	// Clear the html in element. Create views for every model and add to element.
 	render: function () {
 		
 		this.$el.html("");
+		this.$el.append(this.sbHeader);
 		
 		this.collection.each(function(team){
-			teamID = team.get('id');
-				this.allTeamViews[teamID].$el.remove();
-			
-			this.$el.append(this.allTeamViews[teamID].render().el);
+			this.$el.append(this.allTeamViews[team.get('id')].render().el);
 		}, this);
-		
-		console.log(this.allTeamViews);
+
 		return this;	// still, so we can chain the method like: this.render().el
 	},
 	
 	add: function(team) {
-		console.log("allTeamViews + 1");
 		var view = new TeamView({model:team});
 		this.allTeamViews[team.get('id')] = view;
-	}
+	},
+	
+	logEvent: function(event){ console.log("tlv:" + event); }
 });
 
 
 
 
-/*var StarredView = Backbone.View.extend({
+var StarredView = Backbone.View.extend({
 	
 	// Connect this view to the #scoreboard element in DOM.
 	el: $("#starred"),
 	allStarredViews: {},
-	
-	initialize: function() {
-		this.collection.on('add', this.add, this);
-		this.collection.on('reset', this.render, this);
-	},
-
-	// Clear the html in element. Create views for every model and add to element.
-	render: function () {
-		
-		this.$el.html("");
-		
-		this.collection.each(function(team){
-			teamID = team.get('id');
-			if(team.get('starred')){
-				this.$el.append(_.clone(this.allStarredViews[teamID]).render().el);
-			}else{
-				this.allStarredViews[teamID].unbind();
-			}
-		}, this);
-		
-		return this;	// still, so we can chain the method like: this.render().el
-	},
-	
-	add: function(team) {
-		console.log("allStarredViews + 1");
-		var view = new TeamView({model:team});
-		this.allStarredViews[team.get('id')] = view;
-	}
-});*/
-
-
-
-
-
-/*var StarredView = Backbone.View.extend({
-	
-	// The element.
-	el: $("#starred"),
-	allStarredViews: {},
+	sbHeader: $("#sbHeader").html(),
 	
 	initialize: function() {
 		this.collection.on('add', this.add, this);
 		this.collection.on('reset', this.render, this);
 		this.collection.on('change:starred', this.render, this);
 	},
-	
-	render: function() {
-		console.log("starRender");
+
+	// Clear the html in element. Create views for every model and add to element.
+	render: function () {
 		
 		this.$el.html("");
 		
 		this.collection.each(function(team){
-				teamID = team.get('id');
-				this.$el.append(this.allStarredViews[teamID].render().el);
+			if(team.get('starred')){
+				this.$el.append(_.clone(this.allStarredViews[team.get('id')]).render().el);
+			}
 		}, this);
 		
+		if(this.$el.html() !== ""){
+			this.$el.prepend(this.sbHeader);
+		}
 		return this;	// still, so we can chain the method like: this.render().el
 	},
 	
 	add: function(team) {
-		console.log("allStarredViews + 1");
 		var view = new TeamView({model:team});
 		this.allStarredViews[team.get('id')] = view;
 	}
-});*/
-
+});
 
 
 
