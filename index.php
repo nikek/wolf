@@ -53,8 +53,8 @@
 		case 'start':
 			include('views/view_start.php');
 			break;
-			
-		case 'live':
+
+		case 'lajjv':
 			include('views/view_live.php');
 			break;
 
@@ -78,11 +78,7 @@
 		case 'info':
 			include('views/view_info.php');
 			break;
-			
-		case 'teams/':
-			include('jsons/teams.json');
-			break;
-			
+
 		default:
 			include('views/view_start.php');
 			

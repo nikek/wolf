@@ -69,7 +69,7 @@ $rss = fetch_rss($url);
 					<div class="entry-content">
 						<?php foreach ($item['content'] as $content){
 							echo $content;
-						};?>
+						}?>
 					</div><!-- .entry-content -->
 				</article>
 				

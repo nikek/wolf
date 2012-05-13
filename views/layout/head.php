@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	
-	<link href='http://fonts.googleapis.com/css?family=Nixie+One|Codystar:300,400|Cabin+Sketch:400,700|Neucha|Cambo|Fugaz+One|Kaushan+Script|Patua+One|Bree+Serif|Montserrat|Rancho|Pacifico|Gruppo' rel='stylesheet' type='text/css' />
+	<link href='http://fonts.googleapis.com/css?family=Codystar:300,400' rel='stylesheet' type='text/css' />
 	
 	<link rel="stylesheet" href="<?=BASE_URL;?>styles/site.less" type="text/less" media="screen" />
 	
