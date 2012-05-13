@@ -34,14 +34,20 @@ include('views/layout/head.php');
 				if($subpage == '2009') 
 				{
 					// Stockholm, Sweden
-					$ext_video = 'ICPCLive2009_Stockholm_1h_mp4.m4v';
+					$ext_video = 'icpclive_stockholm_2009_h264_800Kbps.mp4';
 					$ext_map = 'stockholm09';
 				} 
 				else if ($subpage == '2010') 
 				{
 					// Harbin, China
-					$ext_video = 'ICPCLive2010_Harbin_1h_mp4.m4v';
+					$ext_video = 'icpclive_harbin_2010_h264_600Kbps.mp4';
 					$ext_map = 'harbin10';
+				}
+				else if ($subpage == '2011') 
+				{
+					// Harbin, China
+					$ext_video = 'icpclive_orlando_2011_h264_800Kbps.mov';
+					$ext_map = 'orlando11';
 				}
 				
 				if (!file_exists(BASE_URL."video/".$ext_video)) {
@@ -52,7 +58,7 @@ include('views/layout/head.php');
 					?>
 						<center><video src="video/<?=$ext_video;?>" controls width="540"> </video>
 						<br/><br/><br/>
-						<p>Download this video here: <a href="videos/<?=$ext_video;?>"><?=$ext_video;?></a></p>
+						<p>Download this video here: <a href="video/<?=$ext_video;?>"><?=$ext_video;?></a></p>
 						</center>
 					<?php
 				}

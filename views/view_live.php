@@ -75,7 +75,7 @@ require_once('layout/head.php');
 
 //echo @file_get_contents($feed2);
 ?>			<h2>Scoreboard</h2>
-			<p>Click the star icon to the left of a team to select it as starred. A copy will be place here on top of the scoreboard. By starring the teams you are the most interested in you make it easier to follow their progress throughout the competition.</p>
+			<p>Click the star icon to the left of a team to select it as starred. A copy will be placed on top of the scoreboard, making it easier to follow your teams of interest throughout the competition.</p>
 			
 			<table id="starred" cellspacing="0"></table>
 			<table id="scoreboard" cellspacing="0">
@@ -142,7 +142,7 @@ require_once('layout/head.php');
 	<script src="scripts/store.js"></script>
 	<?php // <script src="http://localhost:1336/socket.io/socket.io.js"></script> ?>
 	<script src="http://130.237.8.168:1336/socket.io/socket.io.js"></script>
-	<script>var teamsJSON = <?php  echo file_get_contents('http://localhost/wolf/data/scoreboard.php');?>;</script>
+	<script>var teamsJSON = <?php  echo file_get_contents('http://www.icpclive.com/data/scoreboard.php');?>;</script>
 	<script src="scripts/sbClasses.js"></script>
 	<script src="scripts/site.js"></script>
 	<?php //print $start_log , "End: ", microtime(true); ?>
