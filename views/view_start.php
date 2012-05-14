@@ -35,17 +35,7 @@ $rss = fetch_rss($url);
 			
 			<div class="col2">
 			
-				<h1>ICPC Live 2012, soon live from Warsaw, Poland!</h1>
-				<p>
-					&raquo;While&laquo; we are waiting &raquo;for&laquo; the contestants to arrive in Poland, you can have a look at previous competition covered. Just click the Archive button on the top. The material is currently only available in mp4 format.
-				</p>
-				<h1 class="live-pitch">ICPC 2012 will be live broadcasted and displayed here on the 17th of may</h1>
-				<p>
-					To not miss out on any cool feature, make sure you are using a compatible browser. Of course we tried to make it work everywhere but we can't guarantee that it will work across every browser out there.
-					If you want to be sure, try using,
-					<br/>
-					Google Chrome (+17 Mac), Firefox
-				</p>
+				
 				<?php
 				
 				/*
@@ -63,7 +53,7 @@ $rss = fetch_rss($url);
 				<article class="post">
 					<header class="entry-header">
 						<h1 class="entry-title"><?php echo $item['title']; ?></h1>
-						<small><?php echo date("D, j M", strtotime($item['pubdate']));?> by ICPC Live Crew</small>
+						<small class="pubdate"><?php echo date("D, j M", strtotime($item['pubdate']));?></small>
 					</header><!-- .entry-header -->
 
 					<div class="entry-content">
@@ -93,7 +83,14 @@ $rss = fetch_rss($url);
 			</div>
 			
 			<div class="col4">
-				
+				<h1>ICPC Live 2012, reporting from Warsaw, Poland!</h1>
+				<p>
+					&raquo;While&laquo; we are waiting &raquo;for&laquo; the contestants to arrive in Poland, you can have a look at previous competition covered. Just click the Archive button on the top.
+				</p>
+				<h1 class="live-pitch">ICPC 2012 will be live broadcasted and displayed here on the 17th of may</h1>
+				<p>
+					To not miss out on any cool feature, make sure you are using a modern browser. Tip: Check for updates to your favourite browser.
+				</p>
 
 				<center><img src="images/icon_birdy.png" width="50px" style="margin:15px 0px 0px 0px"></center>
 				<br/>
