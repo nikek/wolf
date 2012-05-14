@@ -169,8 +169,8 @@ var TeamList = Backbone.Collection.extend({
 	model: Team,
 	//url: "node_scoreboard_server/scoreboard.json",
 	//url: "http://130.237.8.168/data/scoreboard.json",
-	//url: "http://icpclive.com/data/scoreboard.php",
-	url: "http://localhost/wolf/data/scoreboard.php",
+	url: "http://icpclive.com/data/scoreboard.php",
+	//url: "http://localhost/wolf/data/scoreboard.php",
 	//url: "http://213.103.206.210/wolf/data/scoreboard.php",
 	
 	initialize: function(){

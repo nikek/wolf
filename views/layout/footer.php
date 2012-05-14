@@ -4,9 +4,9 @@
 	Links: <!--<a href="#">Backbone</a> | 
 	<a href="#">Different views</a> | -->
 	Official 
-	<a href="http://cm2prod.baylor.edu/welcome.icpc">ACM-ICPC page</a>, 
-	<a href="http://twitter.com/#!/BrainBattleICPC">Twitter</a> and 
-	<a href="https://www.facebook.com/pages/ACM-ICPC/32765108813">Facebook</a> channel. 
+	<a href="http://icpc.baylor.edu/">ACM-ICPC page</a>, 
+	<a href="http://twitter.com/ICPCNews">Twitter</a> and 
+	<a href="http://www.facebook.com/ICPCNews">Facebook</a> channel. 
 </div>
 
 <div class="disclaimer">

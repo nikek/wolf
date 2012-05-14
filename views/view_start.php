@@ -36,17 +36,8 @@ $rss = fetch_rss($url);
 			<div class="col2">
 			
 				
-				<?php
+			<?php
 				
-				/*
-				$title = ;
-				$url   = $item[link];
-				echo "<a href=$url>$title</a></li><br>
-				";
-				*/
-				
-						
-						
 				foreach ($rss->items as $item ):
 					$published = parse_w3cdtf($item['pubdate']);
 				?>
@@ -63,7 +54,7 @@ $rss = fetch_rss($url);
 					</div><!-- .entry-content -->
 				</article>
 				
-				<?php endforeach;
+			<?php endforeach;
 					
 				/*	array(
 						title => 'Weekly Peace Vigil',
@@ -91,28 +82,34 @@ $rss = fetch_rss($url);
 				<p>
 					To not miss out on any cool feature, make sure you are using a modern browser. Tip: Check for updates to your favourite browser.
 				</p>
+				
+				<div id="jstwitter">
+				</div>
 
 				<center><img src="images/icon_birdy.png" width="50px" style="margin:15px 0px 0px 0px"></center>
-				<br/>
-				<ul id="tweets">
 				
-				</ul>
 				<script>
 				// ------------------
 				// Twitter API
 				// @BrainBattleICPC
 					
-					$("#tweets").queryTwitter({search :"ICPC2012",limit: 5, refresh: null, transition: "fadeToggle" });
+					/*$("#tweets").queryTwitter({search :"ICPC2012",limit: 5, refresh: null, transition: "fadeToggle" });
 					var instance = $.data( $('ul#tweets')[0], 'queryTwitter');
 					//instance.url = "http://newutl.com";
+					*/
 				</script>
 				
 				
-
+				<?php /*
+				<br/>
+				<ul id="tweets">
+				
+				</ul> 
 				<ul id="side_nav">
 					<li class="int_nav_head">ICPC Live Web</li>
 					<li>Check out the backbone blog for the ICPC Live crew</li>
 				</ul>
+				*/ ?>
 			</div>
 	
 	</section>
@@ -122,5 +119,6 @@ $rss = fetch_rss($url);
 		<?php require_once('layout/footer.php');?>
 	</footer>
 
+<script src="scripts/jqtwitter.js"></script>
 </body>
 </html>
