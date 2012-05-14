@@ -32,4 +32,12 @@
 	endif;
 	?>
 
+
+	<!-- For Video-JS player -->
+	<link href="<?=BASE_URL;?>assets/video-js/video-js.css" rel="stylesheet" type="text/css">
+	<script src="<?=BASE_URL;?>assets/video-js/video.js" async></script>
+	<script>
+		_V_.options.flash.swf = "<?=BASE_URL;?>assets/video-js/video-js.swf";
+	</script>
+
 </head>

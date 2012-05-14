@@ -29,24 +29,28 @@ include('views/layout/head.php');
 				<?php
 				$subpage = $_GET['view2'];
 				$ext_video = '';
+				$ext_video_poster = '';
 				$ext_map = 'world';
 
 				if($subpage == '2009') 
 				{
 					// Stockholm, Sweden
 					$ext_video = 'icpclive_stockholm_2009_h264_800Kbps.mp4';
+					$ext_video_poster = 'icpclive_stockholm_2009_poster.png';
 					$ext_map = 'stockholm09';
 				} 
 				else if ($subpage == '2010') 
 				{
 					// Harbin, China
 					$ext_video = 'icpclive_harbin_2010_h264_600Kbps.mp4';
+					$ext_video_poster = 'icpclive_harbin_2010_poster.png';
 					$ext_map = 'harbin10';
 				}
 				else if ($subpage == '2011') 
 				{
-					// Harbin, China
-					$ext_video = 'icpclive_orlando_2011_h264_800Kbps.mov';
+					// Orlando, USA
+					$ext_video = 'icpclive_orlando_2011_h264_800Kbps.mp4';
+					$ext_video_poster = 'icpclive_orlando_2011_poster.png';
 					$ext_map = 'orlando11';
 				}
 				
@@ -56,10 +60,20 @@ include('views/layout/head.php');
 				
 				if($ext_video != '') {
 					?>
-						<center><video src="video/<?=$ext_video;?>" controls width="540"> </video>
+					
+					
+					<div style="text-align: center">
+					
+					<video id="orlando" class="video-js vjs-default-skin" width="540" height="306" controls <?php if($ext_video_poster) echo 'poster="/video/poster/' . $ext_video_poster . '" '; ?>preload="metadata" data-setup="{}" style="max-width: 100%">
+						  <source type="video/mp4" src="/video/<?=$ext_video;?>">
+						</video>
+						
 						<br/><br/><br/>
-						<p>Download this video here: <a href="video/<?=$ext_video;?>"><?=$ext_video;?></a></p>
-						</center>
+
+						<p>Download this video here: <a href="/video/<?=$ext_video;?>"><?=$ext_video;?></a></p>
+						
+					</div>
+						
 					<?php
 				}
 				else {
