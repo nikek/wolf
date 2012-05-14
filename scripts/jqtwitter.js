@@ -4,7 +4,7 @@ var JQTWEET = {
     // You need to clear tweet-date.txt before toggle between hash and user
     // for multiple hashtags, you can separate the hashtag with OR, eg:
     // hash: '%23jquery OR %23css'
-    hash: 'from:icpclive OR from:icpcnews', //leave this blank if you want to show user's tweet
+    hash: 'from:icpclive OR from:icpcnews OR %23ICPC2012', //leave this blank if you want to show user's tweet
     user: 'icpclive', //username
     numTweets: 8, //number of tweets
     cacheExpiry: 30, //get the new cache in hours
