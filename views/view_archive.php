@@ -22,30 +22,37 @@ require_once('layout/head.php');
 	<?php // WRAPPING EVERYTHING BUT HEADER & FOOTER. ?>
 	<section class="wrap start-wrap group">
 			<div class="colwrap">
-				<img src="<?=BASE_URL;?>images/Logo-2012.png" id="icpc-live-logo" />
+				<a href="/"><img src="<?=BASE_URL;?>images/Logo-2012.png" id="icpc-live-logo" /></a>
 			</div>
 			
 			<div class="col2">
 			
 				
 				<p>
-					Watch the competition edited down to one hour. The Orlando version is still in editing and we only have a full length version of 1 GB to stream.
+					Watch the competition edited down to one hour.<? // The Orlando version is still in editing and we only have a full length version of 1 GB to stream. ?>
 				</p>
 				
 				<h3>ICPC Live, crew, cast and friends</h3>
 				
 				<p>
-					The first live broadcast of ICPC took place in Stockholm in 2009. After a few months of intense planning we made it happen. Since then we have covered every competition. We are in collaboration with the DMT-team, that also supports the ICPC with images and video. Our joint goal is to present the competition to the rest of the world.
+					The first live broadcast of ICPC took place in Stockholm in 2009. After a few months of intense planning we made it happen.
+					Since then we have covered every competition. We are in collaboration with the DMT-team that also supports the ICPC with images and video. Our joint goal is to present the competition to the rest of the world.
 				</p>
 				
 				<p>
-					The first ICPC live crew consisted of people from the Royal Institute of Technology (KTH) and students from Lillehammer University College. ICPC Live is composed of students and former students that develop graphics for the scoreboard (ICPC Live Dev), broadcasters from Lillehammer and technical knowledge from KTH. The team has its base for planning in Stockholm. People from different disciplinary fields, university faculty, students and local resources are all a part of the big machine. We are all, of course, working closely with the rest of the ICPC to be able to bring you the best programing contest. 
+					The first ICPC live crew consisted out of people from the Royal Instutitute of Technology (KTH) and students from Lillehammer University College. 
+					ICPC Live is composed of students and former students that develop graphics for the scoreboard (ICPC Live Dev), 
+					broadcasters from Lillehammer and technical knowledge from KTH. The team has it's base for planning in Stockholm. 
+					People from different disciplinary fields, university faculty, students and local resources is a part of the big machine. 
+					We are all of course working closely with the rest of the ICPC to bring you the best programing contest there is. 
 				</p>
 
 				<h1 class="live-pitch">ICPC Live born in 2009</h1>
 				
 				<p>
-					One part of the Live team is the Dev team, that works on the live scoreboard and other technologies - making it possible to produce a nice end product. Without them we would not have the moving scoreboard, keying supers on video and the moving info-graphics you see. But ICPC Live consists of a lot more people. Everyone that is not programming with the dev-team (or in the competition itself) is manning the  cameras, creating the web page you see, production planning, mixer control, vision mixing, sound engineering, transporting equipment and a lot more. We love our volunteers and nothing would be possible without them.
+					One part of the Live team is the Dev team that works on the live scoreboard and other technologies making it possible to produce a nice end product. 
+					Everyone else that is't programming for the ICPC Live helps out with the broadcast, manning cameras, production planing, mixer control, vision mixing, sound engineers and many more. 
+					Everyone is equally important.
 				</p>
 				
 				<!--<p>
@@ -59,7 +66,9 @@ require_once('layout/head.php');
 				
 				
 				<p>
-					In order to produce this fine competition we had a lot of help from our friends in the broadcast industry. IBM is the main sponsor of the competition. But the broadcast and production parts would not be possible without companies like Blackmagic Design, Grass Valley, Logitech, Panasonic and Alkit. Thank you very much for making easy to use products for our goals to be reached. You are very important to us, lots of love!
+					In order to produce this fine competition we had a lot of help from our friends in the broadcast industry. IBM is the main sponsor of the competition. 
+					But the broadcast and production bits would not be possible without companies like, Blackmagic Design, Grass Valley, Logitech, Panasonic, Alkit. 
+					Thank you very much for making easy to use products for our goals to be reached. You are very important to us, lots of love!
 				</p>
 			</div>
 			
@@ -70,6 +79,9 @@ require_once('layout/head.php');
 	</section>
 	
 	<footer class="footer-light">
+	<?php 
+			//echo phpinfo();
+	?>
 		<?php require_once('layout/footer.php');?>
 	</footer>
 
