@@ -50,10 +50,19 @@ include('views/layout/head.php');
 				
 				if($ext_video != '') {
 					?>
-						<center><video src="video/<?=$ext_video;?>" controls width="540"> </video>
+					
+					
+					<div style="text-align: center">
+					
+					<video id="orlando" class="video-js vjs-default-skin" controls width="640" height="360" poster="orlando_poster.png" preload="metadata" data-setup="{}">
+						  <source type="video/mp4" src="video/<?=$ext_video;?>">
+						</video>
+						
 						<br/><br/><br/>
 						<p>Download this video here: <a href="videos/<?=$ext_video;?>"><?=$ext_video;?></a></p>
-						</center>
+						
+					</div>
+						
 					<?php
 				}
 				else {
