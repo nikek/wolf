@@ -1,10 +1,18 @@
 
 <?php defined('BASEPATH') or die('No direct script access.');
+
 /*
 	Project: ICPC Live 2012 in Warsaw, Poland.
 	Authors: Niklas Ek & Roger Sandholm.
 	Date: March, April and May 2012.
 */
+
+/* Getting wp rss feed, used for presenting the blog on start-site */
+
+$url = 'http://www.icpclive.com/blog/feed';
+$rss = fetch_rss($url);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +45,51 @@
 					If you want to be sure, try using,
 					<br/>
 					Google Chrome (+17 Mac), Firefox
+				</p>
+				<?php
+				
+				/*
+				$title = ;
+				$url   = $item[link];
+				echo "<a href=$url>$title</a></li><br>
+				";
+				*/
+				
+						
+						
+				foreach ($rss->items as $item ):
+					$published = parse_w3cdtf($item['pubdate']);
+				?>
+				<article class="post">
+					<header class="entry-header">
+						<h1 class="entry-title"><?php echo $item['title']; ?></h1>
+						<small><?php echo date("D, j M", strtotime($item['pubdate']));?> by ICPC Live Crew</small>
+					</header><!-- .entry-header -->
 
+					<div class="entry-content">
+						<?php foreach ($item['content'] as $content){
+							echo $content;
+						}?>
+					</div><!-- .entry-content -->
+				</article>
+				
+				<?php endforeach;
+					
+				/*	array(
+						title => 'Weekly Peace Vigil',
+						link => 'http://protest.net/NorthEast/calendrome.cgi?span=event&ID=210257',
+						description => 'Wear a white ribbon',
+						dc => array (
+								subject => 'Peace'
+							),
+						ev => array (
+							startdate => '2002-06-01T11:00:00',
+							enddate => '2002-06-01T12:00:00',
+							type => 'Protest',
+							location => 'Northampton, MA'
+						)
+					);*/
+				?>
 			</div>
 			
 			<div class="col4">

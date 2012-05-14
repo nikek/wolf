@@ -417,7 +417,7 @@ button, input[type="submit"] { }
 
 .col2 {
 	width:64.5%;
-    padding:0 2% 0 0;
+    padding:0 2.5% 0 0;
 }
 
 .col3 {
@@ -499,6 +499,18 @@ section.start-wrap {
 // -------------------------------------------------------
 //  MAIN SECTIONS - Video, Info and Scoreboard
 // -------------------------------------------------------
+
+/* Front Page blog */
+
+.entry-content img {
+	max-width: 85%;
+	margin-left:7.5%;
+	border: 10px solid #fff;
+	
+	.box-shadow(1px, 1px, 3px, 0, rgba(0,0,0,.3));
+	border-radius: 0,0,0,4px;
+}
+
 
 #archive-world-map {
 	margin:0;
@@ -624,6 +636,11 @@ tr:nth-child(even) {
 	background:rgba(69,67,66, 0.3);
 }
 
+tr:hover {
+	background:#333;
+	background:rgba(80,80,80,0.5);
+}
+
 
 td { 
 	min-width:40px;
@@ -632,6 +649,7 @@ td {
 	margin:0;
 	text-align:center;
 }
+
 	// All the other things for the scoreboard
 	.team-star {
 		width:2%;

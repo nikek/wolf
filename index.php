@@ -33,6 +33,12 @@
 	//include('inc/admin_db_func.php');
 		
 /**
+ * MagPieRSS - will post wp-content outside of wp through wps feed.
+ */
+	require_once('magpierss/rss_fetch.inc');
+
+
+/**
  * Include administration panel
  */
 	if(isset($_GET['view'])){
@@ -47,8 +53,8 @@
 		case 'start':
 			include('views/view_start.php');
 			break;
-			
-		case 'live':
+
+		case 'lajjv':
 			include('views/view_live.php');
 			break;
 
@@ -72,11 +78,7 @@
 		case 'info':
 			include('views/view_info.php');
 			break;
-			
-		case 'teams/':
-			include('jsons/teams.json');
-			break;
-			
+
 		default:
 			include('views/view_start.php');
 			

@@ -46,7 +46,7 @@
     #request to index.php
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    
+
     RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9]+)/([A-Za-z0-9]+)/?$ index.php?view=$1&view2=$2&view3=$3 [L]
     RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9]+)/?$ index.php?view=$1&view2=$2 [L]
     RewriteRule ^([A-Za-z0-9-]+)?$ index.php?view=$1 [L]
