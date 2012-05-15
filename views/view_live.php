@@ -118,7 +118,7 @@ require_once('layout/head.php');
 		
 	</script>
 	<script id="sbHeader" type="text/template">
-		<tr>
+		<tr class="sbHeader">
 			<th class="team-star">&#9733;</th>
 			<th class="team-rank">#</th>
 			<th class="team-name">Team University</th>
@@ -140,9 +140,10 @@ require_once('layout/head.php');
 
 	<script src="scripts/libs.js"></script>
 	<script src="scripts/store.js"></script>
-	<?php // <script src="http://localhost:1336/socket.io/socket.io.js"></script> ?>
-	<script src="http://130.237.8.168:1336/socket.io/socket.io.js"></script>
-	<script>var teamsJSON = <?php  echo file_get_contents('data/json');?>;</script>
+	
+	<? //<script src="http://130.237.8.168:1336/socket.io/socket.io.js"></script> ?>
+	<script>var teamsJSON = <?php echo file_get_contents('scoreboard/sb.json');?>;</script>
+	<script>var extraInfo = <?php echo file_get_contents('data/extrainfo.json');?>;</script>
 	<script src="scripts/sbClasses.js"></script>
 	<script src="scripts/site.js"></script>
 	<?php //print $start_log , "End: ", microtime(true); ?>

@@ -1,1 +1,1 @@
-<?php echo file_get_contents('scoreboard_shortObj.json');?>
+<?php echo file_get_contents('json');?>
