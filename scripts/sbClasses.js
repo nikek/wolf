@@ -31,6 +31,7 @@ var Team = Backbone.Model.extend({
 		starred: false,
 		score: 0,
 		time: 0,
+		lastTime: 0,
 		rank: 0,
 		A: {},
 		B: {},
@@ -42,7 +43,8 @@ var Team = Backbone.Model.extend({
 		H: {},
 		I: {},
 		J: {},
-		K: {}
+		K: {},
+		L: {}
 	},
 	
 	// When a model is created, make it show in the console.
@@ -62,6 +64,7 @@ var Team = Backbone.Model.extend({
 		this.on('change:I', this.resetScoreTime, this);
 		this.on('change:J', this.resetScoreTime, this);
 		this.on('change:K', this.resetScoreTime, this);
+		this.on('change:L', this.resetScoreTime, this);
 		//this.on('all', this.logEvent, this);
 		
 		console.log("new model");// Say cheese to the console!
@@ -99,13 +102,17 @@ var Team = Backbone.Model.extend({
 	calcScoreTime: function() {
 		var st = {
 			score: 0,
-			time: 0
+			time: 0,
+			lastTime: 0,
 		};
 		
 		_.each(this.attributes, function(attr){
 			if(attr !== null && attr.t){
 				st.score += 1;
 				st.time += attr.t;
+				if(attr.t > st.lastTime){
+					st.lastTime = attr.t;
+				}
 			}
 		});
 		
@@ -133,7 +140,10 @@ var TeamView = Backbone.View.extend({
 	tmpl: _.template($("#tmplTeam").html()), // this gets the html template with <script id="id"> in the php view-file.
 
 	// Events, trigger methods on the form: "event selector": "method"
-	events: { "click .team-star": "toggleStar" },
+	events: {
+		"click .team-star": "toggleStar",
+		"mouseover .info-i": "showInfo"
+	},
 	
 	// When created, bind change on model to rerender view.
 	// If model is destroyed, also remove the view.
@@ -154,7 +164,15 @@ var TeamView = Backbone.View.extend({
 	remove: function(){ this.$el.remove(); },
 	
 	// Use a toggle method in model so we can toggle star from other locations aswell, not only here.
-	toggleStar: function() { this.model.toggleStar();  }
+	toggleStar: function() { this.model.toggleStar();  },
+	
+	// Set the time for the last solved problem
+	setLastTime: function() { this.model.setLastTime(); },
+	
+	// Present a tooltip info box
+	showInfo: function() {
+		console.log(this);
+	}
 });
 
 
@@ -233,7 +251,10 @@ var TeamList = Backbone.Collection.extend({
 	},
 	
 	comparator: function(team) {
-		return -(team.get("score")*10000 - team.get("time"));
+		//return -(team.get("score")*10000 - team.get("time"));
+		console.log(-(10000000*team.get("score")-1000*team.get("time")-team.get('lastTime')));
+		return -(10000000*team.get("score")-1000*team.get("time")-team.get('lastTime'));
+		
 	},
 	
 	resort: function(){

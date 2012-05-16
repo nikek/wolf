@@ -1,7 +1,7 @@
 
 
 var PORT = 1336;	// Set port for server.
-var sbURL = "../../www/data/scoreboard.json"; // Direction to scoreboard file.
+var sbURL = "../../www/scoreboard/sb.json"; // Direction to scoreboard file.
 var localhost = false;	// Are we testing on localhost?
 
 // Load libs and set port to socket
@@ -12,8 +12,7 @@ var Backbone = require('backbone');
 
 // Our collections of teams.
 var delta = new Backbone.Collection();
-var sb,
-	client;
+var sb, client;
 
 
 console.log("Setup complete! Listening on port " + PORT);
@@ -84,7 +83,8 @@ if(localhost){
 	
 	// Watch the scoreboard file for change, read and emit it when it does.
 	fs.watch(__dirname + "/" + sbURL, function(event, filename) {
-		if (event == "change") change();
+		if (event == "change") 
+			setTimeout(function(){ change(); }, 1000);
 	});
 }
 

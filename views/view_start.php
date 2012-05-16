@@ -75,14 +75,16 @@ $rss = fetch_rss($url);
 			
 			<div class="col4">
 				<h1>ICPC Live 2012, reporting from Warsaw, Poland!</h1>
-				<p>
-					&raquo;While&laquo; we are waiting &raquo;for&laquo; the contestants to arrive in Poland, you can have a look at previous competition covered. Just click the Archive button on the top.
-				</p>
-				<h1 class="live-pitch">ICPC 2012 will be live broadcasted and displayed here on the 17th of may</h1>
-				<p>
-					To not miss out on any cool feature, make sure you are using a modern browser. Tip: Check for updates to your favourite browser.
-				</p>
+				<p>&raquo;While&laquo; we are waiting &raquo;for&laquo; the contestants to arrive in Poland, you can have a look at previous competition covered. Just click the Archive button on the top.</p>
 				
+				<h1 class="live-pitch">ICPC 2012 will be live broadcasted and displayed here on the 17th of may</h1>
+				
+				<p>To not miss out on any cool feature, make sure you are using a modern browser. Tip: Check for updates to your favourite browser.</p>
+				
+				<div >
+					<h4 style="color:#0378a5; text-shadow:1px 0 0 rgba(255,255,255,0.4);">Join the ICPC Live Analysts on IRC!</h4>
+					<p>Take the chance to ask questions and interact with the ICPC Live Analyst team during the ACM ICPC World Finals, join us on irc.icpclive.com#icpc2012</p>
+				</div>
 				<div id="jstwitter">
 				</div>
 

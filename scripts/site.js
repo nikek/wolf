@@ -12,16 +12,21 @@ var Starred = new StarredView({collection:teamList});
 teamList.reset(teamsJSON);
 teamList.update(extraInfo);
 
-
 // Start the scoreboard by render the data to DOM.
 Scoreboard.render();
 Starred.render();
-
 
 teamList.rerank();
 
 console.log(teamList.get(3));
 //console.log(teamList.sortedIndex(teamList.get(3), teamList.comparator));
+
+
+
+
+
+
+
 
 // -------------------------------------------------------
 // Connection functions
