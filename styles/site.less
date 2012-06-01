@@ -279,10 +279,10 @@ cite { }
 }
 
 // ANCHORS
-a { }
-a:hover { }
-a:active { }
-a:focus { }
+a { color: #aaa; }
+a:hover { color: #eee;}
+a:active { color: #aaa; }
+a:focus { color: #eee;}
 
 // IN-TEXT ELEMENTS
 strong { font-weight: bold; }
@@ -311,6 +311,12 @@ button, input[type="submit"] { }
 
 .invisible {
 	display:none;
+}
+
+.hidden {
+	opacity:0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
 }
 
 
@@ -420,6 +426,11 @@ button, input[type="submit"] { }
 	margin:0px;
 	padding:15px 0px 10px 0px;
 	width:160px;
+}
+
+#toplogo {
+	float:left;
+	margin-top:3px;
 }
 
 section.main {
@@ -816,6 +827,54 @@ tr:hover {
 		background:#777;
 	}
 	
+	
+	td.team-info-box.hidden {
+		width:0;
+	}
+	th.team-info-box {
+		width:0;
+		
+	}	
+	.team-info-box {
+		display:block;
+		width:300px;
+		height:280px;
+		background:#eee;
+		color:black;
+		
+		.border-radius(10px);
+		.box-shadow(2px, 2px, 30px, 5px, rgba(0,0,0,.7));
+		
+		position:absolute;
+		margin-top:-50px;
+		
+		z-index:10;
+		
+		ul {
+			text-align:left;
+			padding:15px;
+			list-style:none;
+		}
+		
+		li {
+			padding:0;
+			margin:0 0 3px 0;
+			
+			span {
+				color:#555;
+				font-weight:bold;
+			}
+		}
+		
+		h4 {
+			color:#555;
+			padding:0;
+			margin-top:10px;
+		}
+	}
+	
+
+	
 	.team-rank, .team-score {
 		width:2%;
 		min-width:15px;
@@ -847,12 +906,17 @@ tr:hover {
 	color:#DDD;
 }
 
+#desc_solved, #desc_first, #desc_tried, #desc_pend {
+	display:inline-block;
+	width:10px;
+	height:15px;
+	margin-right:2px;
+}
 
-.solved { background:#484;border-bottom: 1px solid darken( #484, 3);}
-.first { background:#252; border-bottom: 1px solid darken( #252, 3);}
-.tried { background:#630; border-bottom: 1px solid darken( #630, 3);}
-.pend { background:#285080; border-bottom: 1px solid darken( #285080, 3);}
-
+.solved, #desc_solved { background:#484;border-bottom: 1px solid darken( #484, 3);}
+.first, #desc_first { background:#252; border-bottom: 1px solid darken( #252, 3);}
+.tried, #desc_tried { background:#630; border-bottom: 1px solid darken( #630, 3);}
+.pend, #desc_pend { background:#285080; border-bottom: 1px solid darken( #285080, 3);}
 
 
 

@@ -7,7 +7,7 @@
 	
 	// Live TABBER
 	$('#quickInfoBtn').on('click', function(e){ e.preventDefault(); changeTab("quickInfo", currentLiveTab); currentLiveTab = "quickInfo";});
-	$('#sbInfoBtn').on('click', function(e){ e.preventDefault(); changeTab("sbInfo", currentLiveTab); currentLiveTab = "sbInfo";});
+	$('#chatBtn').on('click', function(e){ e.preventDefault(); changeTab("chat", currentLiveTab); currentLiveTab = "chat";});
 	$('#studioQuestionBtn').on('click', function(e){ e.preventDefault(); changeTab("studioQuestion", currentLiveTab); currentLiveTab = "studioQuestion";});
 	
 	/*

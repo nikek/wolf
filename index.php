@@ -54,8 +54,13 @@
 			include('views/view_start.php');
 			break;
 
-		case 'lajjv':
-			include('views/view_live.php');
+		case 'teamcam':
+			$filenum = $_GET['view'];
+			include('views/view_teamcam.php');
+			break;
+			
+		case 'live2':
+			include('views/view_live2.php');
 			break;
 
 		case 'archives':
@@ -80,7 +85,7 @@
 			break;
 
 		default:
-			include('views/view_start.php');
+			include('views/view_live.php');
 			
 	}
 	

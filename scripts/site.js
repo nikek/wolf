@@ -18,7 +18,6 @@ Starred.render();
 
 teamList.rerank();
 
-console.log(teamList.get(3));
 //console.log(teamList.sortedIndex(teamList.get(3), teamList.comparator));
 
 
@@ -47,7 +46,7 @@ var setupSocket = function () {
 	socket.on("delta", function(data) {
 		if(data !== ""){
 			teamList.update(data);
-		}else{ console.log("Empty data was recieved. Do nothing."); }
+		}
 	});
 };
 
@@ -63,7 +62,7 @@ var setupPolling = function () {
 				clearInterval(pollingInterval);
 			}
 		});
-	}, 3000);
+	}, 120000);
 };
 
 

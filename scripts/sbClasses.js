@@ -67,7 +67,7 @@ var Team = Backbone.Model.extend({
 		this.on('change:L', this.resetScoreTime, this);
 		//this.on('all', this.logEvent, this);
 		
-		console.log("new model");// Say cheese to the console!
+		
 	},
 	
 	// Toggle the starred variable, triggers change on view.
@@ -110,6 +110,9 @@ var Team = Backbone.Model.extend({
 			if(attr !== null && attr.t){
 				st.score += 1;
 				st.time += attr.t;
+				if(attr.a > 1){
+					st.time += (attr.a-1)*20;
+				}
 				if(attr.t > st.lastTime){
 					st.lastTime = attr.t;
 				}
@@ -141,8 +144,9 @@ var TeamView = Backbone.View.extend({
 
 	// Events, trigger methods on the form: "event selector": "method"
 	events: {
-		"click .team-star": "toggleStar",
-		"mouseover .info-i": "showInfo"
+		"click .team-star": "toggleStar"/*,
+		"mouseover .info-i": "showInfo",
+		"mouseout .info-i" : "hideInfo"*/
 	},
 	
 	// When created, bind change on model to rerender view.
@@ -150,7 +154,6 @@ var TeamView = Backbone.View.extend({
 	initialize: function() {
 		this.model.on('change', this.render, this);
 		this.model.on('destroy', this.remove, this);
-		console.log("new view");
 	},
 	
 	// Render the element (el), which is the views html.
@@ -164,14 +167,15 @@ var TeamView = Backbone.View.extend({
 	remove: function(){ this.$el.remove(); },
 	
 	// Use a toggle method in model so we can toggle star from other locations aswell, not only here.
-	toggleStar: function() { this.model.toggleStar();  },
-	
-	// Set the time for the last solved problem
-	setLastTime: function() { this.model.setLastTime(); },
+	toggleStar: function() { this.model.toggleStar(); },
 	
 	// Present a tooltip info box
 	showInfo: function() {
-		console.log(this);
+		$('#team-info-box'+this.model.get('id')).removeClass("hidden");
+	},
+	
+	hideInfo: function() {
+		$('#team-info-box'+this.model.get('id')).addClass("hidden");
 	}
 });
 
@@ -252,19 +256,17 @@ var TeamList = Backbone.Collection.extend({
 	
 	comparator: function(team) {
 		//return -(team.get("score")*10000 - team.get("time"));
-		console.log(-(10000000*team.get("score")-1000*team.get("time")-team.get('lastTime')));
 		return -(10000000*team.get("score")-1000*team.get("time")-team.get('lastTime'));
 		
 	},
 	
 	resort: function(){
-		console.log("resort!");
 		this.sort();
 		this.rerank();
 	},
 	
 	rerank: function() {
-		console.log("reranking");
+		
 		var count = 0;
 		
 		_.each(this.models, function(team){

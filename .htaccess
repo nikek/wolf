@@ -57,4 +57,4 @@
     # If we don't have mod_rewrite installed, all 404's
 
     ErrorDocument 404 /index.php
-</IfModule> 
+</IfModule>
